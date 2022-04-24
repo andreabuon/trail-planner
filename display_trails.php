@@ -14,8 +14,21 @@
     #<!-- prima width era 18rem-->
 
 
+    /*
     echo "<br>";
     for($i=0; $i<$_GET["num"]; $i++){
         new_Card();
+    */
+    
+
+    echo "sto per includere";
+    include 'database.php';
+    echo "incluso fatto";
+    $query = 'SELECT * FROM utenti';
+    $result = pg_query($query) or die('Failed');
+
+    while($line = pg_fetch_array($result, null, PGSQL_ASSOC)){
+        echo $line;
     }
+    
 ?>
