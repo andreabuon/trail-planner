@@ -15,22 +15,22 @@
                     <a class="nav-link" href="esplora.php">Esplora</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Partecipa</a>
+                    <a class="nav-link" href="partecipa.php">Partecipa</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <!-- da sistemare! se loggato esce questo altrimenti login/registrati -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Escursioni</a>
+                    <a class="nav-link" href="escursioni.php">Escursioni</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tracce</a>
+                    <a class="nav-link" href="tracce.php">Tracce</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Messaggi</a>
+                    <a class="nav-link" href="messaggi.php">Messaggi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="profilo.php">
                         Profilo
                         <!-- <div class="avatar size-mg"><img src="assets/person-circle.svg"></div> -->
                     </a>

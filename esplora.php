@@ -14,22 +14,9 @@
 
 <body>
     <?php
-        include 'navbar.html';
-    
-    function new_Card(){
-        echo '
-            <div class="card" style="width: 100%;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-        </div><br>';
-    
-    }
+        include 'navbar.php';
     ?>
-    <!-- prima width era 18rem-->
+ 
 
     <h1>Esplora</h1>
     
@@ -37,18 +24,15 @@
 
     <div class='container-fluid'>
         <div class="row">
-            <div id='div_filters' class="container-fluid">
+            <div id='div_filters' class="container">
                 <h6>Filtri</h6>
             </div>
         </div>
 
         <div class="row">
-            <div id='div_trails' class="col" style="background-color: yellow;">
+            <div id='div_trails' class="col vh-100 overflow-auto" style="background-color: yellow;">
                 <?php
-                echo "<br>";
-                for($i=0; $i<$_GET["num"]; $i++){
-                    new_Card();
-                }
+                    include 'display_trails.php';
                 ?>
             </div>
 
