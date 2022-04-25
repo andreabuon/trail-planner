@@ -10,7 +10,7 @@
 	<?php
 		include 'navbar.php';
 	?>
-
+	<h1>Home</h1>
 	<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

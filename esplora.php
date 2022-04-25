@@ -22,22 +22,28 @@
     
     
 
-    <div class='container-fluid'>
+    <div class='container-fluid' style="max-height: 70%; overflow: auto;">
         <div class="row">
-            <div id='div_filters' class="container">
+            <div id='div_filters' class="col d-flex">
                 <h6>Filtri</h6>
+                <div class="btn-group" role="group" aria-label="Difficoltà Sentiero">
+                    <button type="button" class="btn btn-info" disabled>T</button>
+                    <button type="button" class="btn btn-info"disabled>E</button>
+                    <button type="button" class="btn btn-info" disabled>EE</button>
+                </div>
+
+                <button class="btn btn-primary ms-auto">Applica filtri</button>
             </div>
         </div>
 
         <div class="row">
-            <div id='div_trails' class="col vh-100 overflow-auto" style="background-color: yellow;">
+            <div id='div_trails' class="col overflow-auto bg-light">
                 <?php
                     include 'display_trails.php';
                 ?>
             </div>
 
             <div id='div_map' class="col">
-                <!-- Map -->
             </div>
         </div>
     </div>
