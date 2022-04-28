@@ -19,7 +19,6 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <!-- da sistemare! se loggato esce questo altrimenti login/registrati -->
                 <li class="nav-item">
                     <a class="nav-link" href="escursioni.php">Escursioni</a>
                 </li>
@@ -30,10 +29,15 @@
                     <a class="nav-link" href="messaggi.php">Messaggi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="profilo.php">
-                        Profilo
-                        <!-- <div class="avatar size-mg"><img src="assets/person-circle.svg"></div> -->
-                    </a>
+                    <a class="nav-link" href="profilo.php">Profilo</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="registrati.php">Registrati</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="accedi.php">Accedi</a>
                 </li>
             </ul>
         </div>
