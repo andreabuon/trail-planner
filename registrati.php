@@ -1,10 +1,9 @@
 <!doctype html>
-<html lang="eng">
+<html lang="it">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>TrailPlanner</title>
-	<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<title>TrailPlanner: Registrati</title>
 </head>
 <body>
 	<?php
@@ -27,6 +26,5 @@
 
     </div>
 
-	<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

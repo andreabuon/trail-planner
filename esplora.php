@@ -1,11 +1,9 @@
 <!doctype html>
-<html lang="eng">
-
+<html lang="it">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TrailPlanner: Esplora</title>
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <!-- Mapbox -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet">
@@ -16,11 +14,8 @@
     <?php
         include 'navbar.php';
     ?>
- 
 
     <h1>Esplora</h1>
-    
-    
 
     <div class='container-fluid' style="max-height: 70%; overflow: auto;">
         <div class="row">
@@ -47,8 +42,6 @@
             </div>
         </div>
     </div>
-
-    <script src="js/bootstrap.bundle.min.js"></script>
 
     <script>
 	    mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmVhLTE4OTQyNjYiLCJhIjoiY2wyNzZhMnhsMDE0czNncWxnMDRjdDZyMiJ9.WyEF7AEAWB4RKbx0ueiJHQ';

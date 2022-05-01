@@ -23,11 +23,13 @@
 	if(pg_fetch_array($result, null, PGSQL_ASSOC)){
 		session_start();
 		$_SESSION['username'] = $username;
-		echo '<a href=./partecipa.php>Premi qui</a>';
+		echo '<a href=./partecipa.php>Premi qui per procedere</a>';
 	}
 	else{
-		echo 'Errore';
-		echo '<a href=./accedi.php>Premi qui per ritentare</a>';
+		echo 'Errore: ';
+		echo '<a href=./accedi.php>premi qui per ritentare</a>';
 	}
 
+	pg_free_result($result);
+	pg_close($dbconn);
 ?>

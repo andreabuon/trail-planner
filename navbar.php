@@ -1,7 +1,12 @@
 <link rel="stylesheet" href="css/navbar.css">
-<nav class="navbar navbar-expand-sm navbar-dark" id="navbarAndrea">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">TrailPlanner</a>
+<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+<?php
+    #session_start();
+?>
+
+<nav class="navbar navbar-expand-md navbar-dark" id="navbarAndrea">
+        <a class="navbar-brand" href="index.php">TrailPlanner</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -19,27 +24,40 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="escursioni.php">Escursioni</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="tracce.php">Tracce</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="messaggi.php">Messaggi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="profilo.php">Profilo</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="registrati.php">Registrati</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="accedi.php">Accedi</a>
-                </li>
+                
+                <?php
+                    session_start();
+                    if(isset($_SESSION['username'])){
+                        echo '
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="escursioni.php">Escursioni</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="tracce.php">Tracce</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="messaggi.php">Messaggi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="profilo.php">Profilo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="esci.php">Esci</a>
+                        </li>
+                        ';
+                    }else{
+                        echo '
+                        <li class="nav-item">
+                            <a class="nav-link" href="registrati.php">Registrati</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="accedi.php">Accedi</a>
+                        </li>
+                        ';
+                    }
+                ?>
             </ul>
-        </div>
-    </div>
+       </div>
 </nav>
+
+<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
