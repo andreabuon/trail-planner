@@ -14,9 +14,12 @@
 	<?php
 		if(isset($_SESSION['username'])){
 			echo 'ciao '.$_SESSION['username'];
+			echo '<br>';
+			include "display_events.php";
 		}
 		else{
 			echo 'hey, devi accedere';
+			echo "<a href='accedi.php'>clicca qui</a>";
 		}
 	?>
 </body>

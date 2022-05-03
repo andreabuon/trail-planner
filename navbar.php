@@ -36,6 +36,9 @@
                             <a class="nav-link disabled" href="tracce.php">Tracce</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="carica.php">Carica</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link disabled" href="messaggi.php">Messaggi</a>
                         </li>
                         <li class="nav-item">
