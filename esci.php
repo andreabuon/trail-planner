@@ -1,7 +1,7 @@
 <?php
     session_start();
-    echo "Logout Successfully ";
-    echo "<a href='index.php'>Clicca qui</a>";
+    echo "Disconnessione eseguita. ";
+    echo "<a href='index.php'>Clicca qui per tornare alla homepage</a>";
     unset($_SESSION['username']);
     session_destroy();
 ?>
