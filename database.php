@@ -1,5 +1,5 @@
 <?php
-    $conn_string = "host=localhost port=5432 dbname=progettoLTW_db user=andrea password=password";
+    $conn_string = 'host=localhost port=5432 dbname=progettoLTW_db user=andrea password=password';
     /*
     $host = 'localhost';
     $port = 5432;

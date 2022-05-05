@@ -11,17 +11,18 @@
 	?>
 	<h1>Accedi</h1>
 
-    <div class="container">
-        <form action="login_script.php" method="post">
-        <div class="form-group row form-floating">
-            <input name="username" type="text" maxlength="25" size="25" required class="form-control" placeholder="Username">
-            <label for="username">Username</label>
+    <div class='container'>
+        <form action='login_script.php' method='post'>
+        <div class='form-group row form-floating'>
+            <input name='username' type='text' maxlength='25' size='25' required class='form-control' placeholder='Username'>
+            <label for='username'>Username</label>
         </div>
-        <div class="form-group row form-floating">
-            <input name="password" type="text" maxlength="25" size="25" required class="form-control" placeholder="Password">
-            <label for="password">Password</label>
+        <div class='form-group row form-floating'>
+            <input name='password' type='password' maxlength='25' size='25' required class='form-control' placeholder='Password'>
+            <label for='password'>Password</label>
         </div>
-        <input name="login_button" type="submit" class="btn btn-primary" value="Accedi">
+        <input name='login_button' type='submit' class='btn btn-primary' value='Accedi'>
+        <!-- <input name="reset_button" type="reset" class="btn btn-secondary" value="Reset"> -->
         </form>
 
     </div>

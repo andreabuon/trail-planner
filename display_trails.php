@@ -2,12 +2,12 @@
 
     function new_Card($sentiero){
         echo "
-            <div class=\"card\" style=\"width: 100%;\">
-                <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">
-                <div class=card-body\">
-                    <h5 class=\"card-title\">$sentiero[sigla] : $sentiero[nome]</h5>
-                    <p class=\"card-text\"> Lunghezza: $sentiero[lunghezza] Km; Dislivello: $sentiero[dislivello]m </p>
-                    <a href=\"#\" class=\"btn btn-info\">Visualizza</a>
+            <div class='card' style='width: 100%;'>
+                <img class='card-img-top' src='' alt='$sentiero[parco_nome]'>
+                <div class='card-body'>
+                    <h5 class='card-title'> $sentiero[sigla] - $sentiero[nome]</h5>
+                    <p class='card-text'> Lunghezza: $sentiero[lunghezza] Km; Dislivello: $sentiero[dislivello]m </p>
+                    <a href='' class='btn btn-info'>Visualizza</a>
                 </div>
             </div>
             <br>";

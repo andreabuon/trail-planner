@@ -1,13 +1,14 @@
 <!doctype html>
-<html lang="it">
+<html lang='it'>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>TrailPlanner: Esplora</title>
 
+    <script src='js/update_trails.js'> </script>
     <!-- Mapbox -->
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet'>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
 </head>
 
 <body>
@@ -17,28 +18,52 @@
 
     <h1>Esplora</h1>
 
-    <div class='container-fluid' style="max-height: 70%; overflow: auto;">
-        <div class="row">
-            <div id='div_filters' class="col d-flex">
+    <div class='container-fluid' style='max-height: 70%; overflow: auto;'>
+        <div class='row'>
+            <div id='div_filters' class='col d-flex'>
                 <h6>Filtri</h6>
-                <div class="btn-group" role="group" aria-label="Difficoltà Sentiero">
-                    <button type="button" class="btn btn-info" disabled>T</button>
-                    <button type="button" class="btn btn-info"disabled>E</button>
-                    <button type="button" class="btn btn-info" disabled>EE</button>
+                <br>
+
+                <label>Nome: </label>
+                <input placeholder='Nome'>
+
+                <select id='filter_parco'>
+                    <option selected>Seleziona Parco...</option>;
+                    <?php
+                        include 'database.php';
+                        $query = 'SELECT * FROM parchi ORDER BY nome';
+                        $result = pg_query($query) or die('Query Failed: '.pg_last_error());
+                        while($line = pg_fetch_array($result, null, PGSQL_ASSOC)){
+                            echo "<option>$line[nome]</option>";
+                            echo 'ciao';
+                        }
+                        pg_free_result($result);
+                        pg_close($dbconn);
+                    ?>
+                </select>
+
+                <div class='btn-group' role='group' aria-label='Difficoltà Sentiero'>
+                    <button type='button' class='btn btn-info' >T</button>
+                    <button type='button' class='btn btn-info' >E</button>
+                    <button type='button' class='btn btn-info' >EE</button>
                 </div>
 
-                <button class="btn btn-primary ms-auto">Applica filtri</button>
+                <label>Dislivello</label>
+                <input placeholder='min' id='dislivelloMin'>
+                <input placeholder='max' id='dislivelloMax'>
+
+                <button class='btn btn-primary ms-auto' id='btn' onclick='return updateTrails()'>Applica filtri</button>
             </div>
         </div>
 
-        <div class="row">
-            <div id='div_trails' class="col overflow-auto bg-light">
+        <div class='row'>
+            <div id='div_trails' class='col overflow-auto bg-light'>
                 <?php
                     include 'display_trails.php';
                 ?>
             </div>
 
-            <div id='div_map' class="col">
+            <div id='div_map' class='col'>
             </div>
         </div>
     </div>
