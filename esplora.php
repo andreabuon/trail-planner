@@ -22,7 +22,7 @@
     <div class='container-fluid' style='max-height: 70%; overflow: auto;'>
         <div class='row'>
             <div id='div_filters' class='col d-flex'>
-                <h6>Filtri</h6>
+                <h4>Filtri</h4>
                 <br>
 
                 <label>Nome: </label>
@@ -61,16 +61,8 @@
         </div>
     </div>
 
-    <script>
-	    mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmVhLTE4OTQyNjYiLCJhIjoiY2wyNzZhMnhsMDE0czNncWxnMDRjdDZyMiJ9.WyEF7AEAWB4RKbx0ueiJHQ';
-        const map = new mapboxgl.Map({
-                        container: 'div_map', // container ID
-                        style: 'mapbox://styles/mapbox/outdoors-v11', // style URL
-                        center: [14.042513751693576, 42.068132238944344], // starting position [lng, lat] 
-                        zoom: 12 // starting zoom
-        });
-    </script>
-
+    <script src='js/map.js'></script>
+    <script src='js/draw_trail.js'></script>
 </body>
 
 </html>
