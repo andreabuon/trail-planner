@@ -1,20 +1,26 @@
 <!doctype html>
 <html lang="it">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>TrailPlanner: Registrati</title>
-
+	<title>Registrati</title>
+    <?php
+		include 'php/head.php';
+	?>
     <script src="js/form_validation.js"></script>
 </head>
 <body>
 	<?php
-		include 'navbar.php';
+        session_start();
+        if(isset($_SESSION['username'])) {
+            header('Location: index.php');
+            return;
+        }
+
+		include 'php/navbar.php';
 	?>
 	<h1>Registrati</h1>
 
     <div class="container">
-        <form action="signup_script.php" method="post">
+        <form action="php/signup_script.php" method="post">
         <div class="form-group row form-floating">
             <input name="username" type="text" maxlength="25" size="25" required class="form-control" placeholder="Username">
             <label for="username">Username</label>

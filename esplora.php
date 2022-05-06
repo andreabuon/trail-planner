@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang='it'>
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>TrailPlanner: Esplora</title>
+    <title>Esplora</title>
+    <?php
+		include 'php/head.php';
+	?>
 
     <script src='js/update_trails.js'> </script>
     <!-- Mapbox -->
@@ -13,7 +14,7 @@
 
 <body>
     <?php
-        include 'navbar.php';
+        include 'php/navbar.php';
     ?>
 
     <h1>Esplora</h1>
@@ -30,12 +31,11 @@
                 <select id='filter_parco'>
                     <option selected>Seleziona Parco...</option>;
                     <?php
-                        include 'database.php';
+                        include 'php/database.php';
                         $query = 'SELECT * FROM parchi ORDER BY nome';
                         $result = pg_query($query) or die('Query Failed: '.pg_last_error());
                         while($line = pg_fetch_array($result, null, PGSQL_ASSOC)){
                             echo "<option>$line[nome]</option>";
-                            echo 'ciao';
                         }
                         pg_free_result($result);
                         pg_close($dbconn);
@@ -49,8 +49,8 @@
                 </div>
 
                 <label>Dislivello</label>
-                <input placeholder='min' id='dislivelloMin'>
-                <input placeholder='max' id='dislivelloMax'>
+                <input placeholder='min' width='4' id='dislivelloMin'>
+                <input placeholder='max' width='4' id='dislivelloMax'>
 
                 <button class='btn btn-primary ms-auto' id='btn' onclick='return updateTrails()'>Applica filtri</button>
             </div>
@@ -59,7 +59,7 @@
         <div class='row'>
             <div id='div_trails' class='col overflow-auto bg-light'>
                 <?php
-                    include 'display_trails.php';
+                    include 'php/display_trails.php';
                 ?>
             </div>
 

@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang='it'>
 <head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width, initial-scale=1'>
-	<title>TrailPlanner: Partecipa</title>
+	<title>Partecipa</title>
+	<?php
+		include 'php/head.php';
+	?>
 </head>
 <body>
 	<?php
-		include 'navbar.php';
+		include 'php/navbar.php';
 	?>
 	<h1>Partecipa</h1>
 	
@@ -15,7 +16,7 @@
 		if(isset($_SESSION['username'])){
 			echo 'Benvenuto '.$_SESSION['username'];
 			echo '<br>';
-			include "display_events.php";
+			include "php/display_events.php";
 		}
 		else{
 			echo "Per visualizzare questa pagina devi effettuare l'accesso.<br>";
