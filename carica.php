@@ -35,14 +35,7 @@
         <select class='form-control' name='form_parco' required>
             <option selected disabled>Seleziona Parco...</option>;
             <?php
-                include 'database.php';
-                $query = 'SELECT * FROM parchi ORDER BY nome';
-                $result = pg_query($query) or die('Query Failed: '.pg_last_error());
-                while($line = pg_fetch_array($result, null, PGSQL_ASSOC)){
-                    echo "<option>$line[nome]</option>";
-                }
-                pg_free_result($result);
-                pg_close($dbconn);
+                include 'php/display_parks_select.php';
             ?>
         </select>
 
