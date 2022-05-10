@@ -38,11 +38,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../organizza.php">Organizza</a>
                         </li>
-                        <!--
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="../profilo.php">Profilo</a>
+                            <a class="nav-link" href="../profilo.php">'.$_SESSION['username'].'</a>
                         </li>
-                        -->
                         <li class="nav-item">
                             <a class="nav-link" href="../esci.php">Esci</a>
                         </li>

@@ -19,7 +19,7 @@
 
     <h1>Esplora</h1>
 
-    <div class='container-fluid' style='max-height: 70%; overflow: auto;'>
+    <div class='container-fluid'>
         <div class='row'>
             <div id='div_filters' class='col d-flex'>
                 <h4>Filtri</h4>
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div class='row'>
+        <div class='row d-flex'>
             <div id='div_trails' class='col overflow-auto bg-light'>
                 <?php
                     include 'php/display_trails.php';

@@ -14,8 +14,6 @@
 	
 	<?php
 		if(isset($_SESSION['username'])){
-			echo 'Benvenuto '.$_SESSION['username'];
-			echo '<br>';
 			include "php/display_events.php";
 		}
 		else{
