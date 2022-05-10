@@ -2,14 +2,10 @@
 <html lang='it'>
 <head>
 	<title>Partecipa</title>
-	<?php
-		include 'php/head.php';
-	?>
+	<?php include 'php/head.php';?>
 </head>
 <body>
-	<?php
-		include 'php/navbar.php';
-	?>
+	<?php include 'php/navbar.php';?>
 	<h1>Partecipa</h1>
 	
 	<?php

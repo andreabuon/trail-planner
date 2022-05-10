@@ -20,7 +20,7 @@
 	<div class='container' id='login_form'>
 		<form action='php/login_script.php' method='post'>
 			<div class='form-group row form-floating'>
-				<input name='username' type='text' maxlength='25' size='25' required class='form-control' placeholder='Username'>
+				<input name='username' type='text' maxlength='25' size='25' required autofocus class='form-control' placeholder='Username'>
 				<label for='username'>Username</label>
 			</div>
 			<div class='form-group row form-floating'>

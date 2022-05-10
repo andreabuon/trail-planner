@@ -2,8 +2,7 @@
 
 <nav class='navbar navbar-expand-md navbar-dark' id='navbarAndrea'>
         <a class='navbar-brand' href='index.php'>TrailPlanner</a>
-        <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav'
-            aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+        <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
             <span class='navbar-toggler-icon'></span>
         </button>
         <div class='collapse navbar-collapse' id='navbarNav'>
@@ -26,12 +25,14 @@
                     session_start();
                     if(isset($_SESSION['username'])){
                         echo '
+                        <!--
                         <li class="nav-item">
                             <a class="nav-link disabled" href="../escursioni.php">Escursioni</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="../tracce.php">Tracce</a>
                         </li>
+                        -->
                         <li class="nav-item">
                             <a class="nav-link" href="../carica.php">Carica</a>
                         </li>

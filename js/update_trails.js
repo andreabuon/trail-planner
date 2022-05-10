@@ -1,11 +1,4 @@
-function assignBtnFn(){
-    var btn = document.getElementById('btn');
-    btn.onclick = updateTrails();
-}
-
 function updateTrails(e){
-    console.log("Updating displayed trails...")
-    document.getElementById('div_trails').innerHTML = 'Caricamento...';
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = manageResponse;
     httpRequest.open('GET', '../php/display_trails.php', true);
@@ -17,5 +10,3 @@ function manageResponse(e) {
         document.getElementById('div_trails').innerHTML = e.target.responseText;
     }
 }
-
-window.onload = assignBtnFn();

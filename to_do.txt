@@ -1,0 +1,5 @@
+- AJAX Login/Registrazione
+- filters hidden/show >>
+- add select options organizza
+- active navbar php
+- support dark theme
