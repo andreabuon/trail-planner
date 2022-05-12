@@ -12,12 +12,10 @@
     $array = array($_POST['parco'], $_POST['sigla'], $_POST['data'], $_POST['organizzatore'], $_POST['note']);
     $data = pg_query_params($dbconn, $query, $array);
 
-    if($data){
-		echo 'Escursione caricata!';
-		echo '<a href="../partecipa.php">Premi qui per continuare.</a>';
-	}
-	else{
+    if(!$data){
 		echo 'Errore: ' . pg_last_error() . ' <br>';
 		echo '<a href="../organizza.php">Premi qui per ritentare</a>';
 	}
+    echo 'Escursione caricata!';
+    echo '<a href="../partecipa.php">Premi qui per continuare.</a>';
 ?>

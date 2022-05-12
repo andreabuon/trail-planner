@@ -2,9 +2,7 @@
 <html lang='it'>
 <head>
 	<title>Organizza</title>
-    <?php
-		include 'php/head.php';
-	?>
+    <?php include 'php/head.php'; ?>
 </head>
 
 <body>
@@ -17,28 +15,28 @@
 ?>
 
 <h1>Organizza</h1>
-<form method='post' class='container' action='php/new_event.php'>
+<form action='php/new_event.php' method='post' class='container'>
 	<label for='parco' class='form-label'>Parco:</label>
-	<select name='parco' class='form-control' id='select_parco' onchange='listTrails()' required>
+	<select name='parco' required id='parco' class='form-control' onchange='listTrails()'>
 		<option selected disabled>Seleziona Parco...</option>
 		<?php include 'php/display_parks_select.php'; ?>
 	</select>
 
 	<label for='sigla' class='form-label'>Sigla sentiero:</label>
-	<select name='sigla' class='form-control' id='select_sigla' required disabled>
-		<option selected disabled hidden>Seleziona Sentiero...</option>
+	<select name='sigla' required id='sigla' class='form-control' disabled>
+		<option selected disabled>Seleziona Sentiero...</option>
 	</select>
 	
 	<label for='data' class='form-label'>Data:</label>
-	<input class='form-control' name='data' type='date' required>
+	<input name='data' type='date' id='data' class='form-control' required>
 
 	<label for='organizzatore' class='form-label'>Organizzatore:</label>
-	<input class='form-control' name='organizzatore' type='text' required readonly value=<?php echo $_SESSION['username'];?>>
+	<input name='organizzatore' type='text' id='organizzatore' class='form-control' required readonly value=<?php echo $_SESSION['username'];?>>
 
 	<label for='note' class='form-label'>Note:</label>
-	<input name='note' class='form-control' placeholder='Note aggiuntive' maxlength='200' value=''>
+	<input name='note' id='note' class='form-control' placeholder='Note aggiuntive' maxlength='200' value='' pattern='[a-zA-Z0-9 ]+'>
 
-	<input type=submit name='btn_submit' value='Organizza' class='btn btn-primary btn-block'>
+	<input type=submit name='btn_submit' value='Organizza' class='btn btn-primary'>
 </form>
 
 <script src='js/add_trail_options.js'></script>

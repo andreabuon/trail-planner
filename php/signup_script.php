@@ -12,6 +12,11 @@
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
+
+	if(!preg_match('[0-9a-zA-Z]+', $username)){
+		header('Location: ../registrati.php');
+		return;
+	}
 	
 	include 'database.php';
 	$query = 'insert into utenti values ($1, $2)';

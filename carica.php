@@ -18,31 +18,30 @@
 <h1>Carica</h1>
 <form method='post' action='php/upload_trail.php' class='container' enctype='multipart/form-data'>
 
-	<label for='form_sigla' class='form-label'>Sigla:</label>
-	<input class='form-control' name='sigla' maxlength='4' required>
+	<label for='sigla' class='form-label'>Sigla:</label>
+	<input name='sigla' id='sigla' class='form-control' maxlength='4' required pattern='[a-zA-Z0-9]+' value='test'> <!-- sistemare togliere testing -->
 
-	<label for='form_nome' class='form-label'>Nome:</label>
-	<input class='form-control' name='nome' maxlength='70' required>
+	<label for='nome' class='form-label'>Nome:</label>
+	<input name='nome' id='nome' class='form-control' maxlength='70' required pattern='[a-zA-Z0-9 ]+' value='testing nome'>
 
-	<label for='form_descrizione' class='form-label'>Descrizione:</label>
-	<textarea class='form-control' name='descrizione' maxlength='2000'></textarea>
+	<label for='descrizione' class='form-label'>Descrizione:</label>
+	<textarea name='descrizione' id='descrizione' class='form-control' maxlength='2000' pattern='[a-zA-Z0-9 ]+'>testing descrizione</textarea>
 
-	<label for='form_parco' class='form-label'>Parco:</label>
-	<select class='form-control' name='parco' required>
-		<option selected disabled hidden>Seleziona Parco...</option>;
+	<label for='parco' class='form-label'>Parco:</label>
+	<select name='parco' id='parco' class='form-control' required>
+		<option selected disabled>Seleziona Parco...</option>;
 		<?php	include 'php/display_parks_select.php';	?>
 	</select>
 
-	<label for='form_lunghezza' class='form-label'>Lunghezza:</label>
-	<input class='form-control' name='lunghezza' type='number' maxlength='4 '>
+	<label for='lunghezza' class='form-label'>Lunghezza:</label>
+	<input name='lunghezza' id='lunghezza' type='number' class='form-control' maxlength='4' value='7' step=0.1>
 
-	<label for='form_dislivello' class='form-label'>Dislivello:</label>
-	<input class='form-control' name='dislivello' type='number' step=50 maxlength='4' value='500'>
+	<label for='dislivello' class='form-label'>Dislivello:</label>
+	<input name='dislivello' id='dislivello' type='number' class='form-control' maxlength='4' value='500' step='50' pattern='[0-9]+'>
 
-	<label for='form_difficoltà' class='form-label'>Difficoltà:</label>
-	<!-- <input class='form-control' name='difficolta' maxlength='3'> -->
-	<select name='difficolta' class='form-control'>
-		<option value='' selected hidden disabled>Seleziona Difficoltà...</option>
+	<label for='difficolta' class='form-label'>Difficoltà:</label>
+	<select name='difficolta' id='difficolta' class='form-control'>
+		<option value='' selected disabled>Seleziona Difficoltà...</option>
 		<option value='T'>Turistico</option>
 		<option value='E'>Escursionistico</option>
 		<option value='EE'>Escursionisti Esperti</option>
@@ -50,10 +49,9 @@
 		<option value='A'>Alpinistico</option>
 	</select>
 
-	<label for='form_file' class='form-label'>Traccia GPS:</label>
-	<input class='form-control' type='file' name='file' accept='.json, .geojson'>
+	<label for='file' class='form-label'>Traccia GPS:</label>
+	<input name='file' id='file' type='file' accept='.json, .geojson' class='form-control'>
 
 	<input type=submit class='btn btn-primary btn-block' value='Carica' name='submit'>
 </form>
-
 </body>

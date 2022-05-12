@@ -1,5 +1,15 @@
 - AJAX Login/Registrazione
 - filters hidden/show >>
-- add select options organizza
+- add select options organizza >>
 - active navbar php
 - support dark theme
+- finire new event
+- sicurezza input forms
+- filters javascript
+- upload file
+-- separare cartelle
+-- controllare path salvata nel db
+-- controllare se file esiste già
+-- sistemare vulnerabilità
+&- sistemare db - aggiungere id parco
+- sistemate label forms

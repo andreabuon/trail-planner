@@ -19,21 +19,21 @@
 	?>
 	<h1>Registrati</h1>
 
-    <form action="php/signup_script.php" method="post" class="container" name='form_registrazione'>
-        <div class="form-group row form-floating">
-            <input name="username" type="text" maxlength="25" size="25" required class="form-control" placeholder="Username" pattern="[a-zA-Z0-9-]+">
-            <label for="username">Username</label>
+    <form action='php/signup_script.php' method='post' class='container' name='form_registrazione'>
+        <div class='form-group row form-floating'>
+            <input name='username' id='username' type='text' maxlength='25' size='25' required class='form-control' placeholder='Username' pattern='[a-zA-Z0-9]+'>
+            <label for='username'>Username</label>
         </div>
-        <div class="form-group row form-floating">
-            <input name="password" type="password" minlenght="5" maxlength="25" size="25" required class="form-control" placeholder="Password" id="password">
-            <label for="password">Password</label>
+        <div class='form-group row form-floating'>
+            <input name='password' id='password' type='password' minlenght='5' maxlength='25' size='25' required class='form-control' placeholder='Password'>
+            <label for='password'>Password</label>
         </div>
-        <div class="form-group row form-floating">
-            <input name="passwordConfirm" type="password" maxlength="25" size="25" required class="form-control" placeholder="Password" id="passwordConfirm">
-            <label for="password">Conferma Password</label>
+        <div class='form-group row form-floating'>
+            <input name='passwordConfirm' id='passwordConfirm' type='password' maxlength='25' size='25' required class='form-control' placeholder='Password'>
+            <label for='passwordConfirm'>Conferma Password</label>
         </div>
-        <input name="signup_button" type="submit" class="btn btn-primary" value="Registrati" onclick="return validaRegistrazione();">
-        <input name="reset_button" type="reset" class="btn btn-secondary" value="Reset">
+        <input name='signup_button' type='submit' class='btn btn-primary' value='Registrati' onclick='return validaRegistrazione();'>
+        <input name='reset_button' type='reset' class='btn btn-secondary' value='Reset'>
     </form>
 </body>
 </html>

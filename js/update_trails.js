@@ -10,3 +10,8 @@ function manageResponse(e) {
         document.getElementById('div_trails').innerHTML = e.target.responseText;
     }
 }
+
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+});
