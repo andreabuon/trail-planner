@@ -17,20 +17,18 @@
 	?>
 	<h1>Accedi</h1>
 
-	<div class='container' id='login_form'>
-		<form action='php/login_script.php' method='post'>
-			<div class='form-group row form-floating'>
-				<input name='username' type='text' maxlength='25' size='25' required autofocus class='form-control' placeholder='Username'>
-				<label for='username'>Username</label>
-			</div>
-			<div class='form-group row form-floating'>
-				<input name='password' type='password' maxlength='25' size='25' required class='form-control' placeholder='Password'>
-				<label for='password'>Password</label>
-			</div>
+	<form action='php/login_script.php' method='post' class='container' name='login_form'>
+		<div class='form-group row form-floating'>
+			<input name='username' type='text' maxlength='25' size='25' required autofocus class='form-control' placeholder='Username' pattern="[a-zA-Z0-9-]+">
+			<label for='username'>Username</label>
+		</div>
+		<div class='form-group row form-floating'>
+			<input name='password' type='password' maxlength='25' size='25' required class='form-control' placeholder='Password'>
+			<label for='password'>Password</label>
+		</div>
 			<input name='login_button' type='submit' class='btn btn-primary' value='Accedi'>
 			<!-- <input name="reset_button" type="reset" class="btn btn-secondary" value="Reset"> -->
-			</form>
-	</div>
+	</form>
 
 </body>
 </html>

@@ -34,15 +34,23 @@
 	</select>
 
 	<label for='form_lunghezza' class='form-label'>Lunghezza:</label>
-	<input class='form-control' name='lunghezza' number maxlength='4' required>
+	<input class='form-control' name='lunghezza' type='number' maxlength='4 '>
 
 	<label for='form_dislivello' class='form-label'>Dislivello:</label>
-	<input class='form-control' name='dislivello' number maxlength='4' required>
+	<input class='form-control' name='dislivello' type='number' step=50 maxlength='4' value='500'>
 
 	<label for='form_difficoltà' class='form-label'>Difficoltà:</label>
-	<input class='form-control' name='difficolta' maxlength='3'>
+	<!-- <input class='form-control' name='difficolta' maxlength='3'> -->
+	<select name='difficolta' class='form-control'>
+		<option value='' selected hidden disabled>Seleziona Difficoltà...</option>
+		<option value='T'>Turistico</option>
+		<option value='E'>Escursionistico</option>
+		<option value='EE'>Escursionisti Esperti</option>
+		<option value='EEA'>Escursionisti Esperti Attrezzati</option>
+		<option value='A'>Alpinistico</option>
+	</select>
 
-	<label for='form_file' class='form-label'>Traccia GPS</label>
+	<label for='form_file' class='form-label'>Traccia GPS:</label>
 	<input class='form-control' type='file' name='file' accept='.json, .geojson'>
 
 	<input type=submit class='btn btn-primary btn-block' value='Carica' name='submit'>
