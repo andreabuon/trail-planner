@@ -1,22 +1,29 @@
-<?php    
+<?php
+    session_start();
+	if(!isset($_SESSION['username'])){
+		header('Location: ../accedi.php?enforcelogin=1');
+		exit();
+	}
     if(!(isset($_POST['submit']))){
-        header('Location ../index.php');
+        header('Location: ../index.php?error=1');
+        exit();
     }
     
-    //sistemare! controllare prima di fare upload
+    //sistemare! controllare esistenza file prima di fare upload
 
-    $uploadfile = '';
+    $uploadfile = '../uploads/null';
 
     if(isset($_FILES['file'])){
         $uploaddir = "../uploads/";
-        //VULNERABILE!!! SISTEMARE
+        //
+        // VULNERABILE!!! SISTEMARE
         $uploadfile = $uploaddir . $_POST['parco'] . '-'. $_POST['sigla'] . '.json';//basename($_FILES['file']['name']);
 
         if(!move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)){
-            echo 'Errore: file non caricato\n';
-            return;
+            error_log('Errore: move uploaded file', 0);
+            header('Location: ../carica.php?error=1');
+            exit();
         }
-        echo "File valid and uploaded\n";
     }
 
     include '../php/database.php';
@@ -25,10 +32,10 @@
     $data = pg_query_params($dbconn, $query, $array);
 
     if(!$data){
-        echo 'Errore: ' . pg_last_error();
-		echo '<a href="../carica.php">Premi qui per ritentare</a>';
-        return;   
+        error_log('Errore:' . pg_last_error(), 0);
+        header('Location ../carica.php?error=1');
+        exit();
 	}
-    echo 'Sentiero caricato!\n';
-	echo '<a href="../esplora.php">Premi qui per continuare.</a>';
+    header('Location ../carica.php?upload=1');
+    exit();
 ?>

@@ -1,8 +1,11 @@
 <?php
-    session_start();
-    echo 'Disconnessione eseguita. ';
-    echo '<a href="index.php">Clicca qui per tornare alla homepage</a>';
+	session_start();
+	if(!isset($_SESSION['username'])) {
+		header('Location: index.php');
+		exit();
+	}
     unset($_SESSION['username']);
     session_destroy();
-    header('Location index.php');
+    header('Location: index.php?logout=1');
+    exit();
 ?>

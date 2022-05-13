@@ -1,0 +1,15 @@
+-- Table: public.utenti
+
+-- DROP TABLE IF EXISTS public.utenti;
+
+CREATE TABLE IF NOT EXISTS public.utenti
+(
+    username character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT utenti_pkey PRIMARY KEY (username)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.utenti
+    OWNER to andrea;

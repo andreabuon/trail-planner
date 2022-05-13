@@ -5,7 +5,10 @@
 	<?php include 'php/head.php';?>
 </head>
 <body>
-	<?php include 'php/navbar.php';?>
+	<?php 
+		include 'php/navbar.php';
+		include 'php/alerts.php';
+	?>
 	<h1>Home</h1>
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu feugiat pretium nibh ipsum consequat nisl vel pretium. A pellentesque sit amet porttitor eget. Lacus sed turpis tincidunt id aliquet risus feugiat. Mauris pharetra et ultrices neque. Purus gravida quis blandit turpis cursus in hac. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Id velit ut tortor pretium viverra suspendisse. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Tincidunt ornare massa eget egestas. Tortor at risus viverra adipiscing at in tellus. Ut faucibus pulvinar elementum integer enim neque volutpat. Aliquam faucibus purus in massa tempor nec feugiat. Augue neque gravida in fermentum et sollicitudin ac orci phasellus.

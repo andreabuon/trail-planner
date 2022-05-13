@@ -13,3 +13,18 @@
 -- sistemare vulnerabilità
 &- sistemare db - aggiungere id parco
 - sistemaRe label forms >>
+-regex su inputs
+- controllare regex server-side
+-- login/signup username-password >>
+-- organizza/carica (nome, sigla, descrizione etc)
+
+-alerts gets
+--organizza/carica
+
+-password hashing + salting!!!
+
+-non usare header per login utenti
+o meglio usare header e aggiungere exit() dopo
+https://thedailywtf.com/articles/WellIntentioned-Destruction
+
+-aggiungere autenticazione script php

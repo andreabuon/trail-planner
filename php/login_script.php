@@ -2,33 +2,36 @@
 	session_start();
 	if(isset($_SESSION['username'])) {
 		header('Location: ../index.php');
-		return;
+		exit();
 	}
 
 	if(!(isset($_POST['login_button']))) {
 		header('Location: ../index.php');
-		return;
+		exit();
 	}
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	
+	$match = preg_match('/\A[0-9a-zA-Z]{1,25}\z/', $username);
+	if(!$match | $match==false){
+		header('Location: ../accedi.php?error=1');
+		exit();
+	}
+
 	include 'database.php';
 	$query = 'select * from utenti where username=$1 and password=$2';
 	$result = pg_query_params($dbconn, $query, array($username, $password));
 
 	if(pg_fetch_array($result, null, PGSQL_ASSOC)){
-		session_start();
 		$_SESSION['username'] = $username;
-		echo '<a href="../index.php">Premi qui per procedere</a>';
-		header('Location: ../index.php');
-		
+		header('Location: ../index.php?login=1');
+		exit();
 	}
 	else{
-		echo 'Errore: ';
-		echo '<a href="../accedi.php">Premi qui per ritentare</a>';
+		header('Location: ../accedi.php?error=1');
+		exit();
 	}
-
 	pg_free_result($result);
 	pg_close($dbconn);
 ?>

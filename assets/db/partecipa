@@ -1,0 +1,26 @@
+-- Table: public.partecipa
+
+-- DROP TABLE IF EXISTS public.partecipa;
+
+CREATE TABLE IF NOT EXISTS public.partecipa
+(
+    username character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    sentiero_parco character varying(80) COLLATE pg_catalog."default" NOT NULL,
+    sentiero_sigla character varying(4) COLLATE pg_catalog."default" NOT NULL,
+    data date NOT NULL,
+    organizzatore character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT partecipa_pkey PRIMARY KEY (username, sentiero_parco, sentiero_sigla, data, organizzatore),
+    CONSTRAINT partecipa_sentiero_parco_sentiero_sigla_data_organizzatore_fkey FOREIGN KEY (sentiero_sigla, sentiero_parco, organizzatore, data)
+        REFERENCES public.escursioni (sentiero_sigla, sentiero_parco, organizzatore, data) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE NO ACTION,
+    CONSTRAINT partecipa_username_fkey FOREIGN KEY (username)
+        REFERENCES public.utenti (username) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.partecipa
+    OWNER to andrea;

@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['username'])){
+        header('Location: accedi.php?enforcelogin=1');
+		exit();
+    }
+?>
+
 <!doctype html>
 <html lang='it'>
 <head>
@@ -7,11 +15,8 @@
 
 <body>
 <?php
-    session_start();
-    if(!isset($_SESSION['username'])){
-        header('Location: index.php');
-    }
     include 'php/navbar.php';
+	include 'php/alerts.php';
 ?>
 
 <h1>Organizza</h1>

@@ -1,18 +1,20 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username'])){
+		header('Location: accedi.php?enforcelogin=1');
+		exit();
+	}
+?>
 <!doctype html>
 <html lang='it'>
 <head>
 	<title>Carica</title>
 	<?php include 'php/head.php'; ?>
 </head>
-
 <body>
-
 <?php
-	session_start();
-	if(!isset($_SESSION['username'])){
-		header('Location: index.php');
-	}
 	include 'php/navbar.php';
+	include 'php/alerts.php';
 ?>
 
 <h1>Carica</h1>
@@ -52,6 +54,6 @@
 	<label for='file' class='form-label'>Traccia GPS:</label>
 	<input name='file' id='file' type='file' accept='.json, .geojson' class='form-control'>
 
-	<input type=submit class='btn btn-primary btn-block' value='Carica' name='submit'>
+	<input type='submit' class='btn btn-primary btn-block' value='Carica' name='submit'>
 </form>
 </body>

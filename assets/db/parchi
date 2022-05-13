@@ -1,0 +1,14 @@
+-- Table: public.parchi
+
+-- DROP TABLE IF EXISTS public.parchi;
+
+CREATE TABLE IF NOT EXISTS public.parchi
+(
+    nome character varying(80) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT parchi_pkey PRIMARY KEY (nome)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.parchi
+    OWNER to andrea;
