@@ -33,7 +33,7 @@
             <label for='passwordConfirm'>Conferma Password</label>
         </div>
         <input name='signup_button' type='submit' class='btn btn-primary' value='Registrati' onclick='return validaRegistrazione();'>
-        <input name='reset_button' type='reset' class='btn btn-secondary' value='Reset'>
+        <input name='reset_button' type='reset' class='btn btn-outline-secondary' value='Reset'>
     </form>
 </body>
 </html>
