@@ -1,0 +1,14 @@
+select json_build_object('utente', username, 'password', password) from utenti
+
+select json_build_object('parco', parco_nome, 'sigla', sigla, 'nome', nome, 'lunghezza', lunghezza, 'dislivello', dislivello, 'difficolta', difficolta) from sentieri
+
+select array_agg(json_build_object('parco', parco_nome, 'sigla', sigla, 'nome', nome, 'lunghezza', lunghezza, 'dislivello', dislivello, 'difficolta', difficolta)) from sentieri
+
+
+TROVATA
+select json_agg(sentieri.*) from sentieri
+
+
+https://blog.k-nut.eu/postgres-json-aggregate-functions
+
+https://stackoverflow.com/questions/69245520/how-to-fetch-a-list-of-json-objects-instead-of-list-of-ids-from-a-jsonb-field-wh
