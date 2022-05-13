@@ -21,13 +21,13 @@
 <form method='post' action='php/upload_trail.php' class='container' enctype='multipart/form-data'>
 
 	<label for='sigla' class='form-label'>Sigla:</label>
-	<input name='sigla' id='sigla' class='form-control' maxlength='4' required pattern='[a-zA-Z0-9]+' value='test'> <!-- sistemare togliere testing -->
+	<input name='sigla' id='sigla' class='form-control' maxlength='4' required pattern='[A-Z0-9]+' value='TEST'> <!-- sistemare togliere testing -->
 
 	<label for='nome' class='form-label'>Nome:</label>
-	<input name='nome' id='nome' class='form-control' maxlength='70' required pattern='[a-zA-Z0-9 ]+' value='testing nome'>
+	<input name='nome' id='nome' class='form-control' maxlength='70' required pattern='[a-zA-Z0-9 ]+' value='Nome default'>
 
 	<label for='descrizione' class='form-label'>Descrizione:</label>
-	<textarea name='descrizione' id='descrizione' class='form-control' maxlength='2000' pattern='[a-zA-Z0-9 ]+'>testing descrizione</textarea>
+	<textarea name='descrizione' id='descrizione' class='form-control' maxlength='2000' pattern='[a-zA-Z0-9 ]+'>Descrizione default</textarea>
 
 	<label for='parco' class='form-label'>Parco:</label>
 	<select name='parco' id='parco' class='form-control' required>
@@ -36,13 +36,13 @@
 	</select>
 
 	<label for='lunghezza' class='form-label'>Lunghezza:</label>
-	<input name='lunghezza' id='lunghezza' type='number' class='form-control' maxlength='4' value='7' step=0.1>
+	<input name='lunghezza' required id='lunghezza' type='number' class='form-control' maxlength='4' value='7' step=0.1>
 
 	<label for='dislivello' class='form-label'>Dislivello:</label>
-	<input name='dislivello' id='dislivello' type='number' class='form-control' maxlength='4' value='500' step='50' pattern='[0-9]+'>
+	<input name='dislivello' id='dislivello' required type='number' class='form-control' maxlength='4' value='500' step='50' pattern='[0-9]+'>
 
 	<label for='difficolta' class='form-label'>Difficoltà:</label>
-	<select name='difficolta' id='difficolta' class='form-control'>
+	<select name='difficolta' required id='difficolta' class='form-control'>
 		<option value='' selected disabled>Seleziona Difficoltà...</option>
 		<option value='T'>Turistico</option>
 		<option value='E'>Escursionistico</option>

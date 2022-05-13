@@ -1,7 +1,7 @@
 function listTrails(){
 	var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = manageResponse;
-	url = '../php/display_trails_select.php?parco=' + document.getElementById('parco').value;
+	url = '/php/display_trails_select.php?parco=' + document.getElementById('parco').value;
     httpRequest.open('GET', url, true);
     httpRequest.send();
 }
