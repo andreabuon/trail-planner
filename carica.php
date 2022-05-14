@@ -17,7 +17,7 @@
 	include 'php/alerts.php';
 ?>
 
-<h1>Carica</h1>
+<h1>Carica Percorso</h1>
 <form method='post' action='php/upload_trail.php' class='container' enctype='multipart/form-data'>
 
 	<label for='sigla' class='form-label'>Sigla:</label>

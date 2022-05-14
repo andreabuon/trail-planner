@@ -7,14 +7,21 @@ function getData(e){
 
 function manageResponse(e) {
     if (e.target.readyState == 4 && e.target.status == 200) {
-        var trails = JSON.parse(e.target.responseText);
-        render(trails);
+        var trails;
+        try{
+            trails = JSON.parse(e.target.responseText);
+            render(trails);
+        }
+        catch{
+            console.log('Nessun sentiero trovato');
+        }
     }
 }
 
 function render(array){
     var template = document.getElementById('card_template');
     array.forEach(element => {insert(newCard(element, template));});
+    map.resize();
 }
 
 function newCard(sentiero, template){
@@ -32,10 +39,13 @@ function insert(card){
 }
 
 function clear(){
-    div = document.getElementById('div_trails').innerHTML = '';
     while (div.firstChild) {
         div.firstChild.remove()
     }
+}
+
+function toggleFilters(){
+    document.getElementById('div_filters').hidden = !document.getElementById('div_filters').hidden;
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {

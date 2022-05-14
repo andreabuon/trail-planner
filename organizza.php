@@ -19,7 +19,7 @@
 	include 'php/alerts.php';
 ?>
 
-<h1>Organizza</h1>
+<h1>Organizza Escursione</h1>
 <form action='php/new_event.php' method='post' class='container'>
 	<label for='parco' class='form-label'>Parco:</label>
 	<select name='parco' required id='parco' class='form-control' onchange='listTrails()'>

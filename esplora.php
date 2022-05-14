@@ -12,7 +12,7 @@
 
 <body>
 	<?php include 'php/navbar.php';?>
-	<h1>Esplora</h1>
+	<h1>Esplora Percorsi</h1>
 	<button class='btn btn-outline-secondary'  onclick='toggleFilters();'>Mostra/Nascondi filtri</button>
 	<button class='btn btn-outline-secondary'  onclick='clear();'>Pulisci</button>
 
@@ -44,21 +44,16 @@
 			</div>
 		</div>
 
-		<div class='row d-flex'>
-			<div id='div_trails' class='col bg-light'>
+		<div class='row'>
+			<div id='div_trails' class='col bg-light col-md-4'>
 			</div>
 
-			<div id='div_map' class='col'>
+			<div id='div_map' class='col col-md-8'>
 			</div>
 		</div>
 	</div>
 
 	<?php include 'html/card.html'; ?>
 	<script src='js/map.js'></script>
-	<script>
-		function toggleFilters(){
-			document.getElementById('div_filters').hidden = !document.getElementById('div_filters').hidden;
-		}
-	</script>
 </body>
 </html>
