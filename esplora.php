@@ -4,7 +4,7 @@
 	<title>Esplora</title>
 	<?php include 'php/head.php';   ?>
 
-	<script src='js/update_trails.js'> </script>
+	<script src='js/trails.js'> </script>
 	<!-- Mapbox -->
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet'>
 	<script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
@@ -45,7 +45,7 @@
 
 		<div class='row d-flex'>
 			<div id='div_trails' class='col bg-light'>
-				<?php include 'php/display_trails.php'; ?>
+				<?php #include 'php/display_trails.php'; ?>
 			</div>
 
 			<div id='div_map' class='col'>

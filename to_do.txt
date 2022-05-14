@@ -1,32 +1,45 @@
-- AJAX Login/Registrazione
-- filters hidden/show >>
-- add select options organizza >>
-- active navbar php
-- support dark theme
-- finire new event
-- sicurezza input forms
-- filters javascript
-- upload file
--- separare cartelle
--- controllare path salvata nel db
--- controllare se file esiste già
--- sistemare vulnerabilità
-&- sistemare db - aggiungere id parco
-- sistemaRe label forms >>
--regex su inputs
-- controllare regex server-side
--- login/signup username-password >>
--- organizza/carica (nome, sigla, descrizione etc)
+- AJAX 
+-- Login
+-- Registrazione
+-- organizza
+-- carica
+-- partecipa
 
--alerts gets
---organizza/carica
+- filters 
+-- hide/show div>>
+-- funzioni js
+
+- add select options organizza >>
+
+- navbar
+-- username >>
+-- active
+
+- support dark theme
+
+- upload file
+-- separare cartelle parco >>
+-- controllare path salvata nel db >>
+-- controllare se file esiste già
+-- sistemare vulnerabilità ?>
+
+- Forms
+-- sistemare label forms >>
+-- regex su inputs
+-- controllare regex server-side
+--- login/signup username-password >>
+--- organizza/carica (nome, sigla, descrizione etc)
+
+- alerts >>
+--organizza/carica >>
 
 -password hashing + salting!!!
 
--non usare header per login utenti
-o meglio usare header e aggiungere exit() dopo
+-non usare header per login utenti (o meglio usare header e aggiungere exit() dopo) >>
 https://thedailywtf.com/articles/WellIntentioned-Destruction
 
 -aggiungere autenticazione script php
+--principali>>
+--cartella php
 
 - display cards in esplora - javascript; versione javascript
