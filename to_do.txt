@@ -43,3 +43,7 @@ https://thedailywtf.com/articles/WellIntentioned-Destruction
 --cartella php
 
 - display cards in esplora - javascript; versione javascript
+-- template html
+
+
+- robots.txt

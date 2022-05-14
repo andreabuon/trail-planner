@@ -1,4 +1,4 @@
-function downloadTrailsData(e){
+function getData(e){
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = manageResponse;
     httpRequest.open('GET', '../php/display_trails.php', true);
@@ -7,26 +7,38 @@ function downloadTrailsData(e){
 
 function manageResponse(e) {
     if (e.target.readyState == 4 && e.target.status == 200) {
-        var data = JSON.parse(e.target.responseText);
-        printData(data);
+        var trails = JSON.parse(e.target.responseText);
+        render(trails);
     }
 }
 
-function printData(trails_array){
-    trails_array.forEach(element => {insert(createCard(element));});
+function render(array){
+    var template = document.getElementById('card_template');
+    array.forEach(element => {insert(newCard(element, template));});
 }
 
-function createCard(sentiero){
-    return "<div class='card'><div class='card-body'><h5 class='card-title'>" + sentiero['parco_nome'] + ": " + sentiero['sigla'] + " - " + sentiero['nome'] + "</h5><p class='card-text'> Lunghezza:" + sentiero['lunghezza'] + "Km; Dislivello:" + sentiero['dislivello'] + "m </p><button class='btn btn-outline-info'>Scarica</button><button class='btn btn-outline-info' >Visualizza</button></div></div>";
+function newCard(sentiero, template){
+    var card = template.content.cloneNode(true);
+    card.querySelector('[name="parco"]').innerHTML = sentiero['parco_nome'];
+    card.querySelector('[name="sigla"]').innerHTML = sentiero['sigla'];
+    card.querySelector('[name="nome"]').innerHTML = sentiero['nome'];
+    card.querySelector('[name="lunghezza"]').innerHTML = sentiero['lunghezza'];
+    card.querySelector('[name="dislivello"]').innerHTML = sentiero['dislivello'];
+    return card;
 }
 
 function insert(card){
-    //document.getElementById('div_trails').appendChild(card);
-    document.getElementById('div_trails').innerHTML += card;
+    document.getElementById('div_trails').appendChild(card);
+}
+
+function clear(){
+    div = document.getElementById('div_trails').innerHTML = '';
+    while (div.firstChild) {
+        div.firstChild.remove()
+    }
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    //console.log('DOM loaded');
-    downloadTrailsData();
+    getData();
 });
 

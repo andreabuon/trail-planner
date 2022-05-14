@@ -13,7 +13,8 @@
 <body>
 	<?php include 'php/navbar.php';?>
 	<h1>Esplora</h1>
-	<button class='btn btn-outline-secondary'  onclick='toggleFilters()'>Mostra/Nascondi filtri</button>
+	<button class='btn btn-outline-secondary'  onclick='toggleFilters();'>Mostra/Nascondi filtri</button>
+	<button class='btn btn-outline-secondary'  onclick='clear();'>Pulisci</button>
 
 	<div class='container-fluid'>
 		<div class='row'>
@@ -45,7 +46,6 @@
 
 		<div class='row d-flex'>
 			<div id='div_trails' class='col bg-light'>
-				<?php #include 'php/display_trails.php'; ?>
 			</div>
 
 			<div id='div_map' class='col'>
@@ -53,8 +53,8 @@
 		</div>
 	</div>
 
+	<?php include 'html/card.html'; ?>
 	<script src='js/map.js'></script>
-
 	<script>
 		function toggleFilters(){
 			document.getElementById('div_filters').hidden = !document.getElementById('div_filters').hidden;

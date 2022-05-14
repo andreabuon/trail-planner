@@ -1,0 +1,11 @@
+<template id='card_template'>
+	<div class='card'>
+		<div class='card-body'>
+			<h6 class='card-title'> <slot name='parco'>Parco</slot> </h6>
+			<h5 class='card-title'> <slot name='sigla'>Sigla</slot>: <slot name='nome'>Nome</slot></h5>
+			<p class='card-text'> <slot name='lunghezza'>Lunghezza</slot> <slot name='dislivello'>Dislivello</slot> </p>
+			<button class='btn btn-outline-info' onclick=''>Info</button>
+			<button class='btn btn-outline-info' onclick='downloadTrack();'>Visualizza</button>
+		</div>
+	</div>
+</template>
