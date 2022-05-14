@@ -25,12 +25,16 @@ function render(array){
 }
 
 function newCard(sentiero, template){
+    //cambiare!!!!! basta usare tag con nome template (forse)
     var card = template.content.cloneNode(true);
     card.querySelector('[name="parco"]').innerHTML = sentiero['parco_nome'];
     card.querySelector('[name="sigla"]').innerHTML = sentiero['sigla'];
     card.querySelector('[name="nome"]').innerHTML = sentiero['nome'];
     card.querySelector('[name="lunghezza"]').innerHTML = sentiero['lunghezza'];
     card.querySelector('[name="dislivello"]').innerHTML = sentiero['dislivello'];
+    //card.querySelector('#info').setAttribute('href', '');
+    //card.querySelector('#view').setAttribute('onclick', 'scaricaSentiero('+sentiero['track_path']+');');
+    //card.querySelector('#download').setAttribute('href', 'uploads/'+sentiero['track_path']);
     return card;
 }
 

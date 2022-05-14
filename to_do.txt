@@ -45,6 +45,10 @@ https://thedailywtf.com/articles/WellIntentioned-Destruction
 
 - display cards in esplora - javascript; versione javascript >>
 -- template html>>
+- capire come funzionano gli slot
+ BASTAVA AGGIUNGERE IL NOME DEL TEMPLATE!! -.-"
 
+- partecipa - versione javascript
+- partecipa - versione PHP - meglio
 
 - robots.txt

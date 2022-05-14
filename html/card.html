@@ -4,8 +4,9 @@
 			<h6 class='card-title'> <slot name='parco'>Parco</slot> </h6>
 			<h5 class='card-title'> <slot name='sigla'>Sigla</slot>: <slot name='nome'>Nome</slot></h5>
 			<p class='card-text'> Lunghezza: <slot name='lunghezza'></slot> km - Dislivello: <slot name='dislivello'></slot>m</p>
-			<button class='btn btn-outline-info' onclick='scaricaSentiero();'>Info</button>
-			<button class='btn btn-outline-info' onclick='downloadTrack();'>Visualizza</button>
+			<a class='btn btn-outline-info' id='info' href=''>Info</a>
+			<a class='btn btn-outline-info' id='view' onclick=''>Visualizza</a>
+			<a class='btn btn-outline-info' id='download' href='' download>Scarica</a>
 		</div>
 	</div>
 </template>

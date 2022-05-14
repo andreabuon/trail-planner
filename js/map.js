@@ -1,4 +1,4 @@
-function scaricaSentiero(e) {
+function scaricaSentiero() {
 	var httpRequest = new XMLHttpRequest();
 	httpRequest.onreadystatechange = gestisciResponse;
 	httpRequest.open('GET', "assets/track.geojson", true);

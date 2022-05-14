@@ -1,0 +1,1 @@
+select json_agg(e.*) as lista from (select * from escursioni order by (data)) as e

@@ -7,8 +7,9 @@
 <body>
 	<?php include 'php/navbar.php';?>
 	<h1>Partecipa</h1>
-	<?php
-		include "php/display_events.php";
-	?>
+	<div class='container-fluid' id='div_events'>
+	</div>
+	<?php include 'html/event.html';?>
+	<script src='js/events.js'></script>
 </body>
 </html>
