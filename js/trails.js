@@ -38,10 +38,17 @@ function insert(card){
     document.getElementById('div_trails').appendChild(card);
 }
 
-function clear(){
+function clearList(){
+    var div = document.getElementById('div_trails');
     while (div.firstChild) {
         div.firstChild.remove()
     }
+}
+
+function clearMap(){
+    map.removeLayer('route');
+    map.removeSource('route');
+    return true;
 }
 
 function toggleFilters(){

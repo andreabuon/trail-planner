@@ -4,6 +4,7 @@
 -- organizza
 -- carica
 -- partecipa
+-- gestione errori in AJAX?
 
 - filters 
 -- hide/show div>>
@@ -20,8 +21,8 @@
 - upload file
 -- separare cartelle parco >>
 -- controllare path salvata nel db >>
--- controllare se file esiste già
--- sistemare vulnerabilità ?>
+-- controllare se file esiste già >>
+-- sistemare vulnerabilità >>
 
 - Forms
 -- sistemare label forms >>
@@ -42,8 +43,8 @@ https://thedailywtf.com/articles/WellIntentioned-Destruction
 --principali>>
 --cartella php
 
-- display cards in esplora - javascript; versione javascript
--- template html
+- display cards in esplora - javascript; versione javascript >>
+-- template html>>
 
 
 - robots.txt

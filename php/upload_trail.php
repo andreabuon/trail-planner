@@ -8,52 +8,57 @@
         header('Location: ../index.php?error=1');
         exit();
     }
-    $match = preg_match('/\A[A-Z0-9]{1,4}\z/', $_POST['sigla']);
-	if(!$match | $match==false){
-		header('Location: ../carica.php?error=1');
+	if(!preg_match('/\A[A-Z0-9]{1,4}\Z/', $_POST['sigla'])){
+        error_log('Errore: regex test sigla failed', 0);
+		header('Location: ../carica.php?error=formato-sigla-errato');
 		exit();
 	}
-    /*
-    $match = preg_match('/\A[a-zA-Z']{1,80}\z/', $_POST['parco']);
-	if(!$match | $match==false){
-		header('Location: ../carica.php?error=1');
+	if(!preg_match("/\A[a-zA-Z0-9 ]{1,80}\Z/", $_POST['parco'])){
+		error_log('Errore: regex test parco failed', 0);
+        header('Location: ../carica.php?error=formato-parco-errato');
 		exit();
 	}
-    */
-    //controllare inputs con regex!
+    //controllare altri inputs con regex!
     
     //sistemare! controllare esistenza file prima di fare upload
-
-    $uploadfile = NULL;
+    $rel_path = NULL;
     
     if(is_uploaded_file($_FILES['file']['tmp_name'])){
-        $uploaddir = "../uploads/";
+        $dir = "../uploads/";
         $park = basename($_POST['parco']);
-        $dir = $uploaddir . '/'. $park;
-        if (!file_exists($dir)) {
-            mkdir($dir, 0777, false);
+        $name = basename($_POST['sigla']);
+        $rel_path = $park . '/'. $name . '.geojson' ;
+        $path = $dir . $rel_path;
+
+        if (file_exists($path)) {
+            error_log('Errore caricamento file: file exists', 0);
+            header('Location: ../carica.php?error=File-esiste');
+            exit();
+        }
+        
+        if (!file_exists($dir.$park)) {
+            mkdir($dir.$park, 0777, false);
         }
 
-        // VULNERABILE!!! SISTEMARE
-        $uploadfile = $uploaddir . $park . '/'. basename($_POST['sigla']) . '.json'; //basename($_FILES['file']['name']);
-
-        $res = move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
-
+        $res = move_uploaded_file($_FILES['file']['tmp_name'], $path);
         if($res==false){
             error_log('Errore caricamento file: '.$res, 0);
-            header('Location: ../carica.php?error=Caricamento file');
+            header('Location: ../carica.php?error=Caricamento-File');
             exit();
         }
     }
 
     include '../php/database.php';
     $query = 'insert into sentieri values ($1, $2, $3, $4, $5, $6, $7, $8)';
-    $array = array($_POST['sigla'], $_POST['nome'], $_POST['descrizione'], $_POST['lunghezza'], $_POST['dislivello'], $_POST['difficolta'], $_POST['parco'], $uploadfile);
+    $array = array($_POST['sigla'], $_POST['nome'], $_POST['descrizione'], $_POST['lunghezza'], $_POST['dislivello'], $_POST['difficolta'], $_POST['parco'], $rel_path);
     $data = pg_query_params($dbconn, $query, $array);
 
     if(!$data){
         error_log('Errore:' . pg_last_error(), 0);
-        header('Location: ../carica.php?error=1');
+        if(isset($path)){
+            unlink($path);
+        }
+        header('Location: ../carica.php?error=Errore-DB');
         exit();
 	}
     header('Location: ../carica.php?upload=1');

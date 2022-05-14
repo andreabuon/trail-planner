@@ -14,7 +14,7 @@
 	<?php include 'php/navbar.php';?>
 	<h1>Esplora Percorsi</h1>
 	<button class='btn btn-outline-secondary'  onclick='toggleFilters();'>Mostra/Nascondi filtri</button>
-	<button class='btn btn-outline-secondary'  onclick='clear();'>Pulisci</button>
+	<button class='btn btn-outline-secondary'  onclick='return clearMap();'>Pulisci</button>
 
 	<div class='container-fluid'>
 		<div class='row'>

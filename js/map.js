@@ -36,7 +36,7 @@ const map = new mapboxgl.Map({
 	container: 'div_map', // container ID
 	style: 'mapbox://styles/mapbox/outdoors-v11', // style URL
 	center: [14.042513751693576, 42.068132238944344], // starting position [lng, lat] 
-	zoom: 12, // starting zoom
+	zoom: 13, // starting zoom
 });
 
 map.on('load', () => {
@@ -47,7 +47,9 @@ map.on('load', () => {
 		'maxzoom': 14
 		});
 	map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
-	map.setPitch(100);
+	map.setPitch(75);
+	map.setBearing(40);
+	/*
 	map.addLayer({
 		'id': 'sky',
 		'type': 'sky',
@@ -56,5 +58,5 @@ map.on('load', () => {
 		'sky-atmosphere-sun': [0.0, 0.0],
 		'sky-atmosphere-sun-intensity': 15
 		}
-	});
+	});*/
 });
