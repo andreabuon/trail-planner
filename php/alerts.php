@@ -13,4 +13,6 @@ if(isset($_GET['enforcelogin']))
 	echo '<div class="alert alert-warning" role="alert">Per visualizzare la pagina devi effettuare il login</div>';
 if(isset($_GET['upload']))
 	echo '<div class="alert alert-info" role="alert">Caricamento completato.</div>';
+if(isset($_GET['success']))
+	echo '<div class="alert alert-success" role="alert">Azione completata.</div>';
 ?>

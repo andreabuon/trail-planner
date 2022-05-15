@@ -51,4 +51,8 @@ https://thedailywtf.com/articles/WellIntentioned-Destruction
 - partecipa - versione javascript
 - partecipa - versione PHP - meglio
 
+- aggiugnere pg_close ?
+
+- aggiungere id escursioni?
+
 - robots.txt
