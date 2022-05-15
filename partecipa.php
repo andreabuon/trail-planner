@@ -2,10 +2,15 @@
 <html lang='it'>
 <head>
 	<title>Partecipa</title>
-	<?php include 'php/head.php';?>
+	<?php 
+		include 'php/head.php';
+	?>
 </head>
 <body>
-	<?php include 'php/navbar.php';?>
+	<?php 
+		include 'php/navbar.php';
+		include 'php/alerts.php';
+	?>
 	<h1>Partecipa</h1>
 	<div class='container-fluid' id='div_events'>
 	</div>

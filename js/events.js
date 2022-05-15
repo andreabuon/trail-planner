@@ -28,6 +28,7 @@ function newCard(evento, template){
     card.querySelector('[name="parco"]').innerHTML = evento['sentiero_parco'];
     card.querySelector('[name="sigla"]').innerHTML = evento['sentiero_sigla'];
     card.querySelector('[name="data"]').innerHTML = evento['data'];
+    card.querySelector('#partecipa').setAttribute('href', 'php/join_event.php?escursione='+evento['id']);
  	return card;
 }
 

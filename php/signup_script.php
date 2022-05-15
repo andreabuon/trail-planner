@@ -26,6 +26,7 @@
 	$data = pg_query_params($dbconn, $query, array($username, $password));
 	
 	if(!$data){
+		$_SESSION['last-error'] = pg_last_error();
 		header('Location: ../registrati.php?error=Errore-DB');
 		exit();
 	}

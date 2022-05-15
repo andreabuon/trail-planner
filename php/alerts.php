@@ -8,7 +8,8 @@ else if(isset($_GET['signup']))
 else if(isset($_GET['logged']))
 	echo '<div class="alert alert-warning" role="alert">Hai già effettuato il login.</div>';
 if(isset($_GET['error']))
-			echo "<div class='alert alert-danger' role='alert'> Errore server: $_GET[error]</div>";
+	echo "<div class='alert alert-danger' role='alert'> Errore: $_GET[error] $_SESSION[error]</div>";
+	unset($_SESSION['last_error']);
 if(isset($_GET['enforcelogin']))
 	echo '<div class="alert alert-warning" role="alert">Per visualizzare la pagina devi effettuare il login</div>';
 if(isset($_GET['upload']))

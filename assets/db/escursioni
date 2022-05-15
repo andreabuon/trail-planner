@@ -1,15 +1,16 @@
 -- Table: public.escursioni
 
--- DROP TABLE IF EXISTS public.escursioni;
+DROP TABLE IF EXISTS public.escursioni;
 
 CREATE TABLE IF NOT EXISTS public.escursioni
 (
+    id SERIAL primary key,
     sentiero_parco character varying(80) COLLATE pg_catalog."default" NOT NULL,
     sentiero_sigla character varying(4) COLLATE pg_catalog."default" NOT NULL,
     data date NOT NULL,
     organizzatore character varying(25) COLLATE pg_catalog."default" NOT NULL,
     note character varying(200) COLLATE pg_catalog."default",
-    CONSTRAINT escursioni_pkey PRIMARY KEY (sentiero_parco, sentiero_sigla, data, organizzatore),
+    CONSTRAINT escursioni_vincolo UNIQUE (sentiero_parco, sentiero_sigla, data, organizzatore),
     CONSTRAINT escursioni_organizzatore_fkey FOREIGN KEY (organizzatore)
         REFERENCES public.utenti (username) MATCH SIMPLE
         ON UPDATE CASCADE

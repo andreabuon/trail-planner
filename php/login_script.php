@@ -29,6 +29,7 @@
 		exit();
 	}
 	else{
+		$_SESSION['last-error'] = pg_last_error();
 		header('Location: ../accedi.php?error=1');
 		exit();
 	}

@@ -31,7 +31,6 @@
         $path = $dir . $rel_path;
 
         if (file_exists($path)) {
-            error_log('Errore caricamento file: file exists', 0);
             header('Location: ../carica.php?error=File-esiste');
             exit();
         }
@@ -42,7 +41,6 @@
 
         $res = move_uploaded_file($_FILES['file']['tmp_name'], $path);
         if($res==false){
-            error_log('Errore caricamento file: '.$res, 0);
             header('Location: ../carica.php?error=Caricamento-File');
             exit();
         }
@@ -54,10 +52,10 @@
     $data = pg_query_params($dbconn, $query, $array);
 
     if(!$data){
-        error_log('Errore:' . pg_last_error(), 0);
         if(isset($path)){
             unlink($path);
         }
+        $_SESSION['last-error'] = pg_last_error();
         header('Location: ../carica.php?error=Errore-DB');
         exit();
 	}
