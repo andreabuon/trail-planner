@@ -1,19 +1,31 @@
 <?php
+$debug = 1;
+
+function newAlert($type, $message){
+	echo '<div class="alert alert-' . $type . '" role="alert" onclick="this.hidden=1">' . $message . '<button class="btn-close float-end"></button></div>';
+}
+
+
 if(isset($_GET['login']))
-		echo '<div class="alert alert-info" role="alert">Accesso eseguito.</div>';
+	newAlert('info', 'Accesso eseguito');
 else if(isset($_GET['logout']))
-		echo '<div class="alert alert-info" role="alert">Disconnessione eseguita.</div>';
+	newAlert('info', 'Disconnessione eseguita.');
 else if(isset($_GET['signup']))
-			echo '<div class="alert alert-success" role="alert">Registrazione completata. Adesso puoi procedere con il login.</div>';
+	newAlert('success', 'Registrazione completata. Adesso puoi procedere con il login.');
 else if(isset($_GET['logged']))
-	echo '<div class="alert alert-warning" role="alert">Hai già effettuato il login.</div>';
-if(isset($_GET['error']))
-	echo "<div class='alert alert-danger' role='alert'> Errore: $_GET[error] $_SESSION[error]</div>";
-	unset($_SESSION['last_error']);
+	newAlert('warning', 'Hai già effettuato il login.');
+if(isset($_GET['error'])){
+	$msg = "$_GET[error]";
+	if($debug){ 
+		$msg .= " $_SESSION[last_error]";
+		unset($_SESSION['last_error']);
+	}
+	newAlert('danger', $msg);
+	}
 if(isset($_GET['enforcelogin']))
-	echo '<div class="alert alert-warning" role="alert">Per visualizzare la pagina devi effettuare il login</div>';
+	newAlert('warning', 'Per visualizzare la pagina devi effettuare il login');
 if(isset($_GET['upload']))
-	echo '<div class="alert alert-info" role="alert">Caricamento completato.</div>';
+	newAlert('info', 'Caricamento completato.');
 if(isset($_GET['success']))
-	echo '<div class="alert alert-success" role="alert">Azione completata.</div>';
+	newAlert('success', 'Azione completata.');
 ?>

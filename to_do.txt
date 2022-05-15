@@ -55,4 +55,8 @@ https://thedailywtf.com/articles/WellIntentioned-Destruction
 
 - aggiungere id escursioni >>
 
+- manca nome sentieri in carte eventi
+
+- drag and drop files
+
 - robots.txt

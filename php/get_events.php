@@ -4,7 +4,7 @@
 
 
 	if(!isset($_SESSION['username'])){
-		$res = pg_query('SELECT * FROM escursioni ORDER BY data') or die('Query Failed: ' . pg_last_error());
+		$res = pg_query('SELECT *, 0 as iscritto FROM escursioni ORDER BY data') or die('Query Failed: ' . pg_last_error());
 	}else{
 		$query = '(select *, 1 as iscritto
 				from escursioni e1
