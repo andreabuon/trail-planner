@@ -53,6 +53,6 @@ https://thedailywtf.com/articles/WellIntentioned-Destruction
 
 - aggiugnere pg_close ?
 
-- aggiungere id escursioni?
+- aggiungere id escursioni >>
 
 - robots.txt

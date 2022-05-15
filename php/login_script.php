@@ -20,7 +20,7 @@
 	}
 
 	include 'database.php';
-	$query = 'select * from utenti where username=$1 and password=$2';
+	$query = 'SELECT * FROM utenti WHERE username=$1 AND password=$2';
 	$result = pg_query_params($dbconn, $query, array($username, $password));
 
 	if(pg_fetch_array($result, null, PGSQL_ASSOC)){

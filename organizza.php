@@ -11,6 +11,7 @@
 <head>
 	<title>Organizza</title>
     <?php include 'php/head.php'; ?>
+	<script src='js/add_trail_options.js'></script>
 </head>
 
 <body>
@@ -18,9 +19,8 @@
     include 'php/navbar.php';
 	include 'php/alerts.php';
 ?>
-
 <h1>Organizza Escursione</h1>
-<form action='php/new_event.php' method='post' class='container'>
+<form action='php/new_event.php' id='form' method='post' class='container'>
 	<label for='parco' class='form-label'>Parco:</label>
 	<select name='parco' required id='parco' class='form-control' onchange='listTrails()'>
 		<option selected disabled>Seleziona Parco...</option>
@@ -43,7 +43,4 @@
 
 	<input type=submit name='btn_submit' value='Organizza' class='btn btn-primary'>
 </form>
-
-<script src='js/add_trail_options.js'></script>
-
 </body>

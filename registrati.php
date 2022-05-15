@@ -11,12 +11,14 @@
 	<title>Registrati</title>
     <?php 
         include 'php/head.php'; 
-        include 'php/alerts.php';
     ?>
     <script src="js/form_validation.js"></script>
 </head>
 <body>
-	<?php include 'php/navbar.php'; ?>
+	<?php
+        include 'php/navbar.php';
+        include 'php/alerts.php';
+    ?>
 	<h1>Registrati</h1>
     <form action='php/signup_script.php' method='post' class='container' name='form_registrazione'>
         <div class='form-group  form-floating'>

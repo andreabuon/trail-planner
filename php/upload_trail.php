@@ -47,7 +47,7 @@
     }
 
     include '../php/database.php';
-    $query = 'insert into sentieri values ($1, $2, $3, $4, $5, $6, $7, $8)';
+    $query = 'INSERT INTO sentieri VALUES ($1, $2, $3, $4, $5, $6, $7, $8)';
     $array = array($_POST['sigla'], $_POST['nome'], $_POST['descrizione'], $_POST['lunghezza'], $_POST['dislivello'], $_POST['difficolta'], $_POST['parco'], $rel_path);
     $data = pg_query_params($dbconn, $query, $array);
 

@@ -9,7 +9,7 @@
         exit();
     }
     include 'database.php';
-    $query = 'insert into escursioni ("sentiero_parco", "sentiero_sigla", "data", "organizzatore", "note") values ($1,$2,$3,$4,$5)';
+    $query = 'INSERT INTO escursioni ("sentiero_parco", "sentiero_sigla", "data", "organizzatore", "note") VALUES ($1,$2,$3,$4,$5)';
     $array = array($_POST['parco'], $_POST['sigla'], $_POST['data'], $_SESSION['username'], $_POST['note']);
     $data = pg_query_params($dbconn, $query, $array);
 

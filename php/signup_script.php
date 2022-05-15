@@ -22,7 +22,7 @@
 	}
 
 	include 'database.php';
-	$query = 'insert into utenti values ($1, $2)';
+	$query = 'INSERT INTO utenti VALUES ($1, $2)';
 	$data = pg_query_params($dbconn, $query, array($username, $password));
 	
 	if(!$data){

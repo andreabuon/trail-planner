@@ -15,9 +15,7 @@
 <?php
 	include 'php/navbar.php';
 	include 'php/alerts.php';
-	#include 'php/regex.php';
 ?>
-
 <h1>Carica Percorso</h1>
 <form method='post' action='php/upload_trail.php' class='container' enctype='multipart/form-data'>
 

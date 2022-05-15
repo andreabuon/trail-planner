@@ -8,13 +8,14 @@ function listTrails(){
 
 function manageResponse(e) {
     if (e.target.readyState == 4 && e.target.status == 200) {
-        document.getElementById('sigla').innerHTML = e.target.responseText;
-		if(e.target.responseText == ""){
-			document.getElementById('sigla').disabled = true;
-			document.getElementById('sigla').innerHTML = "<option selected disabled>Nessun sentiero disponibile</option>";
+		var select = document.getElementById('sigla');
+		if(e.target.responseText == ''){
+			select.innerHTML = "<option selected disabled>Nessun sentiero disponibile</option>";
+			select.disabled = true;
 		}
 		else{
-			document.getElementById('sigla').disabled = false;
+			select.innerHTML = e.target.responseText;
+			select.disabled = false;
 		}
     }
 }
