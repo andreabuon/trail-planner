@@ -12,14 +12,12 @@
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	$match = preg_match('/\A[0-9a-zA-Z]{1,25}\z/', $username);
-	if(!$match | $match==false){
-		header('Location: ../registrati.php?error=1');
+	if(!preg_match('/\A[0-9a-zA-Z]{1,25}\z/', $username)){
+		header('Location: ../registrati.php?error=Formato-username-errato');
 		exit();
 	}
-	$match = preg_match('/\A.{3,25}\z/', $password);
-	if(!$match | $match==false){
-		header('Location: ../registrati.php?error=1');
+	if(!preg_match('/\A.{3,25}\z/', $password)){
+		header('Location: ../registrati.php?error=Formato-password-errato');
 		exit();
 	}
 
@@ -28,7 +26,7 @@
 	$data = pg_query_params($dbconn, $query, array($username, $password));
 	
 	if(!$data){
-		header('Location: ../registrati.php?error=1');
+		header('Location: ../registrati.php?error=Errore-DB');
 		exit();
 	}
 	header('Location: ../accedi.php?signup=1');

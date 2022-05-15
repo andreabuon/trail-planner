@@ -1,7 +1,7 @@
 function getData(e){
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = manageResponse;
-    httpRequest.open('GET', '../php/display_trails.php', true);
+    httpRequest.open('GET', 'php/get_trails.php', true);
     httpRequest.send();
 }
 

@@ -1,7 +1,7 @@
 <?php    
     session_start();
     if(!(isset($_SESSION['username']))){
-        header('Location: ../accedi.php');
+        header('Location: ../accedi.php?enforcelogin=1');
         exit();
     }
     if(!(isset($_POST['btn_submit']))){

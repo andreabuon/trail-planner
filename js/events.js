@@ -1,7 +1,7 @@
 function getData(e){
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = manageResponse;
-    httpRequest.open('GET', '../php/display_events.php', true);
+    httpRequest.open('GET', 'php/get_events.php', true);
     httpRequest.send();
 }
 
