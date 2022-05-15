@@ -1,21 +1,27 @@
-function getData(e){
+var trails;
+
+function requestData(e){
     var httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = manageResponse;
+    httpRequest.onreadystatechange = processData;
     httpRequest.open('GET', 'php/get_trails.php', true);
     httpRequest.send();
 }
 
-function manageResponse(e) {
+function processData(e) {
     if (e.target.readyState == 4 && e.target.status == 200) {
-        var trails = JSON.parse(e.target.responseText);
-        render(trails);
+        trails = JSON.parse(e.target.responseText);
+        render(trails, 'div_trails');
     }
 }
 
-function render(array){
+function render(array, div_id){
+    var div = document.getElementById(div_id);
+    while (div.firstChild) {
+        div.removeChild(div.firstChild);
+    }
     var template = document.getElementById('card_template');
-    array.forEach(element => {insert(newCard(element, template));});
-    map.resize();
+    array.forEach(element => {div.appendChild(newCard(element, template))});
+    map.resize(); //sistemare
 }
 
 function newCard(sentiero, template){
@@ -26,14 +32,20 @@ function newCard(sentiero, template){
     card.querySelector('[name="nome"]').innerHTML = sentiero['nome'];
     card.querySelector('[name="lunghezza"]').innerHTML = sentiero['lunghezza'];
     card.querySelector('[name="dislivello"]').innerHTML = sentiero['dislivello'];
-    //card.querySelector('#info').setAttribute('href', '');
-    //card.querySelector('#view').setAttribute('onclick', 'scaricaSentiero('+sentiero['track_path']+');');
-    //card.querySelector('#download').setAttribute('href', 'uploads/'+sentiero['track_path']);
-    return card;
-}
+    
+    if(sentiero['descrizione']){
+        card.querySelector('#info').setAttribute('onclick', 'alert("'+sentiero['descrizione']+'");');
+    }else   card.querySelector('#info').hidden = true;
 
-function insert(card){
-    document.getElementById('div_trails').appendChild(card);
+    if(sentiero['track_path']){
+        card.querySelector('#view').setAttribute('onclick', 'scaricaSentiero('+sentiero['track_path']+');');
+        card.querySelector('#download').setAttribute('href', 'uploads/'+sentiero['track_path']);
+    }
+    else{
+        card.querySelector('#view').hidden = true;
+        card.querySelector('#download').hidden = true;
+    }
+    return card;
 }
 
 function clearList(){
@@ -50,10 +62,31 @@ function clearMap(){
 }
 
 function toggleFilters(){
+    var btn = document.getElementById('btn_toggleFilters');
+    btn.classList.toggle("active");
     document.getElementById('div_filters').hidden = !document.getElementById('div_filters').hidden;
 }
 
+function filterTrails(array, filter_fnc){
+    //trails = array.filter(filter_fnc);
+    render(array.filter(filter_fnc), 'div_trails');
+}
+
+function filterByPark(sentiero){
+    park = document.getElementById('filter_parco').value;
+    if(park=='')
+        return true;
+    return sentiero.parco_nome == park;
+}
+
+function filterByName(sentiero){
+    string = document.getElementById('search').value.toLowerCase();
+    if(string=='')
+        return true;
+    return sentiero.nome.toLowerCase().includes(string) ||  sentiero.sigla.toLowerCase().includes(string);
+}
+
 window.addEventListener('DOMContentLoaded', (event) => {
-    getData();
+    requestData();
 });
 

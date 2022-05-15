@@ -9,20 +9,17 @@
         exit();
     }
 	if(!preg_match('/\A[A-Z0-9]{1,4}\Z/', $_POST['sigla'])){
-        error_log('Errore: regex test sigla failed', 0);
 		header('Location: ../carica.php?error=formato-sigla-errato');
 		exit();
 	}
 	if(!preg_match("/\A[a-zA-Z0-9 ]{1,80}\Z/", $_POST['parco'])){
-		error_log('Errore: regex test parco failed', 0);
         header('Location: ../carica.php?error=formato-parco-errato');
 		exit();
 	}
     //controllare altri inputs con regex!
     
-    //sistemare! controllare esistenza file prima di fare upload
-    $rel_path = NULL;
     
+    $rel_path = NULL;
     if(is_uploaded_file($_FILES['file']['tmp_name'])){
         $dir = "../uploads/";
         $park = basename($_POST['parco']);
