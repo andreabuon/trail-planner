@@ -7,14 +7,8 @@ function getData(e){
 
 function manageResponse(e) {
     if (e.target.readyState == 4 && e.target.status == 200) {
-        var trails;
-        try{
-            trails = JSON.parse(e.target.responseText);
-            render(trails);
-        }
-        catch{
-            console.log('Nessun sentiero trovato');
-        }
+        var trails = JSON.parse(e.target.responseText);
+        render(trails);
     }
 }
 

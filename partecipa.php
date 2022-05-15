@@ -5,6 +5,7 @@
 	<?php 
 		include 'php/head.php';
 	?>
+	<script src='js/events.js'></script>
 </head>
 <body>
 	<?php 
@@ -15,6 +16,5 @@
 	<div class='container-fluid' id='div_events'>
 	</div>
 	<?php include 'html/event.html';?>
-	<script src='js/events.js'></script>
 </body>
 </html>
