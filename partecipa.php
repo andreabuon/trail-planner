@@ -13,10 +13,12 @@
 		include 'php/alerts.php';
 	?>
 	<h1>Partecipa</h1>
-	<div class='container-fluid' id='div_events'>
+	<div class='container' id='div_events'>
+		<?php 
+			include 'php/get_events.php';
+		?>
 	</div>
 	<?php 
-		include 'php/get_events.php';
 		include 'html/event.html';
 	?>
 </body>
