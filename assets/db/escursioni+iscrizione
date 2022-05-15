@@ -1,0 +1,9 @@
+(select *, 1 as iscritto
+from escursioni e1
+where e1.id in (select escursione from partecipa where username='admin')
+union 
+select *, 0 as iscritto
+from escursioni e2
+where e2.id not in (select escursione from partecipa where username='admin'))
+order by data
+

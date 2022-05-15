@@ -5,7 +5,7 @@
 	<?php 
 		include 'php/head.php';
 	?>
-	<script src='js/events.js'></script>
+	<!-- <script src='js/events.js'></script> -->
 </head>
 <body>
 	<?php 
@@ -15,6 +15,9 @@
 	<h1>Partecipa</h1>
 	<div class='container-fluid' id='div_events'>
 	</div>
-	<?php include 'html/event.html';?>
+	<?php 
+		include 'php/get_events.php';
+		include 'html/event.html';
+	?>
 </body>
 </html>
