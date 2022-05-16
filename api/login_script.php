@@ -19,7 +19,8 @@
 		exit();
 	}
 
-	include 'database.php';
+	require_once 'database.php';
+	$dbconn = Database::connect();
 	$query = 'SELECT * FROM utenti WHERE username=$1 AND password=$2';
 	$result = pg_query_params($dbconn, $query, array($username, $password));
 

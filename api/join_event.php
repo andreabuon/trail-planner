@@ -5,7 +5,8 @@
 		exit();
 	}
 
-	include 'database.php';
+	require_once 'database.php';
+	$dbconn = Database::connect();
     $query = 'INSERT INTO partecipa VALUES ($1, $2)';
     $array = array($_SESSION['username'], $_GET['escursione']);
     $res = pg_query_params($dbconn, $query, $array);

@@ -21,7 +21,8 @@
 		exit();
 	}
 
-	include 'database.php';
+	require_once 'database.php';
+	$dbconn = Database::connect();
 	$query = 'INSERT INTO utenti VALUES ($1, $2)';
 	$data = pg_query_params($dbconn, $query, array($username, $password));
 	

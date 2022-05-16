@@ -1,6 +1,5 @@
 <?php
 //API per richieste Javascript
-
 include 'get_data.php';
 
 if(!isset($_GET['what']))

@@ -50,7 +50,7 @@ function newCard(sentiero, template){
 
     if(sentiero['track_path']){
         card.querySelector('#view').setAttribute('onclick', 'reqTrail("' + sentiero['track_path'] + '");');
-        card.querySelector('#download').setAttribute('href', '"uploads/' + sentiero['track_path'] + '"');
+        card.querySelector('#download').setAttribute('href', 'uploads/' + sentiero['track_path']);
     }
     else{
         card.querySelector('#view').hidden = true;
