@@ -18,6 +18,13 @@ function processData(e) {
     }
 }
 
+function clearDiv(div){
+    //sistemare con document fragment
+    while (div.firstChild) {
+        div.removeChild(div.firstChild);
+    }
+}
+
 function render(array){
     var div = document.getElementById('div_trails');
     clearDiv(div);
@@ -34,15 +41,16 @@ function newCard(sentiero, template){
     card.querySelector('[name="nome"]').innerHTML = sentiero['nome'];
     card.querySelector('[name="lunghezza"]').innerHTML = sentiero['lunghezza'];
     card.querySelector('[name="dislivello"]').innerHTML = sentiero['dislivello'];
+    card.querySelector('[name="difficolta"]').innerHTML = sentiero['difficolta'];
     
     if(sentiero['descrizione']){
-        card.querySelector('#info').setAttribute('onclick', 'alert("'+sentiero['descrizione']+'");');
+        card.querySelector('#info').setAttribute('onclick', 'alert("' + sentiero['descrizione'] + '");');
     }else
        card.querySelector('#info').hidden = true;
 
     if(sentiero['track_path']){
-        card.querySelector('#view').setAttribute('onclick', 'scaricaSentiero('+sentiero['track_path']+');');
-        card.querySelector('#download').setAttribute('href', 'uploads/'+sentiero['track_path']);
+        card.querySelector('#view').setAttribute('onclick', 'reqTrail("' + sentiero['track_path'] + '");');
+        card.querySelector('#download').setAttribute('href', '"uploads/' + sentiero['track_path'] + '"');
     }
     else{
         card.querySelector('#view').hidden = true;
@@ -50,20 +58,6 @@ function newCard(sentiero, template){
     }
     return card;
 }
-
-function clearDiv(div){
-    //sistemare con document fragment
-    while (div.firstChild) {
-        div.removeChild(div.firstChild);
-    }
-}
-/*
-function toggleFilters(){
-    var btn = document.getElementById('btn_toggleFilters');
-    btn.classList.toggle("active");
-    var filters_div = document.getElementById('div_filters')
-    filters_div.hidden = !filters_div.hidden;
-}*/
 
 function filtra(){
     listed_trails = trails;
@@ -78,6 +72,7 @@ function filterByPark(sentiero){
     if(!parco) return true;
     return sentiero['parco_nome'] === parco;
 }
+
 function filterByString(sentiero){
     //inefficiente sistemare
     stringa = document.getElementById('search').value.toLowerCase();

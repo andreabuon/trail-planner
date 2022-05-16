@@ -1,23 +1,24 @@
-function scaricaSentiero() {
+function reqTrail() {
 	var httpRequest = new XMLHttpRequest();
-	httpRequest.onreadystatechange = gestisciResponse;
+	httpRequest.onreadystatechange = processTrail;
 	httpRequest.open('GET', "assets/track.geojson", true);
 	httpRequest.send();
 }
 
-function gestisciResponse(e) {
+function processTrail(e) {
 	if (e.target.readyState == 4 && e.target.status == 200) {
-		disegnaSentiero(JSON.parse(e.target.responseText));
+		try{
+			var track = JSON.parse(e.target.responseText);
+			//console.debug(track);
+			renderTrail(track);
+		}
+		catch{
+			console.debug('Error Parsing Track Data');
+		}
 	}
 }
 
-function clearMap(){
-    map.removeLayer('route');
-    map.removeSource('route');
-    return true;
-}
-
-function disegnaSentiero(track) {
+function renderTrail(track) {
 	map.addSource('route', {
 		'type': 'geojson',
 		'data': track
@@ -37,6 +38,12 @@ function disegnaSentiero(track) {
 	});
 }
 
+function clearMap(){
+    map.removeLayer('route');
+    map.removeSource('route');
+    return true;
+}
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmVhLTE4OTQyNjYiLCJhIjoiY2wyNzZhMnhsMDE0czNncWxnMDRjdDZyMiJ9.WyEF7AEAWB4RKbx0ueiJHQ';
 const map = new mapboxgl.Map({
 	container: 'div_map', // container ID
@@ -49,7 +56,7 @@ map.on('load', () => {
 	map.addSource('mapbox-dem', {
 		'type': 'raster-dem',
 		'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
-		'tileSize': 512,
+		'tileSize': 256,
 		'maxzoom': 14
 		});
 	map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });

@@ -45,6 +45,9 @@ https://thedailywtf.com/articles/WellIntentioned-Destruction
 - document fragments cards esplora
 
 -possibilità di cancellare sentieri/escursioni
+-- vedere utenti in lista
+
+-local storage su trail
 
 - classe database
 
