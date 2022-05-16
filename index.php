@@ -2,12 +2,12 @@
 <html lang='it'>
 <head>
 	<title>Home</title>
-	<?php include 'php/head.php';?>
+	<?php include 'head.php';?>
 </head>
 <body>
 	<?php 
-		include 'php/navbar.php';
-		include 'php/alerts.php';
+		include 'navbar.php';
+		include 'alerts.php';
 	?>
 	<h1>Home</h1>
 	<p>

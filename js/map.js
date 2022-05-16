@@ -11,6 +11,12 @@ function gestisciResponse(e) {
 	}
 }
 
+function clearMap(){
+    map.removeLayer('route');
+    map.removeSource('route');
+    return true;
+}
+
 function disegnaSentiero(track) {
 	map.addSource('route', {
 		'type': 'geojson',

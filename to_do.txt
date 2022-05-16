@@ -60,4 +60,10 @@ https://thedailywtf.com/articles/WellIntentioned-Destruction
 
 - drag and drop files
 
+- document fragments cards esplora
+
+-possibilità di cancellare sentieri/escursioni
+
+- sostituire select con datalist (NO)
+
 - robots.txt

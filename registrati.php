@@ -10,17 +10,17 @@
 <head>
 	<title>Registrati</title>
     <?php 
-        include 'php/head.php'; 
+        include 'head.php'; 
     ?>
     <script src="js/form_validation.js"></script>
 </head>
 <body>
 	<?php
-        include 'php/navbar.php';
-        include 'php/alerts.php';
+        include 'navbar.php';
+        include 'alerts.php';
     ?>
 	<h1>Registrati</h1>
-    <form action='php/signup_script.php' method='post' class='container' name='form_registrazione'>
+    <form action='api/signup_script.php' method='post' class='container' name='form_registrazione'>
         <div class='form-group  form-floating'>
             <input name='username' id='username' type='text' maxlength='25' size='25' required class='form-control' placeholder='Username' pattern='[a-zA-Z0-9]{1,25}'>
             <label for='username'>Username</label>

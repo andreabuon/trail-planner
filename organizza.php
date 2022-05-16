@@ -10,29 +10,29 @@
 <html lang='it'>
 <head>
 	<title>Organizza</title>
-    <?php include 'php/head.php'; ?>
+    <?php include 'head.php'; ?>
 	<script src='js/add_options.js'></script>
 </head>
 
 <body>
 <?php
-    include 'php/navbar.php';
-	include 'php/alerts.php';
+    include 'navbar.php';
+	include 'alerts.php';
 ?>
 <h1>Organizza Escursione</h1>
-<form action='php/new_event.php' id='form' method='post' class='container'>
+<form action='api/new_event.php' id='form' method='post' class='container'>
 	<label for='parco' class='form-label'>Parco:</label>
-	<select name='parco' required id='parco' class='form-control' onchange='requestTrailData()'>
+	<select name='parco' required id='parco' class='form-control' onchange='return requestTrailData()'>
 		<option selected disabled>Seleziona Parco...</option>
 		<?php 
-			include 'php/get_data.php'; 
-			include 'php/options.php';
+			include 'api/get_data.php'; 
+			include 'api/options.php';
 			foreach(getParks() as $trail)
 				echo newOption($trail['nome']);
 		?>
 	</select>
 
-	<label for='sigla' class='form-label'>Sigla sentiero:</label>
+	<label for='sigla' class='form-label'>Sentiero:</label>
 	<select name='sigla' required id='sigla' class='form-control' disabled>
 		<option selected disabled>Seleziona Sentiero...</option>
 	</select>

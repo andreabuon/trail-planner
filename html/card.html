@@ -1,8 +1,8 @@
 <template id='card_template'>
 	<div class='card'>
 		<div class='card-body'>
-			<h6 class='card-title'> <slot name='parco'>Parco</slot> </h6>
-			<h5 class='card-title'> <slot name='sigla'>Sigla</slot>: <slot name='nome'>Nome</slot></h5>
+			<h6 class='card-title'><slot name='parco'>Parco</slot></h6>
+			<h5 class='card-title'><slot name='sigla'>Sigla</slot>: <slot name='nome'>Nome</slot></h5>
 			<p class='card-text'> Lunghezza: <slot name='lunghezza'></slot> km - Dislivello: <slot name='dislivello'></slot>m</p>
 			<a class='btn btn-outline-info' id='info'>Info</a>
 			<a class='btn btn-outline-info' id='view' onclick=''>Visualizza</a>

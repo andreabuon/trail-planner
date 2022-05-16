@@ -3,18 +3,18 @@
 <head>
 	<title>Partecipa</title>
 	<?php 
-		include 'php/head.php';
+		include 'head.php';
 	?>
 </head>
 <body>
 	<?php 
-		include 'php/navbar.php';
-		include 'php/alerts.php';
+		include 'navbar.php';
+		include 'alerts.php';
 	?>
 	<h1>Partecipa</h1>
 	<div class='container' id='div_events'>
 		<?php 
-			include 'php/get_events.php';
+			include 'api/get_events.php';
 		?>
 	</div>
 	<?php 
