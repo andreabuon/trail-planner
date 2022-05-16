@@ -1,12 +1,13 @@
-- AJAX 
--- Login
--- Registrazione
--- organizza
--- carica
--- partecipa
--- gestione errori in AJAX? + alerts
+- manca nome sentieri in carte eventi
 
-- add select options organizza >>
+- sistemare clearMap per render trail in esplora
+
+- PASSWORD HASHING + SALTING
+
+-possibilità di cancellare sentieri/escursioni
+-- vedere utenti in lista
+
+-local storage su trail
 
 - navbar
 -- active
@@ -20,36 +21,23 @@
 --- login/signup username-password >>
 --- organizza/carica (nome, sigla, descrizione etc)
 
-- PASSWORD HASHING + SALTING
 
-- spostare file configurazione
-
--non usare header per login utenti (o meglio usare header e aggiungere exit() dopo) >>
-https://thedailywtf.com/articles/WellIntentioned-Destruction
-
--aggiungere autenticazione script php
---principali>>
---cartella api
 
 - display cards in esplora - javascript; versione javascript >>
 -- template html>>
-- capire come funzionano gli slot
- BASTAVA AGGIUNGERE IL NOME DEL TEMPLATE!! -.-"
-
-- aggiugnere pg_close ?
-
-- manca nome sentieri in carte eventi
+--- capire come funzionano gli slot
 
 - drag and drop files
 
 - document fragments cards esplora
 
--possibilità di cancellare sentieri/escursioni
--- vedere utenti in lista
-
--local storage su trail
-
-- classe database
+- AJAX 
+-- Login
+-- Registrazione
+-- organizza
+-- carica
+-- partecipa
+-- gestione errori in AJAX? + alerts
 
 - robots.txt
 

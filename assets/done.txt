@@ -14,3 +14,14 @@
 
 - alerts >>
 --organizza/carica >>
+
+- add select options organizza >>
+
+-non usare header per login utenti (o meglio usare header e aggiungere exit() dopo) >>
+https://thedailywtf.com/articles/WellIntentioned-Destruction
+
+-aggiungere autenticazione script php>>
+--principali
+--cartella api
+
+- classe database

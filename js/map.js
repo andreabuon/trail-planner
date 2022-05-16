@@ -7,18 +7,13 @@ function reqTrail() {
 
 function processTrail(e) {
 	if (e.target.readyState == 4 && e.target.status == 200) {
-		try{
-			var track = JSON.parse(e.target.responseText);
-			//console.debug(track);
-			renderTrail(track);
-		}
-		catch{
-			console.debug('Error Parsing Track Data');
-		}
+		var track = JSON.parse(e.target.responseText);
+		renderTrail(track);	
 	}
 }
 
 function renderTrail(track) {
+	clearMap();
 	map.addSource('route', {
 		'type': 'geojson',
 		'data': track
@@ -39,9 +34,15 @@ function renderTrail(track) {
 }
 
 function clearMap(){
-    map.removeLayer('route');
-    map.removeSource('route');
-    return true;
+	//SISTEMARE!!!!!
+	try{
+	if(map.getLayer('route'))
+		map.removeLayer('route');
+	}catch{}
+	try{
+	if(map.getSource('route'));
+    	map.removeSource('route');
+	}catch{}
 }
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmVhLTE4OTQyNjYiLCJhIjoiY2wyNzZhMnhsMDE0czNncWxnMDRjdDZyMiJ9.WyEF7AEAWB4RKbx0ueiJHQ';
