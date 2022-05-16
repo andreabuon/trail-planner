@@ -1,0 +1,16 @@
+- upload file
+-- separare cartelle parco >>
+-- controllare path salvata nel db >>
+-- controllare se file esiste già >>
+-- sistemare vulnerabilità >>
+
+- filters 
+-- hide/show div>>
+-- funzioni js >>
+-- più filtri in contemporanea >>
+
+- navbar
+-- username >>
+
+- alerts >>
+--organizza/carica >>

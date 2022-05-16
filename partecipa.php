@@ -13,12 +13,13 @@
 	?>
 	<h1>Partecipa</h1>
 	<div class='container' id='div_events'>
-		<?php 
-			include 'api/get_events.php';
-		?>
-	</div>
-	<?php 
-		include 'html/event.html';
+	<?php
+		include 'api/get_data.php';
+		$elencoEscursioni = getEvents();
+		foreach($elencoEscursioni as $e){
+			echo $e;
+		}
 	?>
+	</div>
 </body>
 </html>

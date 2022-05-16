@@ -1,0 +1,38 @@
+<div class='card'>
+	<div class='card-body'>
+		<h6 class='card-text'>$this->sentiero_parco</h6>
+		<h5 class='card-title'>Sentiero $this->sentiero_sigla : $this->sentiero_nome</h5>
+		<h5 class='card-text'>$this->data</h5>
+		<button class='btn btn-outline-info' onclick=''>Info</button>"
+		<a class='btn btn-outline-info' id='partecipa' href=''>Partecipa!</a>
+		<a class='btn btn-outline-warning' id='annulla' href=''>Annulla</a>
+	</div>
+</div>
+
+<!--
+	echo "<div class='card'>
+		<div class='card-body'>
+			<h6 class='card-text'>$this->sentiero_parco</h6>
+			<h5 class='card-title'>Sentiero $this->sentiero_sigla : $this->sentiero_nome</h5>
+			<h5 class='card-text'>$this->data</h5>
+			<button class='btn btn-outline-info' onclick=''>Info</button>";
+	if(!$this->iscritto)
+		echo "<a class='btn btn-outline-info' id='partecipa' href=''>Partecipa!</a>";
+	else
+		echo "<a class='btn btn-outline-warning' id='annulla' href=''>Annulla</a>";
+	echo '</div></div>';
+-->
+
+
+<!--
+$parco = "<h6 class='card-text'>$this->sentiero_parco</h6>";
+$titolo = "<h5 class='card-title'>Sentiero $this->sentiero_sigla: $this->sentiero_nome</h5>";
+$data = "<h5 class='card-text'>$this->data</h5>";
+$info = "<button class='btn btn-outline-info' onclick=''>Info</button>";
+if(!$this->iscritto)
+	$btn = "<a class='btn btn-outline-info' id='partecipa' href=''>Partecipa!</a>";
+else
+	$btn = "<a class='btn btn-outline-warning' id='annulla' href=''>Annulla</a>";
+$card = "<div class='card'><div class='card-body'>$parco$titolo$data$info$btn</div></div>";
+echo $card;
+-->
