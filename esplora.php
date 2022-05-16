@@ -10,33 +10,36 @@
 <body>
 	<?php include 'php/navbar.php';?>
 	<h1>Esplora Percorsi</h1>
-	<div class='row'>
-		<button class='btn btn-outline-secondary col-md-1' id='btn_toggleFilters' onclick='toggleFilters();'>Filtri</button>
-		<div id='div_filters' hidden class='col-md-10'>
-					<input placeholder='Cerca' id='search' oninput='filterTrails(trails, filterByName);'>
-
-					<select id='filter_parco' onchange='filterTrails(trails, filterByPark);'>
-						<option selected value=''>Seleziona Parco...</option>;
-						<?php
-						include 'php/display_parks_select.php';
-						?>
-					</select>
-
-					<!--
-					<div class='btn-group' role='group' aria-label='Difficoltà Sentiero'>
-						<button type='button' class='btn btn-outline-info'>T</button>
-						<button type='button' class='btn btn-outline-info'>E</button>
-						<button type='button' class='btn btn-outline-info'>EE</button>
-						<button type='button' class='btn btn-outline-info'>A</button>
-					</div>
-					
-					<label>Dislivello</label>
-					<input placeholder='min' width='4' id='dislivelloMin'>
-					<input placeholder='max' width='4' id='dislivelloMax'> -->
-		</div>
-		<button class='btn btn-outline-secondary col-md-1 align-self-end'  onclick='return clearMap();'>Clear Map</button>
-	</div>
 	<div class='container-fluid'>	
+		<div class='row'>
+			<button class='btn btn-outline-secondary col-md-1' id='btn_toggleFilters' onclick='toggleFilters();'>Filtri</button>
+			<div id='div_filters' hidden class='col-md-10'>
+						<input placeholder='Cerca' id='search' oninput='filterTrails(trails, filterByName);'>
+
+						<select id='filter_parco' onchange='filterTrails(trails, filterByPark);'>
+							<option selected value=''>Seleziona Parco...</option>;
+							<?php 
+								include 'php/get_data.php'; 
+								include 'php/options.php';
+								foreach(getParks() as $trail)
+									echo newOption($trail['nome']);
+							?>
+						</select>
+
+						<!--
+						<div class='btn-group' role='group' aria-label='Difficoltà Sentiero'>
+							<button type='button' class='btn btn-outline-info'>T</button>
+							<button type='button' class='btn btn-outline-info'>E</button>
+							<button type='button' class='btn btn-outline-info'>EE</button>
+							<button type='button' class='btn btn-outline-info'>A</button>
+						</div>
+						
+						<label>Dislivello</label>
+						<input placeholder='min' width='4' id='dislivelloMin'>
+						<input placeholder='max' width='4' id='dislivelloMax'> -->
+			</div>
+			<button class='btn btn-outline-secondary col-md-1 align-self-end'  onclick='return clearMap();'>Clear Map</button>
+		</div>
 		<div class='row'>
 			<div id='div_trails' class='col bg-light col-md-4'>
 			</div>

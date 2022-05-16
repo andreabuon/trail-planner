@@ -11,7 +11,7 @@
 <head>
 	<title>Organizza</title>
     <?php include 'php/head.php'; ?>
-	<script src='js/add_trail_options.js'></script>
+	<script src='js/add_options.js'></script>
 </head>
 
 <body>
@@ -22,9 +22,14 @@
 <h1>Organizza Escursione</h1>
 <form action='php/new_event.php' id='form' method='post' class='container'>
 	<label for='parco' class='form-label'>Parco:</label>
-	<select name='parco' required id='parco' class='form-control' onchange='listTrails()'>
+	<select name='parco' required id='parco' class='form-control' onchange='requestTrailData()'>
 		<option selected disabled>Seleziona Parco...</option>
-		<?php include 'php/display_parks_select.php'; ?>
+		<?php 
+			include 'php/get_data.php'; 
+			include 'php/options.php';
+			foreach(getParks() as $trail)
+				echo newOption($trail['nome']);
+		?>
 	</select>
 
 	<label for='sigla' class='form-label'>Sigla sentiero:</label>

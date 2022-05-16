@@ -17,10 +17,10 @@
 	include 'php/alerts.php';
 ?>
 <h1>Carica Percorso</h1>
-<form method='post' action='php/upload_trail.php' class='container' enctype='multipart/form-data'>
+<form method='post' name='carica' action='php/upload_trail.php' class='container' enctype='multipart/form-data'>
 
 	<label for='sigla' class='form-label'>Sigla:</label>
-	<input name='sigla' id='sigla' class='form-control' maxlength='4' required pattern='[A-Z0-9]{1,4}' value='AAA1'>
+	<input name='sigla' id='sigla' class='form-control' maxlength='4' required pattern='[A-Z0-9]{1,4}' value='AAA1' oninput='return siglaUpper();'>
 
 	<label for='nome' class='form-label'>Nome:</label>
 	<input name='nome' id='nome' class='form-control' maxlength='70' required pattern='[a-zA-Z0-9 ]+' value='Sentiero nome default'>
@@ -31,7 +31,12 @@
 	<label for='parco' class='form-label'>Parco:</label>
 	<select name='parco' id='parco' class='form-control' required>
 		<option selected disabled>Seleziona Parco...</option>;
-		<?php	include 'php/display_parks_select.php';	?>
+		<?php 
+			include 'php/get_data.php'; 
+			include 'php/options.php';
+			foreach(getParks() as $trail)
+				echo newOption($trail['nome']);
+		?>
 	</select>
 
 	<label for='lunghezza' class='form-label'>Lunghezza:</label>
@@ -55,4 +60,11 @@
 
 	<input type='submit' class='btn btn-primary btn-block' value='Carica' name='submit'>
 </form>
+<script>
+	function siglaUpper(){
+		var text = document.getElementById('sigla').value;
+		console.log(text);
+		document.getElementById('sigla').value = text.toUpperCase();
+	}
+</script>
 </body>

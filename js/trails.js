@@ -3,7 +3,7 @@ var trails;
 function requestData(e){
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = processData;
-    httpRequest.open('GET', 'php/get_trails.php', true);
+    httpRequest.open('GET', 'php/request_data.php?what=trails', true);
     httpRequest.send();
 }
 
@@ -16,9 +16,7 @@ function processData(e) {
 
 function render(array, div_id){
     var div = document.getElementById(div_id);
-    while (div.firstChild) {
-        div.removeChild(div.firstChild);
-    }
+    clearList(div_id);
     var template = document.getElementById('card_template');
     array.forEach(element => {div.appendChild(newCard(element, template))});
     map.resize(); //sistemare
@@ -35,7 +33,8 @@ function newCard(sentiero, template){
     
     if(sentiero['descrizione']){
         card.querySelector('#info').setAttribute('onclick', 'alert("'+sentiero['descrizione']+'");');
-    }else   card.querySelector('#info').hidden = true;
+    }else
+       card.querySelector('#info').hidden = true;
 
     if(sentiero['track_path']){
         card.querySelector('#view').setAttribute('onclick', 'scaricaSentiero('+sentiero['track_path']+');');
@@ -48,10 +47,10 @@ function newCard(sentiero, template){
     return card;
 }
 
-function clearList(){
-    var div = document.getElementById('div_trails');
+function clearList(div_id){
+    var div = document.getElementById(div_id);
     while (div.firstChild) {
-        div.firstChild.remove()
+        div.removeChild(div.firstChild);
     }
 }
 

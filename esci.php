@@ -6,7 +6,7 @@
 	}
     //unset($_SESSION['username']);
     $_SESSION = array();
-	//session_destroy();
+	session_destroy();
     header('Location: index.php?logout=1');
     exit();
 ?>

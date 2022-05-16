@@ -1,12 +1,12 @@
-function listTrails(){
+function requestTrailData(){
 	var httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = manageResponse;
-	url = '/php/display_trails_select.php?parco=' + document.getElementById('parco').value;
+    httpRequest.onreadystatechange = manageTrailData;
+	url = '/php/request_data.php?what=trails&park=' + document.getElementById('parco').value;
     httpRequest.open('GET', url, true);
     httpRequest.send();
 }
 
-function manageResponse(e) {
+function manageTrailData(e) {
     if (e.target.readyState == 4 && e.target.status == 200) {
 		var select = document.getElementById('sigla');
 		if(e.target.responseText == ''){
@@ -14,6 +14,7 @@ function manageResponse(e) {
 			select.disabled = true;
 		}
 		else{
+			//sistemare!!!
 			select.innerHTML = e.target.responseText;
 			select.disabled = false;
 		}

@@ -5,7 +5,6 @@
 	<?php 
 		include 'php/head.php';
 	?>
-	<!-- <script src='js/events.js'></script> -->
 </head>
 <body>
 	<?php 
