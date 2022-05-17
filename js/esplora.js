@@ -14,7 +14,7 @@ function processData(e) {
         console.debug("Parsing data...");
         trails = JSON.parse(e.target.responseText);
         console.debug("Rendering data...");
-        render(trails);
+        renderTrails(trails);
     }
 }
 
@@ -25,12 +25,12 @@ function clearDiv(div){
     }
 }
 
-function render(array){
+function renderTrails(array){
     var div = document.getElementById('div_trails');
     clearDiv(div);
     var template = document.getElementById('card_template');
     array.forEach(element => {div.appendChild(newCard(element, template))});
-    //map.resize(); //sistemare
+    map.resize(); //sistemare
 }
 
 function newCard(sentiero, template){

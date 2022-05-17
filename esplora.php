@@ -4,7 +4,7 @@
 <head>
 	<title>Esplora</title>
 	<?php include 'head.php';?>
-	<script src='js/esplora.js'></script>
+	<link href='css/esplora.css' rel='stylesheet'>
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet'>
 	<script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
 </head>
@@ -14,7 +14,7 @@
 		include 'navbar.php';
 		include 'alerts.php';
 	?>
-	<div class='container-fluid'>
+	<!--
 		<div class='' id='div_filters'>
 			<div class="input-group">
 				<span class="input-group-text" id="basic-addon1">Filtra:</span>
@@ -33,14 +33,17 @@
 			</select>
 			<button class='btn btn-outline-secondary' onclick='return clearMap();'>Clear Map</button>
 		</div>
-		<div class='row'>
-			<div id='div_trails' class='col col-md-4'>
-			</div>
-			<div id='div_map' class='col col-md-8'>
-			</div>
+	-->
+
+	<div id='content'>
+		<div id='div_trails'>
+		</div>
+		<div id='div_map'>
 		</div>
 	</div>
 	<?php include 'html/card.html'; ?>
+
+	<script src='js/esplora.js'></script>
 	<script src='js/map.js'></script>
 </body>
 

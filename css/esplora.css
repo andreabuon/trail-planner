@@ -1,0 +1,29 @@
+#content{
+	display: inline-grid;
+	height: 93vh;
+	width: 100vw;	
+	
+}
+
+#div_trails{
+	background-color: lightgrey;
+	height: 100%;
+	width: 30vw;
+	overflow: scroll;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: space-between;
+
+}
+
+.card{
+	margin: 5px;
+}
+
+#div_map{
+	height: 100%;
+	width: 60vw;
+	background-color: blue;
+}
