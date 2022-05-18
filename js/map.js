@@ -63,7 +63,6 @@ map.on('load', () => {
 	map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
 	map.setPitch(75);
 	map.setBearing(40);
-	/*
 	map.addLayer({
 		'id': 'sky',
 		'type': 'sky',
@@ -72,5 +71,5 @@ map.on('load', () => {
 		'sky-atmosphere-sun': [0.0, 0.0],
 		'sky-atmosphere-sun-intensity': 15
 		}
-	});*/
+	});
 });

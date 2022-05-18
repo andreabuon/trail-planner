@@ -41,6 +41,7 @@
 		<div id='div_map'>
 		</div>
 	</div>
+
 	<?php include 'html/card.html'; ?>
 
 	<script src='js/esplora.js'></script>

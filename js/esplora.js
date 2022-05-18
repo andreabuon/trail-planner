@@ -63,7 +63,7 @@ function filtra(){
     listed_trails = trails;
     listed_trails = listed_trails.filter(filterByString);
     listed_trails = listed_trails.filter(filterByPark);
-    render(listed_trails, 'div_trails');
+    renderTrails(listed_trails, 'div_trails');
 }
 
 function filterByPark(sentiero){
@@ -81,6 +81,7 @@ function filterByString(sentiero){
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
+    //div.innerHTML='Caricamento dati...';
     requestData();
 });
 
