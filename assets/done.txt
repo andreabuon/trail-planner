@@ -25,3 +25,5 @@ https://thedailywtf.com/articles/WellIntentioned-Destruction
 --cartella api
 
 - classe database
+
+-rimettere filtri!!!

@@ -7,9 +7,34 @@
 	overflow: hidden;
 }
 
-#div_trails{
+#sidebar{
 	height: 100%;
 	width: 25%;
+	overflow: hidden;
+}
+
+#div_filters{
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	align-content: space-between;
+	
+	box-sizing: border-box;
+    padding: 10px;
+}
+
+#div_filters > input{
+	width: 100%;
+}
+
+#div_filters > select{
+	width: 100%;
+	margin-top: 5px;
+}
+
+#div_trails{
+	height: 100%;
+	width: 100%;
 	overflow: scroll;
 	
 	display: inline-flex;
@@ -28,5 +53,5 @@
 	display:inline-block;
 	height: 100%;
 	width: 75%;
-
+	overflow: scroll;
 }

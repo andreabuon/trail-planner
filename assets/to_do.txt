@@ -7,7 +7,9 @@
 -possibilità di cancellare sentieri/escursioni
 -- vedere utenti in lista
 
--local storage su trail
+-aggiugnere cellulare registrazione
+
+- local storage su trail
 
 - navbar
 -- active
@@ -20,7 +22,6 @@
 -- controllare regex server-side
 --- login/signup username-password >>
 --- organizza/carica (nome, sigla, descrizione etc)
-
 
 
 - display cards in esplora - javascript; versione javascript >>
