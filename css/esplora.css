@@ -16,7 +16,7 @@
 #div_filters{
 	display: flex;
 	flex-direction: column;
-	justify-content: stretch;
+	justify-content: space-between;
 	align-content: space-between;
 	
 	box-sizing: border-box;

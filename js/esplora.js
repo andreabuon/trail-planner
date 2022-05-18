@@ -1,21 +1,46 @@
 var trails;
 var listed_trails;
 
+function loadData(){
+    if(localStorage.trails==undefined)
+        requestData();
+    console.debug('Local data found');
+    if((new Date).getTime() - localStorage.timestamp > 300000 ){
+        console.debug('Data is outdated');
+        requestData();
+    }
+    else{
+        console.debug(localStorage.timestamp);
+        console.debug('Loading data...');
+        //console.debug(localStorage.trails);
+        trails = JSON.parse(localStorage.trails);
+        console.debug('Data loaded.');
+        processData();
+    }
+}
+
 function requestData(e){
     var httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = processData;
+    httpRequest.onreadystatechange = saveData;
     httpRequest.open('GET', 'api/request_data.php?what=trails', true);
     httpRequest.send();
     console.debug("Requested trails' data");
 }
-function processData(e) {
+function saveData(e) {
     if (e.target.readyState == 4 && e.target.status == 200) {
         console.debug("Received trails' data");
         console.debug("Parsing data...");
         trails = JSON.parse(e.target.responseText);
-        console.debug("Rendering data...");
-        renderTrails(trails);
+        console.debug("Saving local copy...");
+        localStorage.trails = e.target.responseText;
+        localStorage.timestamp = (new Date).getTime();
+        processData();
     }
+}
+
+function processData(){
+    console.debug("Rendering data...");
+    renderTrails(trails);
 }
 
 function clearDiv(div){
@@ -81,7 +106,6 @@ function filterByString(sentiero){
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    //div.innerHTML='Caricamento dati...';
-    requestData();
+    loadData();
 });
 
