@@ -1,4 +1,6 @@
-#navbarAndrea{
+.navbar{
     background-color: rgb(27, 97, 25);
-    height: 5vh;
+}
+.navbar-brand{
+    margin: 10px;
 }

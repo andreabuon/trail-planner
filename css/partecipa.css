@@ -1,0 +1,16 @@
+#div_events{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: space-around;
+	gap: 10px;
+	
+	padding: 2%;
+	height: 100%;;
+	overflow:scroll;
+}
+
+body{
+	height: 90vh;
+	overflow: hidden;
+}

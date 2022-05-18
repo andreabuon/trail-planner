@@ -13,6 +13,7 @@
         include 'head.php'; 
     ?>
     <script src="js/form_validation.js"></script>
+    <link href='css/form.css' rel='stylesheet'>
 </head>
 <body>
 	<?php
@@ -20,7 +21,7 @@
         include 'alerts.php';
     ?>
 	<h1>Registrati</h1>
-    <form action='api/signup_script.php' method='post' class='container' name='form_registrazione'>
+    <form action='api/signup_script.php' method='post' id='form' class='container' name='form_registrazione'>
         <div class='form-group  form-floating'>
             <input name='username' id='username' type='text' maxlength='25' size='25' required class='form-control' placeholder='Username' pattern='[a-zA-Z0-9]{1,25}'>
             <label for='username'>Username</label>

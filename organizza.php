@@ -11,6 +11,7 @@
 <head>
 	<title>Organizza</title>
     <?php include 'head.php'; ?>
+	<link href='css/form.css' rel='stylesheet'>
 	<script src='js/add_options.js'></script>
 </head>
 
@@ -44,7 +45,7 @@
 	<input name='organizzatore' type='text' id='organizzatore' class='form-control' required readonly value=<?php echo $_SESSION['username'];?>>
 
 	<label for='note' class='form-label'>Note:</label>
-	<input name='note' id='note' class='form-control' placeholder='Note aggiuntive' maxlength='200' value='' pattern='[a-zA-Z0-9 ]+'>
+	<textarea name='note' id='note' class='form-control' placeholder='Note aggiuntive' maxlength='200' value='' pattern='[a-zA-Z0-9 ]+'></textarea>
 
 	<input type=submit name='btn_submit' value='Organizza' class='btn btn-primary'>
 </form>

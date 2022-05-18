@@ -29,7 +29,7 @@
 			if($this->iscritto)
 				$string .= '<a class="btn btn-outline-secondary" href="api/leave_event.php?escursione=' . $this->id . '">Annulla</a>';				
 			else
-				$string .= '<a class="btn btn-outline-info" href="api/join_event.php?escursione='. $this->id . '">Partecipa!</a>';	
+				$string .= '<a class="btn btn-outline-info" href="api/join_event.php?escursione='. $this->id . '">Prenota!</a>';	
 			$string .= '</div></div>';
 			return $string;
 		}

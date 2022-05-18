@@ -10,6 +10,7 @@
 <head>
 	<title>Carica</title>
 	<?php include 'head.php'; ?>
+	<link href='css/form.css' rel='stylesheet'>
 </head>
 <body>
 <?php
@@ -17,7 +18,7 @@
 	include 'alerts.php';
 ?>
 <h1>Carica Percorso</h1>
-<form method='post' name='carica' action='api/upload_trail.php' class='container' enctype='multipart/form-data'>
+<form method='post' name='carica' action='api/upload_trail.php' class='container' id='form' enctype='multipart/form-data'>
 
 	<label for='sigla' class='form-label'>Sigla:</label>
 	<input name='sigla' id='sigla' class='form-control' maxlength='4' required pattern='[A-Z0-9]{1,4}' value='AAA1' oninput='return siglaUpper();'>
