@@ -9,8 +9,26 @@
 
 #sidebar{
 	height: 100%;
-	width: 25%;
 	overflow: hidden;
+}
+@media screen and (min-width: 768px){
+	#sidebar{
+		width: 25%;
+	}
+	#div_map{
+		display: inline-block;
+	}
+}
+@media screen and (max-width: 768px){
+	#sidebar{
+		width: 100%;
+	}
+	#div_map{
+		display: none;
+	}
+	.btn-view{
+		display: none;
+	}
 }
 
 #div_filters{
@@ -50,7 +68,6 @@
 }
 
 #div_map{
-	display:inline-block;
 	height: 100%;
 	width: 75%;
 	overflow: scroll;
