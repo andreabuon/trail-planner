@@ -27,3 +27,5 @@ https://thedailywtf.com/articles/WellIntentioned-Destruction
 - classe database
 
 -rimettere filtri!!!
+
+- manca nome sentieri in carte eventi

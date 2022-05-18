@@ -27,14 +27,17 @@
 		if(!isset($_SESSION['username'])){
 			$res = pg_query($dbconn, 'SELECT *, 0 as iscritto FROM escursioni ORDER BY data') or die('Query Failed: ' . pg_last_error());
 		}else{
-			$query = '(select *, 1 as iscritto
-					from escursioni e1
-					where e1.id in (select escursione from partecipa where username=$1)
-					union 
-					select *, 0 as iscritto
-					from escursioni e2
-					where e2.id not in (select escursione from partecipa where username=$1))
-					order by data';
+			$query = '(select e1.*, s1.nome, 1 as iscritto
+						from escursioni e1 join (select nome, sigla, parco_nome from sentieri) s1 on (e1.sentiero_sigla=s1.sigla and e1.sentiero_parco=s1.parco_nome)
+						where e1.id in (select escursione from partecipa where username=$1))
+						
+						union
+						
+						(select e2.*, s2.nome, 0 as iscritto
+						from escursioni e2 join (select nome, sigla, parco_nome from sentieri) s2 on (e2.sentiero_sigla=s2.sigla and e2.sentiero_parco=s2.parco_nome)
+						where e2.id not in (select escursione from partecipa where username=$1))
+						
+						order by data';
 			$res = pg_query_params($dbconn, $query, array($_SESSION['username'])) or die('Query Failed: ' . pg_last_error());
 		}
 		$rows = pg_fetch_all($res, PGSQL_ASSOC);
