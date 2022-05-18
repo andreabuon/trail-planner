@@ -24,11 +24,11 @@
 	require_once 'database.php';
 	$dbconn = Database::connect();
 	$query = 'INSERT INTO utenti VALUES ($1, $2)';
-	$data = pg_query_params($dbconn, $query, array($username, $password));
+	$data = pg_query_params($dbconn, $query, array($username, password_hash($password, PASSWORD_DEFAULT)));
 	
 	if(!$data){
-		$_SESSION['last-error'] = pg_last_error();
-		header('Location: ../registrati.php?error=Errore-DB');
+		$_SESSION['last-error'] = 'Nome utente già registrato.';
+		header('Location: ../registrati.php?error=2');
 		exit();
 	}
 	header('Location: ../accedi.php?signup=1');

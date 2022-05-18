@@ -6,6 +6,7 @@ function newAlert($type, $message){
 }
 
 
+
 if(isset($_GET['login']))
 	newAlert('info', 'Accesso eseguito');
 else if(isset($_GET['logout']))
@@ -14,14 +15,13 @@ else if(isset($_GET['signup']))
 	newAlert('success', 'Registrazione completata. Adesso puoi procedere con il login.');
 else if(isset($_GET['logged']))
 	newAlert('warning', 'Hai già effettuato il login.');
+
 if(isset($_GET['error'])){
-	$msg = "$_GET[error]";
-	if($debug){ 
-		$msg .= " $_SESSION[last_error]";
-		unset($_SESSION['last_error']);
-	}
-	newAlert('danger', $msg);
-	}
+	if(isset($_SESSION['last-error']))
+		newAlert('danger', 'Errore: '. $_SESSION['last-error']);
+	else
+		newAlert('danger', 'Errore');
+}
 if(isset($_GET['enforcelogin']))
 	newAlert('warning', 'Per visualizzare la pagina devi effettuare il login');
 if(isset($_GET['upload']))

@@ -15,25 +15,30 @@
 	
 	$match = preg_match('/\A[0-9a-zA-Z]{1,25}\z/', $username);
 	if(!$match | $match==false){
+		$_SESSION['last_error'] = 'Formato username errato';
 		header('Location: ../accedi.php?error=1');
 		exit();
 	}
 
 	require_once 'database.php';
 	$dbconn = Database::connect();
-	$query = 'SELECT * FROM utenti WHERE username=$1 AND password=$2';
-	$result = pg_query_params($dbconn, $query, array($username, $password));
+	$query = 'SELECT password FROM utenti WHERE username=$1';
+	$result = pg_query_params($dbconn, $query, array($username));
+	$hashed_password = pg_fetch_row($result, null, PGSQL_ASSOC);
 
-	if(pg_fetch_array($result, null, PGSQL_ASSOC)){
+	if(!$hashed_password){
+		$_SESSION['last-error'] = 'Username inesistente';
+		header('Location: ../accedi.php?error=1');
+		exit();
+	}
+	if(password_verify($password, $hashed_password['password'])){
 		$_SESSION['username'] = $username;
 		header('Location: ../index.php?login=1');
 		exit();
 	}
 	else{
-		$_SESSION['last-error'] = pg_last_error();
+		$_SESSION['last-error'] = 'Username/Password errati';
 		header('Location: ../accedi.php?error=1');
 		exit();
 	}
-	pg_free_result($result);
-	pg_close($dbconn);
 ?>

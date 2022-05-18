@@ -1,16 +1,11 @@
 - sistemare clearMap per render trail in esplora
 
-- PASSWORD HASHING + SALTING
-
 -possibilità di cancellare sentieri/escursioni
 -- vedere utenti in lista
 
 - aggiungere cellulare registrazione, nome, cognome
 
-- local storage su trail
-
-- navbar
--- active
+- cambiare on delete db
 
 - supporto dark theme
 

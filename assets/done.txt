@@ -29,3 +29,10 @@ https://thedailywtf.com/articles/WellIntentioned-Destruction
 -rimettere filtri!!!
 
 - manca nome sentieri in carte eventi
+
+- local storage su trail
+
+- navbar
+-- active
+
+- PASSWORD HASHING + SALTING
