@@ -21,7 +21,7 @@ function loadData(){
     }
 }
 
-function requestData(e){
+function requestData(){
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = saveData;
     httpRequest.open('GET', 'api/request_data.php?what=trails', true);
@@ -62,7 +62,7 @@ function renderTrails(array){
 }
 
 function newCard(sentiero, template){
-    //cambiare!!!!! basta usare tag con nome template (forse)
+    //cambiare!!!!! usare tag con nome template (forse)
     var card = template.content.cloneNode(true);
     card.querySelector('[name="parco"]').innerHTML = sentiero['parco_nome'];
     card.querySelector('[name="sigla"]').innerHTML = sentiero['sigla'];
@@ -71,9 +71,9 @@ function newCard(sentiero, template){
     card.querySelector('[name="dislivello"]').innerHTML = sentiero['dislivello'];
     card.querySelector('[name="difficolta"]').innerHTML = sentiero['difficolta'];
     
-    if(sentiero['descrizione']){
+    if(sentiero['descrizione'])
         card.querySelector('#info').setAttribute('onclick', 'alert("' + sentiero['descrizione'] + '");');
-    }else
+    else
        card.querySelector('#info').hidden = true;
 
     if(sentiero['track_path']){

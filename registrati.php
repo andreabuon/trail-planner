@@ -12,7 +12,7 @@
     <?php 
         include 'head.php'; 
     ?>
-    <script src="js/form_validation.js"></script>
+    <script src="js/signup_form_validation.js"></script>
     <link href='css/form.css' rel='stylesheet'>
 </head>
 <body>
