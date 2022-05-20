@@ -27,7 +27,6 @@
 				echo '<br>ESCURSIONE ' . $escursione['data'] . '<br>';
 				echo $escursione['sentiero_parco'] . ': '. $escursione['sentiero_sigla'];
 				echo '<br>';
-				echo 'ID: ' . $escursione['id'];
 				echo '<br>PARTECIPANTI:<br>';
 				$partecipanti = getEventReservations($escursione['id']);
 				foreach($partecipanti as $p){

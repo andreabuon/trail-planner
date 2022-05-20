@@ -15,9 +15,24 @@
 	<div id='div_events'>
 		<?php
 			include 'api/get_data.php';
+
+			function newEventCard($el){
+				$string = "<div class='card'>
+							<div class='card-body'>
+								<h6 class='card-text'>" . $el['sentiero_parco'] . "</h6>
+								<h5 class='card-title'> Sentiero " .$el['sentiero_sigla'].':'. $el['sentiero_nome'] . "</h5>
+								<h5 class='card-text'>" . $el['data'] ."</h5>";
+				if($el['iscritto'])
+					$string .= '<a class="btn btn-outline-secondary" href="api/leave_event.php?escursione=' . $el['id'] . '">Annulla Prenotazione</a>';				
+				else
+					$string .= '<a class="btn btn-outline-info" href="api/join_event.php?escursione='. $el['id'] . '">Prenota!</a>';	
+				$string .= '</div></div>';
+				return $string;
+			}
+
 			$elencoEscursioni = getEvents();
 			foreach($elencoEscursioni as $e){
-				echo $e;
+				echo newEventCard($e);
 			}
 		?>
 	</div>

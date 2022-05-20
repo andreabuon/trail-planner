@@ -44,7 +44,7 @@
 		$elencoEscursioni = array();
 		include 'escursione.php';
 		foreach($rows as $el){
-			$elencoEscursioni[] = new Escursione($el);
+			$elencoEscursioni[] = $el;
 		}
 		return $elencoEscursioni;
 	}
@@ -56,13 +56,8 @@
 		$rows = pg_fetch_all($res, PGSQL_ASSOC);
 		include 'escursione.php';
 		$elencoEscursioni = array();
-		/*
 		foreach($rows as $el){
-			$elencoEscursioni[] = new Escursione($el);
-		}
-		return $elencoEscursioni;
-		*/
-		foreach($rows as $el){
+			//$elencoEscursioni[] = new Escursione($el);
 			$elencoEscursioni[]= $el;
 		}
 		return $elencoEscursioni;

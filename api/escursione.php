@@ -21,19 +21,6 @@
 			$this->iscritto = $array['iscritto'];
 			return $this;
 		}
-	
-		public function __toString(){
-			$string = "<div class='card'>
-					<div class='card-body'>
-						<h6 class='card-text'>$this->sentiero_parco</h6>
-						<h5 class='card-title'>Sentiero $this->sentiero_sigla : $this->sentiero_nome</h5>
-						<h5 class='card-text'>$this->data</h5>";
-			if($this->iscritto)
-				$string .= '<a class="btn btn-outline-secondary" href="api/leave_event.php?escursione=' . $this->id . '">Annulla Prenotazione</a>';				
-			else
-				$string .= '<a class="btn btn-outline-info" href="api/join_event.php?escursione='. $this->id . '">Prenota!</a>';	
-			$string .= '</div></div>';
-			return $string;
-		}
+
 	}
 ?>
