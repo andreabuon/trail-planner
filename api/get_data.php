@@ -48,4 +48,30 @@
 		}
 		return $elencoEscursioni;
 	}
+
+	function getEventsByOrganizer($username){
+		$dbconn = Database::connect();
+		$query = 'SELECT * FROM escursioni WHERE organizzatore=$1 ORDER BY data';
+		$res = pg_query_params($dbconn, $query, array($username)) or die('Query Failed: ' . pg_last_error());
+		$rows = pg_fetch_all($res, PGSQL_ASSOC);
+		include 'escursione.php';
+		$elencoEscursioni = array();
+		/*
+		foreach($rows as $el){
+			$elencoEscursioni[] = new Escursione($el);
+		}
+		return $elencoEscursioni;
+		*/
+		foreach($rows as $el){
+			$elencoEscursioni[]= $el;
+		}
+		return $elencoEscursioni;
+	}
+
+	function getEventReservations($event_id){
+		$dbconn = Database::connect();
+		$query = 'SELECT username FROM partecipa WHERE escursione=$1 ORDER BY username';
+		$res = pg_query_params($dbconn, $query, array($event_id)) or die('Query Failed: ' . pg_last_error());
+		return pg_fetch_all($res, PGSQL_ASSOC);
+	}
 ?>
