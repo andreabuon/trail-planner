@@ -12,6 +12,9 @@
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
+	if(isset($_POST['mobile']))
+		$mobile = $_POST['mobile'];
+
 	if(!preg_match('/\A[0-9a-zA-Z]{1,25}\z/', $username)){
 		header('Location: ../registrati.php?error=Formato-username-errato');
 		exit();
@@ -23,11 +26,17 @@
 
 	require_once 'database.php';
 	$dbconn = Database::connect();
-	$query = 'INSERT INTO utenti VALUES ($1, $2)';
-	$data = pg_query_params($dbconn, $query, array($username, password_hash($password, PASSWORD_DEFAULT)));
+	if(isset($mobile)){
+		$query = 'INSERT INTO utenti VALUES ($1, $2, $3)';
+		$data = pg_query_params($dbconn, $query, array($username, password_hash($password, PASSWORD_DEFAULT), $mobile));
+	}else{
+		$query = 'INSERT INTO utenti ("username", "password") VALUES ($1, $2)';
+		$data = pg_query_params($dbconn, $query, array($username, password_hash($password, PASSWORD_DEFAULT)));
+	}
+
 	
 	if(!$data){
-		$_SESSION['last-error'] = 'Nome utente già registrato.';
+		$_SESSION['last_error'] = 'Nome utente già registrato.';
 		header('Location: ../registrati.php?error=1');
 		exit();
 	}

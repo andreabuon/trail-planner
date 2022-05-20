@@ -27,7 +27,7 @@
 	$hashed_password = pg_fetch_row($result, null, PGSQL_ASSOC);
 
 	if(!$hashed_password){
-		$_SESSION['last-error'] = 'Username inesistente';
+		$_SESSION['last_error'] = 'Username inesistente';
 		header('Location: ../accedi.php?error=1');
 		exit();
 	}
@@ -37,7 +37,7 @@
 		exit();
 	}
 	else{
-		$_SESSION['last-error'] = 'Username/Password errati';
+		$_SESSION['last_error'] = 'Username/Password errati';
 		header('Location: ../accedi.php?error=1');
 		exit();
 	}

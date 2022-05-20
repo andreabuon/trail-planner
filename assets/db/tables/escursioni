@@ -14,11 +14,11 @@ CREATE TABLE IF NOT EXISTS public.escursioni
     CONSTRAINT escursioni_organizzatore_fkey FOREIGN KEY (organizzatore)
         REFERENCES public.utenti (username) MATCH SIMPLE
         ON UPDATE CASCADE
-        ON DELETE NO ACTION,
+        ON DELETE CASCADE,
     CONSTRAINT escursioni_sentiero_parco_sentiero_sigla_fkey FOREIGN KEY (sentiero_parco, sentiero_sigla)
         REFERENCES public.sentieri (parco_nome, sigla) MATCH SIMPLE
         ON UPDATE CASCADE
-        ON DELETE NO ACTION
+        ON DELETE CASCADE
 )
 
 TABLESPACE pg_default;

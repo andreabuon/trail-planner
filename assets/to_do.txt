@@ -2,6 +2,8 @@
 
 - separare template php
 
+- template php {}
+
 - sistemare clearMap per render trail in esplora
 
 -possibilità di cancellare sentieri/escursioni

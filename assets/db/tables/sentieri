@@ -11,12 +11,12 @@ CREATE TABLE IF NOT EXISTS public.sentieri
     dislivello numeric(4,0),
     difficolta character varying(3) COLLATE pg_catalog."default",
     parco_nome character varying(80) COLLATE pg_catalog."default" NOT NULL,
-    track_json json,
+    track_path character varying(130) COLLATE pg_catalog."default",
     CONSTRAINT sentieri_pkey PRIMARY KEY (sigla, parco_nome),
     CONSTRAINT sentieri_parco_nome_fkey FOREIGN KEY (parco_nome)
         REFERENCES public.parchi (nome) MATCH SIMPLE
         ON UPDATE CASCADE
-        ON DELETE NO ACTION
+        ON DELETE CASCADE
 )
 
 TABLESPACE pg_default;

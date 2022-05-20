@@ -15,7 +15,7 @@
     $data = pg_query_params($dbconn, $query, $array);
 
     if(!$data){
-        $_SESSION['last-error'] = 'Errore DB';
+        $_SESSION['last_error'] = 'Errore DB';
         header('Location: ../organizza.php?error=1');
         exit();
 	}

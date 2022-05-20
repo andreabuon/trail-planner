@@ -24,16 +24,20 @@
 			$escursioni = getEventsByOrganizer($_SESSION['username']);
 			foreach($escursioni as $escursione){
 				//sistemare
-				echo 'Escursione: ';
-				print_r($escursione);
-				echo '<br>';
+				echo "<div class='card container-sm' id='card-{$escursione['id']}'>
+						<h5 class='card-title'>Escursione: sentiero {$escursione['sentiero_sigla']} - {$escursione['data']}</h5>
+						<div class='card-body'>";
 				echo 'Partecipanti: ';
+				//echo "<a class='btn btn-outline-info' onclick=''>Mostra Partecipanti</a>";
+				echo '<div id=div_partecipanti>';
 				$partecipanti = getEventReservations($escursione['id']);
 				foreach($partecipanti as $p){
 					//sistemare 
-					print_r($p);
+					echo $p['username'];
+					echo ' ';
 				}
-				echo '<hr>';
+				echo '</div>';
+				echo "<a class='btn btn-outline-danger' href='api/delete_event.php?id={$escursione['id']}'>Cancella Escursione</a></div></div>";
 			}
 		?>
 	</div>

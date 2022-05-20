@@ -5,7 +5,8 @@
 CREATE TABLE IF NOT EXISTS public.utenti
 (
     username character varying(25) COLLATE pg_catalog."default" NOT NULL,
-    password character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    mobile character varying(15),
     CONSTRAINT utenti_pkey PRIMARY KEY (username)
 )
 

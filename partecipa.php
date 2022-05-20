@@ -31,6 +31,10 @@
 			}
 
 			$escursioni = getEvents();
+			if(!$escursioni){
+				echo 'Nessun evento trovato.';
+				return;
+			}
 			foreach($escursioni as $e){
 				echo newEventCard($e);
 			}
