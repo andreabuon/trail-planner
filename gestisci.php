@@ -24,10 +24,16 @@
 			$escursioni = getEventsByOrganizer($_SESSION['username']);
 			foreach($escursioni as $escursione){
 				//sistemare
+				echo 'Escursione: ';
+				print_r($escursione);
+				echo '<br>';
+				echo 'Partecipanti: ';
 				$partecipanti = getEventReservations($escursione['id']);
 				foreach($partecipanti as $p){
 					//sistemare 
+					print_r($p);
 				}
+				echo '<hr>';
 			}
 		?>
 	</div>
