@@ -19,14 +19,15 @@
 			function newEventCard($el){
 				$string = "<div class='card'>
 							<div class='card-body'>
-								<h6 class='card-subtitle'>" . $el['sentiero_parco'] . "</h6>
-								<h5 class='card-title'> Sentiero " .$el['sentiero_sigla'].': '. $el['nome'] . "</h5>
-								<h5 class='card-text'>" . $el['data'] ."</h5>";
+								<h6 class='card-subtitle'> {$el['sentiero_parco']}</h6>
+								<h5 class='card-title'> Sentiero {$el['sentiero_sigla']}': {$el['nome']}</h5>
+								<h5 class='card-text'>{$el['data']}</h5>";
 				if($el['iscritto'])
-					$string .= '<a class="btn btn-outline-secondary" href="api/leave_event.php?escursione=' . $el['id'] . '">Annulla Prenotazione</a>';				
+					$string .= "<a class='btn btn-outline-secondary' href='api/leave_event.php?escursione={$el['id']}'>Annulla Prenotazione</a>";				
 				else
-					$string .= '<a class="btn btn-outline-info" href="api/join_event.php?escursione='. $el['id'] . '">Prenota!</a>';	
-				$string .= '</div></div>';
+					$string .= "<a class='btn btn-outline-info' href='api/join_event.php?escursione={$el['id']}'>Prenota!</a>";	
+				$string .= '</div>
+						</div>';
 				return $string;
 			}
 

@@ -22,22 +22,25 @@
 		<?php 
 			require_once 'api/get_data.php';
 			$escursioni = getEventsByOrganizer($_SESSION['username']);
+
+			if(!$escursioni){
+				echo 'Nessun evento trovato';
+				exit();
+			}
+
 			foreach($escursioni as $escursione){
 				//sistemare
-				echo "<div class='card container-sm' id='card-{$escursione['id']}'>
+				$string = "<div class='card container-sm' id='card-{$escursione['id']}'>
 						<h5 class='card-title'>Escursione: sentiero {$escursione['sentiero_sigla']} - {$escursione['data']}</h5>
-						<div class='card-body'>";
-				echo 'Partecipanti: ';
+						<div class='card-body'> Partecipanti: <div id='div_partecipanti'>";
 				//echo "<a class='btn btn-outline-info' onclick=''>Mostra Partecipanti</a>";
-				echo '<div id=div_partecipanti>';
 				$partecipanti = getEventReservations($escursione['id']);
 				foreach($partecipanti as $p){
 					//sistemare 
-					echo $p['username'];
-					echo ' ';
+					$string .= $p['username'] . ' ';
 				}
-				echo '</div>';
-				echo "<a class='btn btn-outline-danger' href='api/delete_event.php?id={$escursione['id']}'>Cancella Escursione</a></div></div>";
+				$string .= "</div><a class='btn btn-outline-danger' href='api/delete_event.php?id={$escursione['id']}'>Cancella Escursione</a></div></div>";
+				echo $string;
 			}
 		?>
 	</div>
