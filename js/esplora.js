@@ -2,17 +2,19 @@ var trails;
 var listed_trails;
 
 function loadData(){
-    if(localStorage.trails==undefined)
+    if(!localStorage.getItem('trails')){
+        console.debug('No local data found');
         requestData();
+        return;
+    }
     console.debug('Local data found');
-    if((new Date).getTime() - localStorage.timestamp > 300000 ){
+    if( (new Date).getTime() - localStorage.getItem('timestamp') > 10000 ){ //10 seconds
         console.debug('Data is outdated');
+        console.debug('Requesting new data.');
         requestData();
     }
     else{
-        console.debug(localStorage.timestamp);
         console.debug('Loading data...');
-        //console.debug(localStorage.trails);
         trails = JSON.parse(localStorage.trails);
         console.debug('Data loaded.');
         processData();
@@ -32,8 +34,8 @@ function saveData(e) {
         console.debug("Parsing data...");
         trails = JSON.parse(e.target.responseText);
         console.debug("Saving local copy...");
-        localStorage.trails = e.target.responseText;
-        localStorage.timestamp = (new Date).getTime();
+        localStorage.setItem('trails', e.target.responseText);
+        localStorage.setItem('timestamp', (new Date).getTime());
         processData();
     }
 }
@@ -54,8 +56,9 @@ function renderTrails(array){
     var div = document.getElementById('div_trails');
     clearDiv(div);
     var template = document.getElementById('card_template');
+    //sistemare con document fragment
     array.forEach(element => {div.appendChild(newCard(element, template))});
-    map.resize(); //sistemare
+
 }
 
 function newCard(sentiero, template){
@@ -74,7 +77,7 @@ function newCard(sentiero, template){
        card.querySelector('#info').hidden = true;
 
     if(sentiero['track_path']){
-        card.querySelector('#view').setAttribute('onclick', 'reqTrail("' + sentiero['track_path'] + '");');
+        card.querySelector('#view').setAttribute('onclick', 'getTrailTrack("' + sentiero['track_path'] + '");');
         card.querySelector('#download').setAttribute('href', 'uploads/' + sentiero['track_path']);
     }
     else{

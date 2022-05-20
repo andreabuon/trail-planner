@@ -23,7 +23,7 @@
 <h1>Organizza Escursione</h1>
 <form action='api/new_event.php' id='form' method='post' class='container'>
 	<label for='parco' class='form-label'>Parco:</label>
-	<select name='parco' required id='parco' class='form-control' onchange='return requestTrailData()'>
+	<select name='parco' required autofocus id='parco' class='form-control' onchange='return requestParkTrails();'>
 		<option selected disabled>Seleziona Parco...</option>
 		<?php 
 			include 'api/get_data.php'; 

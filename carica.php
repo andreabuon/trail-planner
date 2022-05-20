@@ -21,7 +21,7 @@
 <form method='post' name='carica' action='api/upload_trail.php' class='container' id='form' enctype='multipart/form-data'>
 
 	<label for='sigla' class='form-label'>Sigla:</label>
-	<input name='sigla' id='sigla' class='form-control' maxlength='4' required pattern='[A-Z0-9]{1,4}' value='AAA1' oninput='return siglaUpper();'>
+	<input name='sigla' id='sigla' class='form-control' maxlength='4' autofocus required pattern='[A-Z0-9]{1,4}' value='AAA1' oninput='return siglaUpper();'>
 
 	<label for='nome' class='form-label'>Nome:</label>
 	<input name='nome' id='nome' class='form-control' maxlength='70' required pattern='[a-zA-Z0-9 ]+' value='Sentiero nome default'>

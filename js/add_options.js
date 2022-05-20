@@ -1,29 +1,32 @@
-function requestTrailData(){
+function requestParkTrails(){
 	var httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = manageTrailData;
+    httpRequest.onreadystatechange = addTrailsOptions;
 	url = 'api/request_data.php?what=trails&park=' + document.getElementById('parco').value;
     httpRequest.open('GET', url, true);
     httpRequest.send();
 }
 
-function manageTrailData(e) {
+function addTrailsOptions(e) {
     if (e.target.readyState == 4 && e.target.status == 200) {
-		var select = document.getElementById('sigla');
-		select.innerHTML='';
-		if(e.target.responseText == ''){
-			select.innerHTML = "<option selected disabled>Nessun sentiero disponibile</option>";
+		sentieri = JSON.parse(e.target.responseText);
+		const select = document.getElementById('sigla');
+		//rimuovere tutte le opzioni dalla select
+		while(select.options.length)
+			select.remove(0);
+		//se elenco dei sentieri parsati è vuoto
+		if(Object.keys(sentieri).length === 0){
+			var default_option = document.createElement('option');
+			default_option.label='Nessun sentiero disponibile';
+			select.appendChild(default_option);
 			select.disabled = true;
+			return;
 		}
-		else{
-			var options = JSON.parse(e.target.responseText);
-			options.forEach(e => {
-				var opt_el = document.createElement('option');
-				opt_el.value = e['sigla'];
-				opt_el.innerText = e['sigla'] +": " + e['nome'];
-				//console.log(opt_el);
-				select.appendChild(opt_el);
-			});
-			select.disabled = false;
-		}
+		sentieri.forEach(sentiero => {
+			var option = document.createElement('option');
+			option.value = sentiero['sigla'];
+			option.label = sentiero['sigla'] + ": " + sentiero['nome'];
+			select.appendChild(option);
+		});
+		select.disabled = false;
     }
 }

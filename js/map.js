@@ -1,11 +1,13 @@
-function reqTrail(path) {
+const uploaddir = 'uploads/';
+
+function getTrailTrack(relative_path) {
 	var httpRequest = new XMLHttpRequest();
-	httpRequest.onreadystatechange = processTrail;
-	httpRequest.open('GET', 'uploads/' + path, true);
+	httpRequest.onreadystatechange = processTrailTrack;
+	httpRequest.open('GET',  uploaddir + relative_path, true);
 	httpRequest.send();
 }
 
-function processTrail(e) {
+function processTrailTrack(e) {
 	if (e.target.readyState == 4 && e.target.status == 200) {
 		var track = JSON.parse(e.target.responseText);
 		renderTrail(track);	
@@ -38,8 +40,6 @@ function clearMap(){
 	try{
 	if(map.getLayer('route'))
 		map.removeLayer('route');
-	}catch{}
-	try{
 	if(map.getSource('route'));
     	map.removeSource('route');
 	}catch{}
@@ -48,7 +48,7 @@ function clearMap(){
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmVhLTE4OTQyNjYiLCJhIjoiY2wyNzZhMnhsMDE0czNncWxnMDRjdDZyMiJ9.WyEF7AEAWB4RKbx0ueiJHQ';
 const map = new mapboxgl.Map({
 	container: 'div_map', // container ID
-	style: 'mapbox://styles/mapbox/outdoors-v11', // style URL
+	style: 'mapbox://styles/mapbox/satellite-v9', // 'mapbox://styles/mapbox/outdoors-v11', // style URL
 	center: [14.042513751693576, 42.068132238944344], // starting position [lng, lat] 
 	zoom: 13, // starting zoom
 });
