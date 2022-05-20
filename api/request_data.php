@@ -1,5 +1,5 @@
 <?php
-//API per richieste Javascript
+//Interface for Javascript Requests
 include 'get_data.php';
 
 if(!isset($_GET['what']))
@@ -17,6 +17,7 @@ switch($_GET['what']){
 		break;
 	case('events'):
 		//to implement
+		//sistemare
 		break;
 	default:
 		break;

@@ -40,27 +40,14 @@
 						order by data';
 			$res = pg_query_params($dbconn, $query, array($_SESSION['username'])) or die('Query Failed: ' . pg_last_error());
 		}
-		$rows = pg_fetch_all($res, PGSQL_ASSOC);
-		$elencoEscursioni = array();
-		include 'escursione.php';
-		foreach($rows as $el){
-			$elencoEscursioni[] = $el;
-		}
-		return $elencoEscursioni;
+		return pg_fetch_all($res, PGSQL_ASSOC);
 	}
 
 	function getEventsByOrganizer($username){
 		$dbconn = Database::connect();
 		$query = 'SELECT * FROM escursioni WHERE organizzatore=$1 ORDER BY data';
 		$res = pg_query_params($dbconn, $query, array($username)) or die('Query Failed: ' . pg_last_error());
-		$rows = pg_fetch_all($res, PGSQL_ASSOC);
-		include 'escursione.php';
-		$elencoEscursioni = array();
-		foreach($rows as $el){
-			//$elencoEscursioni[] = new Escursione($el);
-			$elencoEscursioni[]= $el;
-		}
-		return $elencoEscursioni;
+		return pg_fetch_all($res, PGSQL_ASSOC);
 	}
 
 	function getEventReservations($event_id){

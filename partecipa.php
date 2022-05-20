@@ -14,13 +14,13 @@
 	?>
 	<div id='div_events'>
 		<?php
-			include 'api/get_data.php';
+			require_once 'api/get_data.php';
 
 			function newEventCard($el){
 				$string = "<div class='card'>
 							<div class='card-body'>
-								<h6 class='card-text'>" . $el['sentiero_parco'] . "</h6>
-								<h5 class='card-title'> Sentiero " .$el['sentiero_sigla'].':'. $el['sentiero_nome'] . "</h5>
+								<h6 class='card-subtitle'>" . $el['sentiero_parco'] . "</h6>
+								<h5 class='card-title'> Sentiero " .$el['sentiero_sigla'].': '. $el['nome'] . "</h5>
 								<h5 class='card-text'>" . $el['data'] ."</h5>";
 				if($el['iscritto'])
 					$string .= '<a class="btn btn-outline-secondary" href="api/leave_event.php?escursione=' . $el['id'] . '">Annulla Prenotazione</a>';				
@@ -30,8 +30,8 @@
 				return $string;
 			}
 
-			$elencoEscursioni = getEvents();
-			foreach($elencoEscursioni as $e){
+			$escursioni = getEvents();
+			foreach($escursioni as $e){
 				echo newEventCard($e);
 			}
 		?>

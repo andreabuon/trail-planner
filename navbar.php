@@ -29,11 +29,11 @@
                 <?php
                     session_start();
                     if(isset($_SESSION['username'])){
-                        $r_items = array(['Carica', 'carica.php'],['Organizza', 'organizza.php'], ['Gestisci', 'gestisci.php'], [$_SESSION['username'], ''], ['Esci', 'esci.php']);
+                        $r_items = array(['Carica', 'carica.php'], ['Organizza', 'organizza.php'], ['Gestisci', 'gestisci.php'], [$_SESSION['username'], ''], ['Esci', 'esci.php']);
                     }else
                         $r_items = array(['Registrati', 'registrati.php'], ['Accedi', 'accedi.php']);
                     foreach($r_items as $el){
-                            echo newNavItem($el[0], $el[1]);
+                        echo newNavItem($el[0], $el[1]);
                     }
                 ?>
             </ul>

@@ -10,7 +10,7 @@
     $array = array($_SESSION['username'], $_GET['escursione']);
     $res = pg_query_params($dbconn, $query, $array);
     if(!$res){
-		$_SESSION['last_error'] = pg_last_error();
+		$_SESSION['last_error'] = 'Errore DB';
 		header('Location: ../partecipa.php?error=1');
         exit();
 	}

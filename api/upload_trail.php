@@ -53,8 +53,8 @@
         if(isset($path)){
             unlink($path);
         }
-        $_SESSION['last-error'] = pg_last_error();
-        header('Location: ../carica.php?error=Errore-DB');
+        $_SESSION['last-error'] = 'Errore DB';
+        header('Location: ../carica.php?error=1');
         exit();
 	}
     header('Location: ../carica.php?upload=1');

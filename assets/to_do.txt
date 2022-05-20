@@ -1,5 +1,6 @@
-- sistemare classe escursione!!!
+- sistemare classe escursione!!! RIMOSSA
 
+- separare template php
 
 - sistemare clearMap per render trail in esplora
 

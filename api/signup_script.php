@@ -28,7 +28,7 @@
 	
 	if(!$data){
 		$_SESSION['last-error'] = 'Nome utente già registrato.';
-		header('Location: ../registrati.php?error=2');
+		header('Location: ../registrati.php?error=1');
 		exit();
 	}
 	header('Location: ../accedi.php?signup=1');

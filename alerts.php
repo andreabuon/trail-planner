@@ -13,6 +13,8 @@ else if(isset($_GET['logout']))
 	newAlert('info', 'Disconnessione eseguita.');
 else if(isset($_GET['signup']))
 	newAlert('success', 'Registrazione completata. Adesso puoi procedere con il login.');
+else if(isset($_GET['enforcelogin']))
+	newAlert('warning', 'Per visualizzare la pagina devi effettuare il login');
 else if(isset($_GET['logged']))
 	newAlert('warning', 'Hai già effettuato il login.');
 
@@ -22,8 +24,6 @@ if(isset($_GET['error'])){
 	else
 		newAlert('danger', 'Errore');
 }
-if(isset($_GET['enforcelogin']))
-	newAlert('warning', 'Per visualizzare la pagina devi effettuare il login');
 if(isset($_GET['upload']))
 	newAlert('info', 'Caricamento completato.');
 if(isset($_GET['success']))
