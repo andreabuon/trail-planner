@@ -1,7 +1,7 @@
-function reqTrail() {
+function reqTrail(path) {
 	var httpRequest = new XMLHttpRequest();
 	httpRequest.onreadystatechange = processTrail;
-	httpRequest.open('GET', "assets/track.geojson", true);
+	httpRequest.open('GET', 'uploads/' + path, true);
 	httpRequest.send();
 }
 

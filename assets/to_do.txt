@@ -20,6 +20,7 @@
 - display cards in esplora - javascript; versione javascript >>
 -- template html>>
 --- capire come funzionano gli slot
+-- cambiare richiesta
 
 - drag and drop files
 
