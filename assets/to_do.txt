@@ -11,6 +11,9 @@
 
 - aggiungere cellulare registrazione, nome, cognome
 
+- email registrazione bottone contatta
+
+
 - cambiare on delete db
 
 - supporto dark theme

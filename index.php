@@ -1,17 +1,66 @@
 <!doctype html>
 <html lang='it'>
+
 <head>
 	<title>Home</title>
+	<link href='css/index.css' rel='stylesheet'>
 	<?php include 'head.php';?>
+	
 </head>
+
 <body>
 	<?php 
 		include 'navbar.php';
 		include 'alerts.php';
 	?>
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu feugiat pretium nibh ipsum consequat nisl vel pretium. A pellentesque sit amet porttitor eget. Lacus sed turpis tincidunt id aliquet risus feugiat. Mauris pharetra et ultrices neque. Purus gravida quis blandit turpis cursus in hac. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Id velit ut tortor pretium viverra suspendisse. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Tincidunt ornare massa eget egestas. Tortor at risus viverra adipiscing at in tellus. Ut faucibus pulvinar elementum integer enim neque volutpat. Aliquam faucibus purus in massa tempor nec feugiat. Augue neque gravida in fermentum et sollicitudin ac orci phasellus.
-		Tristique senectus et netus et malesuada fames ac turpis. Pharetra et ultrices neque ornare aenean euismod elementum nisi. Leo integer malesuada nunc vel risus commodo. Pulvinar sapien et ligula ullamcorper malesuada proin. Dignissim sodales ut eu sem integer vitae justo. Ut sem viverra aliquet eget. Tempus egestas sed sed risus. Tempus urna et pharetra pharetra massa massa. Tincidunt arcu non sodales neque sodales ut etiam. Magna sit amet purus gravida quis blandit turpis cursus in. Ultrices mi tempus imperdiet nulla malesuada.
-	</p>
+	
+	<div id='content container-md'>
+		<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+			  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			</div>
+			<div class="carousel-inner">
+			  <div class="carousel-item active">
+				<img src="assets/img/1.jpg" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+				  <h5>TrailPlanner</h5>
+				  <p>Organizza le tue escursioni con TrailPlanner.</p>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img src="assets/img/2.jpg" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>TrailPlanner</h5>
+				  <p>Organizza le tue escursioni con TrailPlanner.</p>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<img src="assets/img/3.jpg" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>TrailPlanner</h5>
+				  <p>Organizza le tue escursioni con TrailPlanner.</p>
+				</div>
+			  </div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+			  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			  <span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+			  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			  <span class="visually-hidden">Next</span>
+			</button>
+		</div>
+		<!--
+		<div class="d-inline-flex justify-content-evenly flex-row">			
+			<a class='btn-lg btn-info' href='esplora.php'>Esplora</button>
+			<a class='btn-lg btn-success' href='partecipa.php'>Partecipa</button>
+		</div>
+		-->
+	</div>
 </body>
+<script src='js/popper.min.js'></script>
+
 </html>
