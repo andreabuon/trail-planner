@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(!isset($_SESSION['username'])) {
-		header('Location: index.php?enforcelogin=1');
+		header('Location: accedi.php?enforcelogin=1');
 		exit();
 	}
 ?>
@@ -17,7 +17,7 @@
 		include 'navbar.php'; 
 		include 'alerts.php';
 	?>
-
+	<h1>Gestisci Escursioni</h1>
 	<div id='div_events'>
 		<?php 
 			require_once 'api/get_data.php';
@@ -30,16 +30,23 @@
 
 			foreach($escursioni as $escursione){
 				//sistemare
-				$string = "<div class='card container-sm' id='card-{$escursione['id']}'>
-						<h5 class='card-title'>Escursione: sentiero {$escursione['sentiero_sigla']} - {$escursione['data']}</h5>
-						<div class='card-body'> Partecipanti: <div id='div_partecipanti'>";
-				//echo "<a class='btn btn-outline-info' onclick=''>Mostra Partecipanti</a>";
-				$partecipanti = getEventReservations($escursione['id']);
-				foreach($partecipanti as $p){
-					//sistemare 
-					$string .= $p['username'] . ' ';
-				}
-				$string .= "</div><a class='btn btn-outline-danger' href='api/delete_event.php?id={$escursione['id']}'>Cancella Escursione</a></div></div>";
+				$string =  "
+							<div class='card' id='card-{$escursione['id']}'>
+								<div class='card-body'>
+									<h5 class='card-title'>Sentiero: {$escursione['sentiero_sigla']}</h5>
+									<h6 class='card-subtitle text-muted'> {$escursione['sentiero_parco']}</h6>
+									<ul class='list-group list-group-flush'>
+										<li class='list-group-item'>Data: {$escursione['data']}</li>
+									</ul>
+									<ul class='list-group list-group-flush'>
+										<a class='btn btn-outline-info' href='list_bookings.php?id={$escursione['id']}' target='_blank'>Elenca Prenotazioni</a>
+									</ul>
+									<ul class='list-group list-group-flush'>
+										<a class='btn btn-outline-danger' href='api/delete_event.php?id={$escursione['id']}'>Cancella Escursione</a>
+									</ul>
+								</div>
+							</div>
+							";
 				echo $string;
 			}
 		?>

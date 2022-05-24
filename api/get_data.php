@@ -43,14 +43,6 @@
 		return pg_fetch_all($res, PGSQL_ASSOC);
 	}
 
-	function getMobile($username){
-		$dbconn = Database::connect();
-		$query = 'SELECT mobile FROM utenti WHERE username=$1';
-		$res = pg_query_params($dbconn, $query, array($username)) or die('Query Failed: ' . pg_last_error());
-		$res = pg_fetch_row($res, 0, PGSQL_ASSOC)['mobile'];
-		return $res;
-	}
-
 	function getEventsByOrganizer($username){
 		$dbconn = Database::connect();
 		$query = 'SELECT * FROM escursioni WHERE organizzatore=$1 ORDER BY data';
@@ -62,6 +54,22 @@
 		$dbconn = Database::connect();
 		$query = 'SELECT username FROM partecipa WHERE escursione=$1 ORDER BY username';
 		$res = pg_query_params($dbconn, $query, array($event_id)) or die('Query Failed: ' . pg_last_error());
-		return pg_fetch_all($res, PGSQL_ASSOC);
+		$rows = pg_fetch_array($res, null, PGSQL_ASSOC);
+		return $rows;
+	}
+
+	function getOrganizerByEvent($event_id){
+		$dbconn = Database::connect();
+		$query = 'SELECT organizzatore FROM escursioni WHERE id=$1';
+		$res = pg_query_params($dbconn, $query, array($event_id)) or die('Query Failed: ' . pg_last_error());
+		return pg_fetch_array($res, null, PGSQL_ASSOC)['organizzatore'];
+	}
+
+	function getMobile($username){
+		$dbconn = Database::connect();
+		$query = 'SELECT mobile FROM utenti WHERE username=$1';
+		$res = pg_query_params($dbconn, $query, array($username)) or die('Query Failed: ' . pg_last_error());
+		$row = pg_fetch_row($res, 0, PGSQL_ASSOC)['mobile'];
+		return $row;
 	}
 ?>
