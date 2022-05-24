@@ -34,6 +34,10 @@
             <input name='passwordConfirm' id='passwordConfirm' type='password' maxlength='25' size='25' required class='form-control' placeholder='Password'>
             <label for='passwordConfirm'>Conferma Password</label>
         </div>
+        <div class='form-group form-floating'>
+            <input name='mobile' id='mobile' type='tel' maxlength='20' size='25' required class='form-control' placeholder='Cellulare'>
+            <label for='mobile'>Cellulare</label>
+        </div>
         <input name='signup_button' type='submit' class='btn btn-primary' value='Registrati' onclick='return validaRegistrazione();'>
         <input name='reset_button' type='reset' class='btn btn-outline-secondary' value='Reset'>
     </form>

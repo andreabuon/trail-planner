@@ -12,6 +12,7 @@
 		include 'navbar.php';
 		include 'alerts.php';
 	?>
+	<h1>Prossime Escursioni:</h1>
 	<div id='div_events'>
 		<?php
 			require_once 'api/get_data.php';
@@ -24,13 +25,16 @@
 								<ul class='list-group list-group-flush'>
 									<li class='list-group-item'>Sigla percorso: {$el['sentiero_sigla']}</li>
 									<li class='list-group-item'>{$el['data']}</li>
-								
-								<li class='list-group-item'>";
+									<li class='list-group-item'>Referente: {$el['organizzatore']}</li>
+								</ul>
+								<div class='card-btns'>";
 				if($el['iscritto'])
 					$string .= "<a class='btn btn-outline-secondary' href='api/leave_event.php?escursione={$el['id']}'>Annulla Prenotazione</a>";				
 				else
-					$string .= "<a class='btn btn-outline-info' href='api/join_event.php?escursione={$el['id']}'>Prenota!</a>";	
-				$string .= '</li></ul></div></div>';
+					$string .= "<a class='btn btn-outline-success' href='api/join_event.php?escursione={$el['id']}'>Prenota!</a>";	
+				if(isset($el['mobile']))
+					$string .= "<a class='btn btn-outline-info' href='https://wa.me/{$el['mobile']}'>Contatta</a>";
+				$string .= '</div></div></div>';
 				return $string;
 			}
 
@@ -40,6 +44,8 @@
 				return;
 			}
 			else foreach($escursioni as $e){
+				if(isset($_SESSION['username']))
+					$e['mobile'] = getMobile($e['organizzatore']);
 				echo newEventCard($e);
 			}
 		?>

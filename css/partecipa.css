@@ -8,10 +8,15 @@
 }
 
 body{
-	height: 90vh;
-	overflow: hidden;
+	height: 92vh;
 }
 
-.card{
+.card-btns{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
 
+.card:hover {
+	transform: scale(1.1); 
 }

@@ -43,6 +43,14 @@
 		return pg_fetch_all($res, PGSQL_ASSOC);
 	}
 
+	function getMobile($username){
+		$dbconn = Database::connect();
+		$query = 'SELECT mobile FROM utenti WHERE username=$1';
+		$res = pg_query_params($dbconn, $query, array($username)) or die('Query Failed: ' . pg_last_error());
+		$res = pg_fetch_row($res, 0, PGSQL_ASSOC)['mobile'];
+		return $res;
+	}
+
 	function getEventsByOrganizer($username){
 		$dbconn = Database::connect();
 		$query = 'SELECT * FROM escursioni WHERE organizzatore=$1 ORDER BY data';
