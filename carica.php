@@ -17,9 +17,8 @@
 	include 'navbar.php';
 	include 'alerts.php';
 ?>
-<h1>Carica Percorso</h1>
 <form method='post' name='carica' action='api/upload_trail.php' class='container' id='form' enctype='multipart/form-data'>
-
+	<h1>Carica Percorso</h1>
 	<label for='sigla' class='form-label'>Sigla:</label>
 	<input name='sigla' id='sigla' class='form-control' maxlength='4' autofocus required pattern='[A-Z0-9]{1,4}' value='AAA1' oninput='return siglaUpper();'>
 

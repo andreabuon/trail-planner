@@ -40,6 +40,7 @@
 		<h3>Report Escursione</h3>
 		<div class='noprint'>
 			<button class='btn btn-outline-primary' onclick='window.print();'>Stampa</button>
+			<button class='btn btn-outline-secondary' onclick='window.close();'>Chiudi</button>
 			<a class='btn btn-outline-danger' href='api/delete_event.php?id=<?php echo $id;?>' onclick='return chiediConferma()'>Cancella Escursione</a>
 		</div>
 		<hr>
