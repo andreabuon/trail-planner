@@ -28,6 +28,7 @@
 			<label for='password'>Password</label>
 		</div>
 			<input name='login_button' type='submit' class='btn btn-primary' value='Accedi'>
+			<span class="form-text">Non sei registrato? <a href='registrati.php'>Registrati</a></span>
 	</form>
 </body>
 </html>
