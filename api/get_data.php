@@ -43,6 +43,13 @@
 		return pg_fetch_all($res, PGSQL_ASSOC);
 	}
 
+	function getEventById($id){
+		$dbconn = Database::connect();
+		$query = 'SELECT * FROM escursioni WHERE id=$1';
+		$res = pg_query_params($dbconn, $query, array($id)) or die('Query Failed: ' . pg_last_error());
+		return pg_fetch_row($res, 0, PGSQL_ASSOC);
+	}
+
 	function getEventsByOrganizer($username){
 		$dbconn = Database::connect();
 		$query = 'SELECT * FROM escursioni WHERE organizzatore=$1 ORDER BY data';
@@ -52,9 +59,9 @@
 
 	function getEventReservations($event_id){
 		$dbconn = Database::connect();
-		$query = 'SELECT username FROM partecipa WHERE escursione=$1 ORDER BY username';
+		$query = 'SELECT username, mobile FROM partecipa natural join utenti WHERE escursione=$1 ORDER BY username';
 		$res = pg_query_params($dbconn, $query, array($event_id)) or die('Query Failed: ' . pg_last_error());
-		$rows = pg_fetch_array($res, null, PGSQL_ASSOC);
+		$rows = pg_fetch_all($res, PGSQL_ASSOC);
 		return $rows;
 	}
 

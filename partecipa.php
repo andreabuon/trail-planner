@@ -25,16 +25,20 @@
 								<ul class='list-group list-group-flush'>
 									<li class='list-group-item'>Sigla percorso: {$el['sentiero_sigla']}</li>
 									<li class='list-group-item'>{$el['data']}</li>
-									<li class='list-group-item'>Referente: {$el['organizzatore']}</li>
-								</ul>
-								<div class='card-btns'>";
+									<li class='list-group-item'>Referente: {$el['organizzatore']}</li>";
+				if($el['note'])
+					$string .= "<li class='list-group-item'>Note: {$el['note']}</li>";
+
+				$string .= "</ul><div class='card-btns'>";
 				if($el['iscritto'])
 					$string .= "<a class='btn btn-outline-secondary' href='api/leave_event.php?escursione={$el['id']}'>Annulla Prenotazione</a>";				
 				else
 					$string .= "<a class='btn btn-outline-success' href='api/join_event.php?escursione={$el['id']}'>Prenota!</a>";	
+				
 				if(isset($el['mobile']))
 					$string .= "<a class='btn btn-outline-info' target='__blank' href='https://wa.me/{$el['mobile']}'>Contatta</a>";
-				$string .= '</div></div></div>';
+				
+					$string .= '</div></div></div>';
 				return $string;
 			}
 
