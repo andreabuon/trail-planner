@@ -33,7 +33,7 @@
 				else
 					$string .= "<a class='btn btn-outline-success' href='api/join_event.php?escursione={$el['id']}'>Prenota!</a>";	
 				if(isset($el['mobile']))
-					$string .= "<a class='btn btn-outline-info' href='https://wa.me/{$el['mobile']}'>Contatta</a>";
+					$string .= "<a class='btn btn-outline-info' target='__blank' href='https://wa.me/{$el['mobile']}'>Contatta</a>";
 				$string .= '</div></div></div>';
 				return $string;
 			}

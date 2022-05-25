@@ -20,8 +20,8 @@
         include 'navbar.php';
         include 'alerts.php';
     ?>
-	<h1>Registrati</h1>
     <form action='api/signup_script.php' method='post' id='form' class='container' name='form_registrazione'>
+        <h1>Registrati</h1>
         <div class='form-group  form-floating'>
             <input name='username' id='username' type='text' maxlength='25' size='25' required class='form-control' placeholder='Username' pattern='[a-zA-Z0-9]{1,25}'>
             <label for='username'>Username</label>

@@ -38,12 +38,14 @@
 									<ul class='list-group list-group-flush'>
 										<li class='list-group-item'>Data: {$escursione['data']}</li>
 									</ul>
-									<ul class='list-group list-group-flush'>
-										<a class='btn btn-outline-info' href='list_bookings.php?id={$escursione['id']}' target='_blank'>Elenca Prenotazioni</a>
-									</ul>
-									<ul class='list-group list-group-flush'>
-										<a class='btn btn-outline-danger' href='api/delete_event.php?id={$escursione['id']}'>Cancella Escursione</a>
-									</ul>
+									<div class='card-btns'>
+										<ul class='list-group list-group-flush'>
+											<a class='btn btn-outline-info' href='list_bookings.php?id={$escursione['id']}' target='_blank'>Elenca Prenotazioni</a>
+										</ul>
+										<ul class='list-group list-group-flush'>
+											<a class='btn btn-outline-danger' href='api/delete_event.php?id={$escursione['id']}'>Cancella Escursione</a>
+										</ul>
+									</div>
 								</div>
 							</div>
 							";
