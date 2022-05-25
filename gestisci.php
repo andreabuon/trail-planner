@@ -40,7 +40,7 @@
 									</ul>
 									<div class='card-btns'>
 										<ul class='list-group list-group-flush'>
-											<a class='btn btn-outline-info' href='list_bookings.php?id={$escursione['id']}' target='_blank'>Resoconto</a>
+											<a class='btn btn-outline-info' href='report.php?id={$escursione['id']}' target='_blank'>Resoconto</a>
 										</ul>
 										<ul class='list-group list-group-flush'>
 											<a class='btn btn-outline-danger btn-delete' href='api/delete_event.php?id={$escursione['id']}' onclick='return chiediConferma()'>Cancella Escursione</a>

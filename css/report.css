@@ -1,0 +1,15 @@
+#report{
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+	justify-content: flex-start;
+	padding: 1em;
+}
+@media print {
+	.noprint{
+		display: none;
+	}
+	#report{
+		padding: 0;
+	}
+  }
