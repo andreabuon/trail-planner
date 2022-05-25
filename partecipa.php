@@ -31,7 +31,7 @@
 
 				$string .= "</ul><div class='card-btns'>";
 				if($el['iscritto'])
-					$string .= "<a class='btn btn-outline-secondary' href='api/leave_event.php?escursione={$el['id']}'>Annulla Prenotazione</a>";				
+					$string .= "<a class='btn btn-outline-secondary' href='api/leave_event.php?escursione={$el['id']}' onclick='return chiediConferma();'>Annulla Prenotazione</a>";				
 				else
 					$string .= "<a class='btn btn-outline-success' href='api/join_event.php?escursione={$el['id']}'>Prenota!</a>";	
 				
@@ -55,4 +55,11 @@
 		?>
 	</div>
 </body>
+
+<script>
+	function chiediConferma(){
+		return confirm("Sei sicuro?");
+	}
+</script>
+
 </html>

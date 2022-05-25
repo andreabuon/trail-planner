@@ -29,7 +29,7 @@
                 <?php
                     session_start();
                     if(isset($_SESSION['username'])){
-                        $r_items = array(['Carica', 'carica.php'], ['Organizza', 'organizza.php'], ['Gestisci', 'gestisci.php'], [$_SESSION['username'], ''], ['Esci', 'esci.php']);
+                        $r_items = array(['Carica  Percorso', 'carica.php'], ['Gestione Escursioni', 'gestisci.php'], [$_SESSION['username'], ''], ['Esci', 'esci.php']);
                     }else
                         $r_items = array(['Registrati', 'registrati.php'], ['Accedi', 'accedi.php']);
                     foreach($r_items as $el){

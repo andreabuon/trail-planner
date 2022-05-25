@@ -25,7 +25,7 @@
 	function getEvents(){
 		$dbconn = Database::connect();
 		if(!isset($_SESSION['username'])){
-			$res = pg_query($dbconn, 'SELECT *, 0 as iscritto FROM escursioni ORDER BY data') or die('Query Failed: ' . pg_last_error());
+			$res = pg_query($dbconn, 'SELECT *, 0 as iscritto FROM escursioni WHERE data > CURRENT_DATE ORDER BY data') or die('Query Failed: ' . pg_last_error());
 		}else{
 			$query = '(select e1.*, s1.nome, 1 as iscritto
 						from escursioni e1 join (select nome, sigla, parco_nome from sentieri) s1 on (e1.sentiero_sigla=s1.sigla and e1.sentiero_parco=s1.parco_nome)

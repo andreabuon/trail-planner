@@ -38,6 +38,10 @@
 	</div>
 	<div id='report'>
 		<h3>Report Escursione</h3>
+		<div class='noprint'>
+			<button class='btn btn-outline-primary' onclick='window.print();'>Stampa</button>
+			<a class='btn btn-outline-danger' href='api/delete_event.php?id=<?php echo $id;?>' onclick='return chiediConferma()'>Cancella Escursione</a>
+		</div>
 		<hr>
 		<div id='info'>
 			<h5>Escursione</h5>
@@ -83,9 +87,11 @@
 				}
 			?>
 		</table>
-
-		<div class='noprint'>
-			<button class='btn btn-primary' onclick='window.print();'>Stampa</button>
-		</div>
 	</div>
 </body>
+
+<script>
+	function chiediConferma(){
+		return confirm("Sei sicuro?");
+	}
+</script>

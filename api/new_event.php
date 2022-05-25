@@ -19,6 +19,6 @@
         header('Location: ../organizza.php?error=1');
         exit();
 	}
-    header('Location: ../organizza.php?upload=1');
+    header('Location: ../gestisci.php?upload=1');
     exit();
 ?>

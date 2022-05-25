@@ -17,7 +17,9 @@
 		include 'navbar.php'; 
 		include 'alerts.php';
 	?>
-	<h1>Gestisci Escursioni</h1>
+	<h1>Gestione Escursioni</h1>
+	<h5>Selezione Escursione</h5>
+	<a class='btn btn-lg btn-outline-primary' href='organizza.php'> + Organizza Escursione</a>
 	<div id='div_events'>
 		<?php 
 			require_once 'api/get_data.php';
@@ -35,18 +37,9 @@
 								<div class='card-body'>
 									<h5 class='card-title'>Sentiero: {$escursione['sentiero_sigla']}</h5>
 									<h6 class='card-subtitle text-muted'> {$escursione['sentiero_parco']}</h6>
-									<ul class='list-group list-group-flush'>
-										<li class='list-group-item'>Data: {$escursione['data']}</li>
-									</ul>
-									<div class='card-btns'>
-										<ul class='list-group list-group-flush'>
-											<a class='btn btn-outline-info' href='report.php?id={$escursione['id']}' target='_blank'>Resoconto</a>
-										</ul>
-										<ul class='list-group list-group-flush'>
-											<a class='btn btn-outline-danger btn-delete' href='api/delete_event.php?id={$escursione['id']}' onclick='return chiediConferma()'>Cancella Escursione</a>
-										</ul>
-									</div>
+									<h5>{$escursione['data']}</h5>
 								</div>
+								<a class='btn btn-outline-info' href='report.php?id={$escursione['id']}' target='_blank'>Seleziona</a>
 							</div>
 							";
 				echo $string;
@@ -54,9 +47,3 @@
 		?>
 	</div>
 </body>
-
-<script>
-	function chiediConferma(){
-		return confirm("Sei sicuro?");
-	}
-</script>

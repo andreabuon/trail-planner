@@ -1,5 +1,7 @@
 - sistemare classe escursione!!! RIMOSSA
 
+- listing eventi da data attuale anche per utenti loggati
+
 - separare template php
 
 - template php {}
