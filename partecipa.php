@@ -30,6 +30,7 @@
 					$string .= "<li class='list-group-item'>Note: {$el['note']}</li>";
 
 				$string .= "</ul><div class='card-btns'>";
+				$string .= "<a class='btn btn-outline-primary' target='_blank' href='trail.php?parco={$el['sentiero_parco']}&sigla={$el['sentiero_sigla']}'>Info</a>";
 				if($el['iscritto'])
 					$string .= "<a class='btn btn-outline-secondary' href='api/leave_event.php?escursione={$el['id']}' onclick='return chiediConferma();'>Annulla Prenotazione</a>";				
 				else

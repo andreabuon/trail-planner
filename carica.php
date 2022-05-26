@@ -43,7 +43,7 @@
 	<input name='lunghezza' required id='lunghezza' type='number' class='form-control' maxlength='4' value='7.50' step=0.1 pattern='[0-9]{1,2}(\.[0-9]{0,2}){0,1}'>
 
 	<label for='dislivello' class='form-label'>Dislivello:</label>
-	<input name='dislivello' id='dislivello' required type='number' class='form-control' maxlength='4' value='500' step='250' pattern='[0-9]+'>
+	<input name='dislivello' id='dislivello' required type='number' class='form-control' maxlength='4' value='500' step='50' pattern='[0-9]+'>
 
 	<label for='difficolta' class='form-label'>Difficoltà:</label>
 	<select name='difficolta' required id='difficolta' class='form-control'>

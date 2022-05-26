@@ -22,6 +22,13 @@
 		return pg_fetch_all($result, PGSQL_ASSOC);
 	}
 
+	function getTrail($parco, $sigla){
+		$dbconn = Database::connect();
+		$query = 'SELECT * FROM sentieri WHERE parco_nome = $1 and sigla=$2';
+		$result = pg_query_params($dbconn, $query, array($parco, $sigla)) or die('Query Failed: ' . pg_last_error());
+		return pg_fetch_array($result, 0, PGSQL_ASSOC);
+	}
+
 	function getEvents(){
 		$dbconn = Database::connect();
 		if(!isset($_SESSION['username'])){

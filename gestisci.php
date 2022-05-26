@@ -41,7 +41,7 @@
 									<h6 class='card-subtitle text-muted'> {$escursione['sentiero_parco']}</h6>
 									
 								</div>
-								<a class='btn btn-outline-info' href='report.php?id={$escursione['id']}' target='_blank'>Seleziona</a>
+								<a class='btn btn-outline-info stretched-link' href='report.php?id={$escursione['id']}' target='_blank'>Seleziona</a>
 							</div>
 							";
 				echo $string;

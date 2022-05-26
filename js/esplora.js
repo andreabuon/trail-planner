@@ -70,12 +70,7 @@ function newCard(sentiero, template){
     card.querySelector('[name="lunghezza"]').innerHTML = sentiero['lunghezza'];
     card.querySelector('[name="dislivello"]').innerHTML = sentiero['dislivello'];
     card.querySelector('[name="difficolta"]').innerHTML = sentiero['difficolta'];
-    
-    if(sentiero['descrizione'])
-        card.querySelector('#info').setAttribute('onclick', 'alert("' + sentiero['descrizione'] + '");');
-    else
-       card.querySelector('#info').hidden = true;
-
+    card.querySelector('#info').setAttribute('href', 'trail.php?parco=' + sentiero['parco_nome'] + '&sigla=' + sentiero['sigla']);
     if(sentiero['track_path']){
         card.querySelector('#view').setAttribute('onclick', 'getTrailTrack("' + sentiero['track_path'] + '");');
         card.querySelector('#download').setAttribute('href', 'uploads/' + sentiero['track_path']);
