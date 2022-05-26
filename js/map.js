@@ -11,6 +11,7 @@ function processTrailTrack(e) {
 	if (e.target.readyState == 4 && e.target.status == 200) {
 		var track = JSON.parse(e.target.responseText);
 		renderTrail(track);	
+		//console.debug(track);
 	}
 }
 
@@ -33,6 +34,8 @@ function renderTrail(track) {
 			'line-width': 5
 		}
 	});
+	//console.log(track.features[0].geometry.coordinates[0][0]);
+	map.flyTo({center: track.features[0].geometry.coordinates[0][0], zoom: 13});
 }
 
 function clearMap(){
@@ -50,7 +53,7 @@ const map = new mapboxgl.Map({
 	container: 'div_map', // container ID
 	style: 'mapbox://styles/mapbox/satellite-v9', // 'mapbox://styles/mapbox/outdoors-v11', // style URL
 	center: [14.042513751693576, 42.068132238944344], // starting position [lng, lat] 
-	zoom: 13, // starting zoom
+	zoom: 12, // starting zoom
 });
 
 map.on('load', () => {

@@ -1,5 +1,7 @@
 - sistemare classe escursione!!! RIMOSSA
 
+- flyto primo punto su visualizza sentiero
+
 - listing eventi da data attuale anche per utenti loggati
 
 - separare template php
