@@ -15,16 +15,16 @@
 	?>
 
 	<div id='content container'>
-		<div id='sfondo'>
-			<img src="assets/img/1.jpg" class="d-block w-100">
-			<div class="centered">
-				<h5 class='text-center'>TrailPlanner</h5>
-				<p class='text-center'>Organizza le tue escursioni con TrailPlanner.</p>
-				<div class='d-flex flex-row justify-content-evenly'>
-					<a class='btn btn-success' href='esplora.php'>Esplora</a>
-					<a class='btn btn-success' href='partecipa.php'>Partecipa</a>
-				</div>
-			</div>
+		<div class="row">
+			<img src="assets/img/1.jpg" class="w-100">
+		</div>
+		<div class="row">
+			<h5 class='text-center'>TrailPlanner</h5>
+			<p class='text-center'>Organizza le tue escursioni con TrailPlanner.</p>
+		</div>
+		<div class='row d-flex'>
+			<a class='btn btn-success col' href='esplora.php'>Esplora</a>
+			<a class='btn btn-success col' href='partecipa.php'>Partecipa</a>
 		</div>
 	</div>
 </body>
