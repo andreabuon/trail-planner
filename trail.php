@@ -53,5 +53,21 @@
 		?>
 		<div class='card' id='pic'>
 		</div>	
+	<div id='reviews'>
+		<h3>Commenti</h3>
+		<input placeholder="Commenta!"></input>
+		<a class='btn btn-info' href=''>Aggiungi commento</a>
+		
+		<div class="card">
+			<div class="card-header">
+				Domenico Mangieri
+			</div>
+			<div class="card-body">
+				<blockquote class="blockquote mb-0">
+					<p>Bel sentiero.</p>
+				</blockquote>
+			</div>
+		</div>
+		</div>
 	</div>
 </body>
