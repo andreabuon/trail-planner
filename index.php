@@ -17,10 +17,10 @@
 	<div id='content' class='container-fluid'>
 		<div class='card text-center'>
 			<h1 class='card-title'>TrailPlanner</h1>
-			<h4 class='card-subtitle'>Organizza le tue escursioni con noi</h4>
+			<h4 class='card-subtitle'>Scopri nuovi percorsi e organizza le tue escursioni</h4>
 			<div class='btn-wrapper'>
-				<a class='btn btn-lg btn-outline-success' href='esplora.php'>Esplora Percorsi</a>
-				<a class='btn btn-lg btn-outline-success' href='partecipa.php'>Prenota Escursioni</a>
+				<a class='btn btn-lg btn-success' href='esplora.php'>Esplora Percorsi</a>
+				<a class='btn btn-lg btn-success' href='partecipa.php'>Prenota Escursioni</a>
 			</div>
 		</div>
 	</div>
