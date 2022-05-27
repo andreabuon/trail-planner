@@ -40,9 +40,10 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-content: space-between;
+	gap: 0.5rem;
 	
 	box-sizing: border-box;
-    padding: 10px;
+    padding: 0.5em;
 }
 
 #div_filters > *{
@@ -59,9 +60,13 @@
 	justify-content: flex-start;
 	align-content: space-around;
 
-	padding:5px;
+	padding:0.3em;
 }
 
 .card{
-	margin:5px;
+	margin:0.3em;
+}
+
+.card:first-of-type{
+	margin-top:0;
 }

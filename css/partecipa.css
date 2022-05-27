@@ -12,6 +12,10 @@ body{
 	background-color: #EEEEEE;
 }
 
+body h1{
+	margin: 0.5em;
+}
+
 .card-btns{
 	display: flex;
 	flex-direction: row;
