@@ -39,6 +39,8 @@
 	<div id='report'>
 		<h3>Report Escursione</h3>
 		<div class='noprint'>
+			<?php
+			?>
 			<button class='btn btn-outline-primary' onclick='window.print();'>Stampa</button>
 			<button class='btn btn-outline-secondary' onclick='window.close();'>Chiudi</button>
 			<a class='btn btn-outline-danger' href='api/delete_event.php?id=<?php echo $id;?>' onclick='return chiediConferma()'>Cancella Escursione</a>
@@ -47,14 +49,14 @@
 		<div id='info'>
 			<h5>Escursione</h5>
 			<?php
-				$info_escursione = getEventById($id);
+				$e = getEventById($id);
 				echo "
 					<ul class='list-group list-group-flush'>
-					<li class='list-group-item'>Data: {$info_escursione['data']} </li>
-					<li class='list-group-item'>Parco: {$info_escursione['sentiero_parco']} </li>
-					<li class='list-group-item'>Sentiero: {$info_escursione['sentiero_sigla']} </li>
-					<li class='list-group-item'>Referente: {$info_escursione['organizzatore']} </li>
-					<li class='list-group-item'>Note escursione: {$info_escursione['note']} </li>
+					<li class='list-group-item'>Data: {$e['data']} </li>
+					<li class='list-group-item'>Parco: {$e['sentiero_parco']} </li>
+					<li class='list-group-item'>Sentiero: {$e['sentiero_sigla']}  <a class='btn btn-outline-primary noprint' target='_blank' href='trail.php?parco={$e['sentiero_parco']}&sigla={$e['sentiero_sigla']}'>Vedi Percorso</a></li>
+					<li class='list-group-item'>Referente: {$e['organizzatore']} </li>
+					<li class='list-group-item'>Note escursione: {$e['note']} </li>
 					</ul>";
 			?>
 		</div>
