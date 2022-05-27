@@ -1,6 +1,39 @@
 body{
+	overflow: hidden;
 }
-#sfondo{
-	height: 90%;	
-	width: 100%;
+#content{
+	height: 93vh;
+	
+	background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url("../assets/img/1.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+  	background-size: cover;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+
+	padding-bottom: 8%;
+}
+
+.card{
+	padding: 1rem;
+	@media screen and (max-width: 768px){
+		padding: 1rem;
+		width: 80%;
+	}
+	@media screen and (min-width: 768px) {
+		width: 30%;
+	}
+}
+
+.btn-wrapper{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+
+	margin-top: 1rem;
+	gap: 1rem;
 }
