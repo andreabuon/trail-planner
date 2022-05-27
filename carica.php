@@ -60,6 +60,8 @@
 
 	<input type='submit' class='btn btn-primary btn-block' value='Carica' name='submit'>
 </form>
+</body>
+
 <script>
 	function siglaUpper(){
 		var text = document.getElementById('sigla').value;
@@ -67,4 +69,3 @@
 		document.getElementById('sigla').value = text.toUpperCase();
 	}
 </script>
-</body>
