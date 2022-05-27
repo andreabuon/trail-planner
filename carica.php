@@ -7,63 +7,78 @@
 ?>
 <!doctype html>
 <html lang='it'>
+
 <head>
 	<title>Carica</title>
 	<?php include 'head.php'; ?>
 	<link href='css/form.css' rel='stylesheet'>
 </head>
+
 <body>
-<?php
-	include 'navbar.php';
-	include 'alerts.php';
-?>
-<form method='post' name='carica' action='api/upload_trail.php' class='container' id='form' enctype='multipart/form-data'>
-	<h1>Carica Percorso</h1>
-	<label for='sigla' class='form-label'>Sigla:</label>
-	<input name='sigla' id='sigla' class='form-control' maxlength='4' autofocus required pattern='[A-Z0-9]{1,4}' value='AAA1' oninput='return siglaUpper();'>
+	<?php
+		include 'navbar.php';
+		include 'alerts.php';
+	?>
+	<form method='post' name='carica' action='api/upload_trail.php' class='container' id='form' enctype='multipart/form-data'>
+		<h1>Carica Percorso</h1>
 
-	<label for='nome' class='form-label'>Nome:</label>
-	<input name='nome' id='nome' class='form-control' maxlength='70' required pattern='[a-zA-Z0-9 ]+' value='Sentiero nome default'>
+		<label class='form-label'>Sigla:
+			<input name='sigla' id='sigla' class='form-control' maxlength='4' autofocus required pattern='[A-Z0-9]{1,4}'
+				value='AAA1' oninput='return siglaUpper();'>
+		</label>
 
-	<label for='descrizione' class='form-label'>Descrizione:</label>
-	<textarea name='descrizione' id='descrizione' class='form-control' maxlength='2000' pattern='[a-zA-Z0-9 ]*'>Descrizione default</textarea>
+		<label class='form-label'>Nome:
+			<input name='nome' id='nome' class='form-control' maxlength='70' required pattern='[a-zA-Z0-9 ]+'
+				value='Sentiero nome default'>
+		</label>
 
-	<label for='parco' class='form-label'>Parco:</label>
-	<select name='parco' id='parco' class='form-control' required>
-		<option selected disabled>Seleziona Parco...</option>;
-		<?php 
-			include 'api/get_data.php'; 
-			include 'api/options.php';
-			foreach(getParks() as $trail)
-				echo newOption($trail['nome']);
-		?>
-	</select>
+		<label class='form-label'>Descrizione:
+			<textarea name='descrizione' id='descrizione' class='form-control' maxlength='2000'
+				pattern='[a-zA-Z0-9 ]*'>Descrizione default</textarea>
+		</label>
 
-	<label for='lunghezza' class='form-label'>Lunghezza:</label>
-	<input name='lunghezza' required id='lunghezza' type='number' class='form-control' maxlength='4' value='7.50' step=0.1 pattern='[0-9]{1,2}(\.[0-9]{0,2}){0,1}'>
+		<label class='form-label'>Parco:
+			<select name='parco' id='parco' class='form-control' required>
+				<option selected disabled>Seleziona Parco...</option>;
+				<?php 
+					include 'api/get_data.php'; 
+					include 'api/options.php';
+					foreach(getParks() as $trail)
+						echo newOption($trail['nome']);
+				?>
+			</select>
+		</label>
 
-	<label for='dislivello' class='form-label'>Dislivello:</label>
-	<input name='dislivello' id='dislivello' required type='number' class='form-control' maxlength='4' value='500' step='50' pattern='[0-9]+'>
+		<label class='form-label'>Lunghezza:
+			<input name='lunghezza' required id='lunghezza' type='number' class='form-control' maxlength='4'
+				value='7.50' step=0.1 pattern='[0-9]{1,2}(\.[0-9]{0,2}){0,1}'>
+		</label>
 
-	<label for='difficolta' class='form-label'>Difficoltà:</label>
-	<select name='difficolta' required id='difficolta' class='form-control'>
-		<option value='' selected disabled>Seleziona Difficoltà...</option>
-		<option value='T'>Turistico</option>
-		<option value='E'>Escursionistico</option>
-		<option value='EE'>Escursionisti Esperti</option>
-		<option value='EEA'>Escursionisti Esperti Attrezzati</option>
-		<option value='A'>Alpinistico</option>
-	</select>
+		<label class='form-label'>Dislivello:
+			<input name='dislivello' id='dislivello' required type='number' class='form-control' maxlength='4' value='500' step='50' pattern='[0-9]+'>
+		</label>
 
-	<label for='file' class='form-label'>Traccia GPS:</label>
-	<input name='file' id='file' type='file' accept='.json, .geojson' class='form-control'>
+		<label class='form-label'>Difficoltà:
+			<select name='difficolta' required id='difficolta' class='form-control'>
+				<option value='' selected disabled>Seleziona Difficoltà...</option>
+				<option value='T'>Turistico</option>
+				<option value='E'>Escursionistico</option>
+				<option value='EE'>Escursionisti Esperti</option>
+				<option value='EEA'>Escursionisti Esperti Attrezzati</option>
+				<option value='A'>Alpinistico</option>
+			</select>
+		</label>
 
-	<input type='submit' class='btn btn-primary btn-block' value='Carica' name='submit'>
-</form>
+		<label class='form-label'>Traccia GPS:
+			<input name='file' id='file' type='file' accept='.json, .geojson' class='form-control'>
+		</label>
+
+		<input type='submit' class='btn btn-primary btn-block' value='Carica' name='submit'>
+	</form>
 </body>
 
 <script>
-	function siglaUpper(){
+	function siglaUpper() {
 		var text = document.getElementById('sigla').value;
 		console.log(text);
 		document.getElementById('sigla').value = text.toUpperCase();

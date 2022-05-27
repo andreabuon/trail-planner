@@ -22,30 +22,35 @@
 ?>
 <form action='api/new_event.php' id='form' method='post' class='container'>
 	<h1>Organizza Escursione</h1>
-	<label for='parco' class='form-label'>Parco:</label>
-	<select name='parco' required autofocus id='parco' class='form-control' onchange='return requestParkTrails();'>
-		<option selected disabled>Seleziona Parco...</option>
-		<?php 
-			include 'api/get_data.php'; 
-			include 'api/options.php';
-			foreach(getParks() as $trail)
-				echo newOption($trail['nome']);
-		?>
-	</select>
+	<label class='form-label'>Parco:
+		<select name='parco' required autofocus id='parco' class='form-control' onchange='return requestParkTrails();'>
+			<option selected disabled>Seleziona Parco...</option>
+			<?php 
+				include 'api/get_data.php'; 
+				include 'api/options.php';
+				foreach(getParks() as $trail)
+					echo newOption($trail['nome']);
+			?>
+		</select>
+	</label>
 
-	<label for='sigla' class='form-label'>Sentiero:</label>
-	<select name='sigla' required id='sigla' class='form-control' disabled>
-		<option selected disabled>Seleziona Sentiero...</option>
-	</select>
-	
-	<label for='data' class='form-label'>Data:</label>
-	<input name='data' type='date' id='data' class='form-control' required>
+	<label class='form-label'>Sentiero:
+		<select name='sigla' required id='sigla' class='form-control' disabled>
+			<option selected disabled>Seleziona Sentiero...</option>
+		</select>
+	</label>
 
-	<label for='organizzatore' class='form-label'>Organizzatore:</label>
-	<input name='organizzatore' type='text' id='organizzatore' class='form-control' required readonly value=<?php echo $_SESSION['username'];?>>
+	<label class='form-label'>Data:
+		<input name='data' type='date' id='data' class='form-control' required>
+	</label>
 
-	<label for='note' class='form-label'>Note:</label>
-	<textarea name='note' id='note' class='form-control' placeholder='Note aggiuntive' maxlength='200' value='' pattern='[a-zA-Z0-9 ]+'></textarea>
+	<label class='form-label'>Organizzatore:
+		<input name='organizzatore' type='text' id='organizzatore' class='form-control' required readonly value=<?php echo $_SESSION['username'];?>>
+	</label>
+
+	<label class='form-label'>Note:
+		<textarea name='note' id='note' class='form-control' placeholder='Note aggiuntive' maxlength='200' value='' pattern='[a-zA-Z0-9 ]+'></textarea>
+	</label>
 
 	<input type=submit name='btn_submit' value='Organizza' class='btn btn-primary'>
 </form>
