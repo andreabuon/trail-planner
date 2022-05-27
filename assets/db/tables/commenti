@@ -1,0 +1,25 @@
+-- Table: public.commenti
+
+-- DROP TABLE IF EXISTS public.commenti;
+
+CREATE TABLE IF NOT EXISTS public.commenti
+(
+    username character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    data date NOT NULL DEFAULT CURRENT_DATE,
+    testo character varying(300) COLLATE pg_catalog."default" NOT NULL,
+    parco character varying(80) COLLATE pg_catalog."default" NOT NULL,
+    sigla character varying(4) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT sentiero FOREIGN KEY (sigla, parco)
+        REFERENCES public.sentieri (sigla, parco_nome) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT username FOREIGN KEY (username)
+        REFERENCES public.utenti (username) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.commenti
+    OWNER to andrea;

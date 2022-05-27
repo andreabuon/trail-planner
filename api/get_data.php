@@ -86,4 +86,12 @@
 		$row = pg_fetch_row($res, 0, PGSQL_ASSOC)['mobile'];
 		return $row;
 	}
+
+	function getComments($parco, $sigla){
+		$dbconn = Database::connect();
+		$query = 'SELECT * FROM commenti WHERE parco=$1 AND sigla=$2';
+		$res = pg_query_params($dbconn, $query, array($parco, $sigla)) or die('Query Failed: ' . pg_last_error());
+		$row = pg_fetch_all($res, PGSQL_ASSOC);
+		return $row;
+	}
 ?>

@@ -31,4 +31,8 @@
 
 #reviews{
 	width: 75%;
+	padding: 1rem;
+}
+#reviews .card {
+	margin: .5rem;
 }

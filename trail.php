@@ -23,10 +23,10 @@
 	<?php 
 		include 'navbar.php'; 
 		//include 'alerts.php';
-		include 'api/get_data.php';
+		require_once 'api/get_data.php';
 	?>
 	<div id='menu'>
-	<button class='btn btn-secondary' onclick='window.close();'>Chiudi</button>
+		<button class='btn btn-secondary' onclick='window.close();'>Chiudi</button>
 		<?php
 		$sentiero = getTrail($parco, $sigla);
 		if(isset($sentiero['track_path']))
@@ -52,22 +52,33 @@
 					</div>";
 		?>
 		<div class='card' id='pic'>
-		</div>	
-	<div id='reviews'>
-		<h3>Commenti</h3>
-		<input placeholder="Commenta!"></input>
-		<a class='btn btn-info' href=''>Aggiungi commento</a>
-		
-		<div class="card">
-			<div class="card-header">
-				Domenico Mangieri
-			</div>
-			<div class="card-body">
-				<blockquote class="blockquote mb-0">
-					<p>Bel sentiero.</p>
-				</blockquote>
-			</div>
 		</div>
+		<div id='reviews'>
+			<h3>Commenti</h3>
+			<form action='api/new_comment.php' target='_blank' method='post'>
+				<input type='text' name='testo' lenght='300' placeholder="Scrivi qui..."></input>
+				<input type='hidden' name='parco' value='<?php echo $sentiero['parco_nome']?>'></input>
+				<input type='hidden' name='sigla' value='<?php echo $sentiero['sigla']?>'></input>
+				<!--<input type='hidden' name='redirect' value='<?php echo $_SERVER['PHP_SELF']?>'></input> -->
+				<input type='submit' class='btn btn-info' name='submit' target='_blank'
+					value='Aggiungi commento'></input>
+			</form>
+
+			<?php
+			$commenti = getComments($parco, $sigla);
+			foreach($commenti as $commento){
+				echo "<div class='card'>
+						<div class='card-header'>
+							{$commento['username']} - {$commento['data']}
+						</div>
+						<div class='card-body'>
+							<blockquote class='blockquote mb-0'>
+								<p>{$commento['testo']}</p>
+							</blockquote>
+						</div>
+					</div>";
+			}
+			?>
 		</div>
 	</div>
 </body>
