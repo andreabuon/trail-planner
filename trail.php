@@ -8,6 +8,13 @@
 	$parco = $_GET['parco'];
 	$sigla = $_GET['sigla'];
 
+	require_once 'api/get_data.php';
+	$sentiero = getTrail($parco, $sigla);
+	if(!$sentiero){
+		$_SESSION['last_error'] = 'No Trail Found';
+		header('Location: index.php?error=1');
+		exit();
+	}
 ?>
 
 <!doctype html>
@@ -22,13 +29,12 @@
 <body>
 	<?php 
 		include 'navbar.php'; 
-		//include 'alerts.php';
-		require_once 'api/get_data.php';
+		include 'alerts.php';
+		
 	?>
 	<div id='menu'>
 		<button class='btn btn-secondary' onclick='window.close();'>Chiudi</button>
 		<?php
-		$sentiero = getTrail($parco, $sigla);
 		if(isset($sentiero['track_path']))
 			echo "<a class='btn btn-info' id='download' href='uploads/{$sentiero['track_path']}' download>Scarica Traccia GPS</a>";
 		?>

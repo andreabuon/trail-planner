@@ -12,7 +12,13 @@
 		include 'navbar.php';
 		include 'alerts.php';
 	?>
-	<h1>Prossime Escursioni:</h1>
+	<div id='top-bar'>
+		<h1>Prossime Escursioni</h1>
+		<?php
+			if(isset($_SESSION['username']))
+				echo "<a class='btn btn-lg btn-outline-primary me-auto' href='organizza.php'> + Organizza Escursione</a>";
+		?>
+	</div>
 	<div id='div_events'>
 		<?php
 			require_once 'api/get_data.php';
@@ -36,7 +42,7 @@
 				else
 					$string .= "<a class='btn btn-outline-success' href='api/join_event.php?escursione={$el['id']}'>Prenota!</a>";	
 				
-				if(isset($el['mobile']))
+				if(isset($el['mobile']) && $el['organizzatore']!=$_SESSION['username'])
 					$string .= "<a class='btn btn-outline-info' target='__blank' href='https://wa.me/{$el['mobile']}'>Contatta</a>";
 				
 					$string .= '</div></div></div>';

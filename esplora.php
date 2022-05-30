@@ -18,6 +18,7 @@
 	<div id='content'>
 		<div id='sidebar'>
 			<div id='div_filters'>
+				<a class='btn btn-secondary' href='carica.php'>+ Nuovo Percorso </a>
 				<input type="text" id='search' placeholder='Filtra' oninput='filtra();'>	
 				<select id='filter_parco' onchange='filtra()'>
 					<option selected value=''>Seleziona Parco...</option>

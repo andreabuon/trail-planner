@@ -1,3 +1,12 @@
+#top-bar{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1em;
+	margin: 1em;
+}
+
 #div_events{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(20em, 40em));
@@ -10,10 +19,6 @@
 body{
 	height: 92vh;
 	background-color: #EEEEEE;
-}
-
-body h1{
-	margin: 0.5em;
 }
 
 .card-btns{
