@@ -20,6 +20,6 @@
         header('Location: ../index.php?error=1');
         exit();
 	}
-    header('Location: ../index.php?upload=1');
+    header("Location: ../trail.php?parco={$_POST['parco']}&sigla={$_POST['sigla']}");
     exit();
 ?>

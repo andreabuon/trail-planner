@@ -24,22 +24,22 @@
 
 		<label class='form-label'>Sigla:
 			<input name='sigla' id='sigla' class='form-control' maxlength='4' autofocus required pattern='[A-Z0-9]{1,4}'
-				value='AAA1' oninput='return siglaUpper();'>
+				placeholder='Sigla' oninput='return siglaUpper();'>
 		</label>
 
 		<label class='form-label'>Nome:
 			<input name='nome' id='nome' class='form-control' maxlength='70' required pattern='[a-zA-Z0-9 ]+'
-				value='Sentiero nome default'>
+				placeholder='Titolo Sentiero'>
 		</label>
 
 		<label class='form-label'>Descrizione:
-			<textarea name='descrizione' id='descrizione' class='form-control' maxlength='2000'
-				pattern='[a-zA-Z0-9 ]*'>Descrizione default</textarea>
+			<textarea name='descrizione' id='descrizione' class='form-control' maxlength='2000' placeholder='Descrizione'
+				pattern='[a-zA-Z0-9 ]*'></textarea>
 		</label>
 
 		<label class='form-label'>Parco:
 			<select name='parco' id='parco' class='form-control' required>
-				<option selected disabled>Seleziona Parco...</option>;
+				<option selected disabled value=''>Seleziona Parco...</option>;
 				<?php 
 					include 'api/get_data.php'; 
 					include 'api/options.php';

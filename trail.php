@@ -55,12 +55,12 @@
 		</div>
 		<div id='reviews'>
 			<h3>Commenti</h3>
-			<form action='api/new_comment.php' target='_blank' method='post'>
-				<input type='text' name='testo' lenght='300' placeholder="Scrivi qui..."></input>
+			<form action='api/new_comment.php' method='post'>
+				<input type='text' name='testo' placeholder="Scrivi qui..."></input>
 				<input type='hidden' name='parco' value='<?php echo $sentiero['parco_nome']?>'></input>
 				<input type='hidden' name='sigla' value='<?php echo $sentiero['sigla']?>'></input>
-				<!--<input type='hidden' name='redirect' value='<?php echo $_SERVER['PHP_SELF']?>'></input> -->
-				<input type='submit' class='btn btn-info' name='submit' target='_blank'
+				<!-- <input type='hidden' name='redirect' value='<?php echo $_SERVER['PHP_SELF']?>'></input> -->
+				<input type='submit' class='btn btn-info mt-1 ml-1' name='submit'
 					value='Aggiungi commento'></input>
 			</form>
 
