@@ -42,10 +42,14 @@
 				else
 					$string .= "<a class='btn btn-outline-success' href='api/join_event.php?escursione={$el['id']}'>Prenota!</a>";	
 				
-				if(isset($el['mobile']) && $el['organizzatore']!=$_SESSION['username'])
-					$string .= "<a class='btn btn-outline-info' target='__blank' href='https://wa.me/{$el['mobile']}'>Contatta</a>";
+				if($el['organizzatore']!=$_SESSION['username']){
+					if(isset($el['mobile']))
+						$string .= "<a class='btn btn-outline-info' target='__blank' href='https://wa.me/{$el['mobile']}'>Contatta</a>";
+				}
+				else
+					$string .= "<a class='btn btn-outline-warning' target='__blank' href='report.php?id={$el['id']}'>Gestisci</a>";
 				
-					$string .= '</div></div></div>';
+				$string .= '</div></div></div>';
 				return $string;
 			}
 
