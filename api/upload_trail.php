@@ -8,6 +8,7 @@
         header('Location: ../index.php?error=1');
         exit();
     }
+
 	if(!preg_match('/\A[A-Z0-9]{1,4}\Z/', $_POST['sigla'])){
 		header('Location: ../carica.php?error=formato-sigla-errato');
 		exit();
@@ -16,7 +17,7 @@
         header('Location: ../carica.php?error=formato-parco-errato');
 		exit();
 	}
-    //controllare altri inputs con regex!
+    //controllare altri inputs con regex! sistemare
     
     
     $rel_path = NULL;
@@ -28,7 +29,8 @@
         $path = $dir . $rel_path;
 
         if (file_exists($path)) {
-            header('Location: ../carica.php?error=File-esiste');
+            $_SESSION['last_error'] = "File già presente nel sistema";
+            header('Location: ../carica.php?error=1');
             exit();
         }
         
@@ -38,7 +40,8 @@
 
         $res = move_uploaded_file($_FILES['file']['tmp_name'], $path);
         if($res==false){
-            header('Location: ../carica.php?error=Caricamento-File');
+            $_SESSION['last_error'] = "Errore Caricamento File";
+            header('Location: ../carica.php?error=1');
             exit();
         }
     }
@@ -50,6 +53,7 @@
     $data = pg_query_params($dbconn, $query, $array);
 
     if(!$data){
+        //se è stato caricato il file ma l'inserimento nel db è fallito, elimina il file
         if(isset($path)){
             unlink($path);
         }

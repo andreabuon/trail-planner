@@ -1,5 +1,5 @@
 <?php
-//Interface for Javascript Requests
+//Interfaccia per richieste Javascript
 include 'get_data.php';
 
 if(!isset($_GET['what']))

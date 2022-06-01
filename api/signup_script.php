@@ -1,11 +1,11 @@
 <?php
 	session_start();
 	if(isset($_SESSION['username'])) {
-		header('Location: ../index.php');
+		header('Location: ../index.php?logged=1');
 		exit();
 	}
 	if(!(isset($_POST['signup_button']))) {
-		header('Location: ../index.php');
+		header('Location: ../index.php?error=1');
 		exit();
 	}
 	
