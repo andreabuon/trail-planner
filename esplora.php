@@ -25,7 +25,7 @@
 					<option selected value=''>Seleziona Parco...</option>
 					<?php 
 						include 'api/get_data.php'; 
-						include 'api/options.php';
+						include 'options.php';
 						foreach(getParks() as $trail)
 							echo newOption($trail['nome']);
 					?>
