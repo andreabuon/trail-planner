@@ -94,9 +94,9 @@ function listTrails(list){
 
 // Crea una card sentiero
 function newCard(sentiero, template){
-    //sistemare!! usare SLOTS, no query selector 
     var card = template.content.cloneNode(true);
     
+    //sistemare!! usare SLOTS, no query selector 
     card.querySelector('[name="parco"]').innerHTML = sentiero['parco_nome'];
     card.querySelector('[name="sigla"]').innerHTML = sentiero['sigla'];
     card.querySelector('[name="nome"]').innerHTML = sentiero['nome'];

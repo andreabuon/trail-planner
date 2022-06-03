@@ -24,8 +24,8 @@
 				<select id='filter_parco' onchange='filtra()'>
 					<option selected value=''>Seleziona Parco...</option>
 					<?php 
-						require 'api/get_data.php'; 
-						require 'api/options.php';
+						include 'api/get_data.php'; 
+						include 'api/options.php';
 						foreach(getParks() as $trail)
 							echo newOption($trail['nome']);
 					?>
