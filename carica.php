@@ -84,3 +84,5 @@
 		document.getElementById('sigla').value = text.toUpperCase();
 	}
 </script>
+
+</html>

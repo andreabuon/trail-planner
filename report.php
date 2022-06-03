@@ -98,3 +98,5 @@
 		return confirm("Sei sicuro?");
 	}
 </script>
+
+</html>
