@@ -46,7 +46,7 @@ function saveData(e) {
 
         trails = parseData(e.target.responseText);
         if(!trails){
-            alert('Dati invalidi')
+            alert('Invalid data')
             return;
         }
 
@@ -65,7 +65,7 @@ function parseData($source){
         return JSON.parse($source);
     }
     catch{
-        console.debug('Data is invalid.');
+        console.error('Data is invalid.');
         return 0;
     }
 }

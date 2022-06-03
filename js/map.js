@@ -1,22 +1,40 @@
-const uploaddir = 'uploads/';
+const TOKEN = 'pk.eyJ1IjoiYW5kcmVhLTE4OTQyNjYiLCJhIjoiY2wyNzZhMnhsMDE0czNncWxnMDRjdDZyMiJ9.WyEF7AEAWB4RKbx0ueiJHQ';
+const MAP_DIV = 'div_map';
+const UPLOADDIR = 'uploads/';
 
+// Scarica traccia del sentiero dal server
 function getTrailTrack(relative_path) {
 	var httpRequest = new XMLHttpRequest();
 	httpRequest.onreadystatechange = processTrailTrack;
-	httpRequest.open('GET',  uploaddir + relative_path, true);
+	httpRequest.open('GET',  UPLOADDIR + relative_path, true);
 	httpRequest.send();
 }
 
 function processTrailTrack(e) {
 	if (e.target.readyState == 4 && e.target.status == 200) {
-		var track = JSON.parse(e.target.responseText);
-		renderTrail(track);	
-		//console.debug(track);
+		var track = parseData(e.target.responseText);
+		if(track)
+			renderTrail(track);	
 	}
 }
 
+function parseData($source){
+	try{
+		return JSON.parse($source);
+	}
+	catch{
+		console.error('Trail data is invalid');
+		return 0;
+	}
+}
+
+// Pulisce la mappa, aggiunge la traccia del sentiero e la visualizza. Centra mappa sul primo punto del sentiero.
 function renderTrail(track) {
 	clearMap();
+
+	if(!track.features[0].geometry)
+		return;
+
 	map.addSource('route', {'type': 'geojson', 'data': track });
 	map.addLayer({
 		'id': 'route',
@@ -36,19 +54,20 @@ function renderTrail(track) {
 }
 
 function clearMap(){
-	//SISTEMARE!!!!!
+	//sistemare
 	try{
-	if(map.getLayer('route'))
-		map.removeLayer('route');
-	if(map.getSource('route'));
-    	map.removeSource('route');
+		if(map.getLayer('route'))
+			map.removeLayer('route');
+		if(map.getSource('route'));
+	    	map.removeSource('route');
 	}catch{}
 }
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmVhLTE4OTQyNjYiLCJhIjoiY2wyNzZhMnhsMDE0czNncWxnMDRjdDZyMiJ9.WyEF7AEAWB4RKbx0ueiJHQ';
+mapboxgl.accessToken = TOKEN;
 const map = new mapboxgl.Map({
-	container: 'div_map', // container ID
-	style: 'mapbox://styles/mapbox/satellite-v9', // 'mapbox://styles/mapbox/outdoors-v11' senza immagini satellitari
+	container: MAP_DIV, // div dove visualizzare la mappa
+	style: 'mapbox://styles/mapbox/satellite-v9', // stile mappa
+	// style: 'mapbox://styles/mapbox/outdoors-v11'
 	center: [14.042513751693576, 42.068132238944344], // posizione iniziale[lng, lat] 
 	zoom: 12, // zoom iniziale
 });
