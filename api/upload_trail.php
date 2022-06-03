@@ -17,7 +17,7 @@
         header('Location: ../carica.php?error=formato-parco-errato');
 		exit();
 	}
-    //controllare altri inputs con regex! sistemare
+    //controllare altri inputs con regex! %%
     
     
     $rel_path = NULL;

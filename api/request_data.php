@@ -17,7 +17,7 @@ switch($_GET['what']){
 		break;
 	case('events'):
 		//to implement
-		//sistemare
+		// %
 		break;
 	default:
 		break;

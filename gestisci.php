@@ -32,7 +32,7 @@
 			}
 
 			foreach($escursioni as $escursione){
-				//sistemare
+				//%%
 				$string =  "
 							<div class='card' id='card-{$escursione['id']}'>
 								<div class='card-body'>

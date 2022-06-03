@@ -54,7 +54,7 @@ function renderTrail(track) {
 }
 
 function clearMap(){
-	//sistemare
+	//%%
 	try{
 		if(map.getLayer('route'))
 			map.removeLayer('route');

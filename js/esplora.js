@@ -72,7 +72,7 @@ function parseData($source){
 
 // Rimuove tutti figli da un elemento HTML
 function clearDiv(elem){
-    //sistemare con document fragment
+    //%% document fragment?
     while (elem.firstChild) {
         elem.removeChild(elem.firstChild);
     }
@@ -87,7 +87,7 @@ function listTrails(list){
 
     var template = document.getElementById(TRAIL_TEMPLATE);
 
-    //sistemare con document fragment
+    //%% document fragment??
     list.forEach(element => {target_div.appendChild(newCard(element, template))});
 
 }
@@ -96,7 +96,7 @@ function listTrails(list){
 function newCard(sentiero, template){
     var card = template.content.cloneNode(true);
     
-    //sistemare!! usare SLOTS, no query selector 
+    //%%
     card.querySelector('[name="parco"]').innerHTML = sentiero['parco_nome'];
     card.querySelector('[name="sigla"]').innerHTML = sentiero['sigla'];
     card.querySelector('[name="nome"]').innerHTML = sentiero['nome'];
@@ -124,14 +124,14 @@ function filtra(){
 }
 
 function filterByPark(sentiero){
-    //inefficiente sistemare
+    //%%
     parco = document.getElementById('filter_parco').value;
     if(!parco) return true;
     return sentiero['parco_nome'] === parco;
 }
 
 function filterByString(sentiero){
-    //inefficiente sistemare
+    //%%
     stringa = document.getElementById('search').value.toLowerCase();
     if(!stringa) return true;
     return (sentiero.nome + ' ' + sentiero.sigla).toLowerCase().includes(stringa);
