@@ -51,14 +51,13 @@
 }
 
 #div_trails{
-	height: 90%;
+	height: 86%;
 	width: 100%;
 	overflow: scroll;
 	
 	display: inline-flex;
 	flex-direction: column;
-	justify-content: flex-start;
-	align-content: space-around;
+	align-content: flex-start;
 
 	padding:0.3em;
 }

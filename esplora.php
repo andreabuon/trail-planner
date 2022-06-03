@@ -5,6 +5,7 @@
 	<title>Esplora</title>
 	<?php include 'head.php';?>
 	<link href='css/esplora.css' rel='stylesheet'>
+
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet'>
 	<script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
 </head>
@@ -23,8 +24,8 @@
 				<select id='filter_parco' onchange='filtra()'>
 					<option selected value=''>Seleziona Parco...</option>
 					<?php 
-						include 'api/get_data.php'; 
-						include 'api/options.php';
+						require 'api/get_data.php'; 
+						require 'api/options.php';
 						foreach(getParks() as $trail)
 							echo newOption($trail['nome']);
 					?>
@@ -38,7 +39,9 @@
 		</div>
 	</div>
 
-	<?php include 'html/card.html'; ?>
+	<?php 
+		include 'html/card.html'; 
+	?>
 
 	<script src='js/esplora.js'></script>
 	<script src='js/map.js'></script>

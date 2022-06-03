@@ -1,6 +1,11 @@
-var trails;
-var listed_trails;
+const TRAILS_DIV = 'div_trails';
+const TRAIL_TEMPLATE = 'card_template';
 
+var trails;
+ 
+// Funzione che verifica l'esistenza dei dati sui sentieri in locale (localStorage). 
+// Se esistono e sono abbastanza recenti vengono caricati dallo storage locale. 
+// Se invece i dati non esistono o sono troppo datati vengono scaricati dal server.
 function loadData(){
     if(!localStorage.getItem('trails')){
         console.debug('No local data found');
@@ -8,62 +13,90 @@ function loadData(){
         return;
     }
     console.debug('Local data found');
-    if( (new Date).getTime() - localStorage.getItem('timestamp') > 10000 ){ //10 seconds
-        console.debug('Data is outdated');
-        console.debug('Requesting new data.');
+    if( localStorage.getItem('timestamp') && (new Date).getTime() - localStorage.getItem('timestamp') > 25000 ){ // 25 secondi
+        console.debug('Data is outdated.');
         requestData();
     }
     else{
         console.debug('Loading data...');
-        trails = JSON.parse(localStorage.trails);
-        console.debug('Data loaded.');
-        processData();
+        trails = parseData(localStorage.trails);
+        if(!trails){
+            requestData();
+            return;
+        }
+        console.debug('Data loaded from local storage.');
+        listTrails(trails);
     }
 }
 
+// Manda richiesta al server per scaricare i dati sui sentieri
 function requestData(){
+    console.debug("Downloading new data");
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = saveData;
     httpRequest.open('GET', 'api/request_data.php?what=trails', true);
     httpRequest.send();
     console.debug("Requested trails' data");
 }
+
+// Salva i dati mandati dal server
 function saveData(e) {
     if (e.target.readyState == 4 && e.target.status == 200) {
         console.debug("Received trails' data");
-        console.debug("Parsing data...");
-        trails = JSON.parse(e.target.responseText);
+
+        trails = parseData(e.target.responseText);
+        if(!trails){
+            alert('Dati invalidi')
+            return;
+        }
+
         console.debug("Saving local copy...");
         localStorage.setItem('trails', e.target.responseText);
         localStorage.setItem('timestamp', (new Date).getTime());
-        processData();
+
+        listTrails(trails);
     }
 }
 
-function processData(){
-    console.debug("Rendering data...");
-    renderTrails(trails);
-}
-
-function clearDiv(div){
-    //sistemare con document fragment
-    while (div.firstChild) {
-        div.removeChild(div.firstChild);
+// Costruisce oggetti dai dati JSON
+function parseData($source){
+    console.debug("Parsing data...");
+    try{
+        return JSON.parse($source);
+    }
+    catch{
+        console.debug('Data is invalid.');
+        return 0;
     }
 }
 
-function renderTrails(array){
-    var div = document.getElementById('div_trails');
-    clearDiv(div);
-    var template = document.getElementById('card_template');
+// Rimuove tutti figli da un elemento HTML
+function clearDiv(elem){
     //sistemare con document fragment
-    array.forEach(element => {div.appendChild(newCard(element, template))});
+    while (elem.firstChild) {
+        elem.removeChild(elem.firstChild);
+    }
+}
+
+// Inserisce nel documento una card per ogni sentiero
+function listTrails(list){
+    console.debug("Listing trails...");
+
+    var target_div = document.getElementById(TRAILS_DIV);
+    clearDiv(target_div);
+
+    var template = document.getElementById(TRAIL_TEMPLATE);
+
+    //sistemare con document fragment
+    list.forEach(element => {target_div.appendChild(newCard(element, template))});
 
 }
 
+// Crea una card sentiero
 function newCard(sentiero, template){
-    //cambiare!!!!! usare tag con nome template (forse)
+    //sistemare!! usare SLOTS, no query selector 
     var card = template.content.cloneNode(true);
+    
     card.querySelector('[name="parco"]').innerHTML = sentiero['parco_nome'];
     card.querySelector('[name="sigla"]').innerHTML = sentiero['sigla'];
     card.querySelector('[name="nome"]').innerHTML = sentiero['nome'];
@@ -71,6 +104,7 @@ function newCard(sentiero, template){
     card.querySelector('[name="dislivello"]').innerHTML = sentiero['dislivello'];
     card.querySelector('[name="difficolta"]').innerHTML = sentiero['difficolta'];
     card.querySelector('#info').setAttribute('href', 'trail.php?parco=' + sentiero['parco_nome'] + '&sigla=' + sentiero['sigla']);
+
     if(sentiero['track_path']){
         card.querySelector('#view').setAttribute('onclick', 'getTrailTrack("' + sentiero['track_path'] + '");');
         card.querySelector('#download').setAttribute('href', 'uploads/' + sentiero['track_path']);
@@ -82,11 +116,11 @@ function newCard(sentiero, template){
     return card;
 }
 
+// Filtra i sentieri da visualizzare
 function filtra(){
-    listed_trails = trails;
-    listed_trails = listed_trails.filter(filterByString);
+    var listed_trails = trails.filter(filterByString);
     listed_trails = listed_trails.filter(filterByPark);
-    renderTrails(listed_trails, 'div_trails');
+    listTrails(listed_trails, TRAILS_DIV);
 }
 
 function filterByPark(sentiero){
@@ -100,7 +134,7 @@ function filterByString(sentiero){
     //inefficiente sistemare
     stringa = document.getElementById('search').value.toLowerCase();
     if(!stringa) return true;
-    return (sentiero.nome + sentiero.sigla).toLowerCase().includes(stringa);
+    return (sentiero.nome + ' ' + sentiero.sigla).toLowerCase().includes(stringa);
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {

@@ -17,10 +17,7 @@ function processTrailTrack(e) {
 
 function renderTrail(track) {
 	clearMap();
-	map.addSource('route', {
-		'type': 'geojson',
-		'data': track
-	});
+	map.addSource('route', {'type': 'geojson', 'data': track });
 	map.addLayer({
 		'id': 'route',
 		'type': 'line',
@@ -34,7 +31,7 @@ function renderTrail(track) {
 			'line-width': 5
 		}
 	});
-	//console.log(track.features[0].geometry.coordinates[0][0]);
+	//centra la mappa sulle prime coordinate del sentiero
 	map.flyTo({center: track.features[0].geometry.coordinates[0][0], zoom: 13});
 }
 
@@ -51,9 +48,9 @@ function clearMap(){
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmVhLTE4OTQyNjYiLCJhIjoiY2wyNzZhMnhsMDE0czNncWxnMDRjdDZyMiJ9.WyEF7AEAWB4RKbx0ueiJHQ';
 const map = new mapboxgl.Map({
 	container: 'div_map', // container ID
-	style: 'mapbox://styles/mapbox/satellite-v9', // 'mapbox://styles/mapbox/outdoors-v11', // style URL
-	center: [14.042513751693576, 42.068132238944344], // starting position [lng, lat] 
-	zoom: 12, // starting zoom
+	style: 'mapbox://styles/mapbox/satellite-v9', // 'mapbox://styles/mapbox/outdoors-v11' senza immagini satellitari
+	center: [14.042513751693576, 42.068132238944344], // posizione iniziale[lng, lat] 
+	zoom: 12, // zoom iniziale
 });
 
 map.on('load', () => {
