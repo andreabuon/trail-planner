@@ -1,4 +1,4 @@
-const TOKEN = 'pk.eyJ1IjoiYW5kcmVhLTE4OTQyNjYiLCJhIjoiY2wyNzZhMnhsMDE0czNncWxnMDRjdDZyMiJ9.WyEF7AEAWB4RKbx0ueiJHQ';
+const TOKEN = '-------'; // INSERIRE TOKEN MAPBOX 
 const MAP_DIV = 'div_map';
 const UPLOADDIR = 'uploads/';
 
