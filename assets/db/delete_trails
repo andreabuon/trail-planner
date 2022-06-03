@@ -1,1 +1,0 @@
-delete from sentieri where (sigla,parco_nome) not in (select sentiero_sigla, sentiero_parco from escursioni)

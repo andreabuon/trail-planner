@@ -1,5 +1,0 @@
-select json_agg(sentieri.*) from sentieri
-
-https://blog.k-nut.eu/postgres-json-aggregate-functions
-
-https://stackoverflow.com/questions/69245520/how-to-fetch-a-list-of-json-objects-instead-of-list-of-ids-from-a-jsonb-field-wh
